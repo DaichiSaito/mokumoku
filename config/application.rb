@@ -37,5 +37,12 @@ module MOKUMOKU
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # "rails generate" 時に test, helper, assets ディレクトリを作成しない設定
+    config.generators do |g|
+      g.test_framework false
+      g.helper false
+      g.assets false
+    end
   end
 end
