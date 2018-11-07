@@ -41,6 +41,7 @@ module MOKUMOKU
     # "rails generate" 時に test, helper, assets ディレクトリを作成しない
     # テンプレートを slim ファイルで作成
     config.generators do |g|
+      g.skip_routes true
       g.test_framework false
       g.helper false
       g.assets false
