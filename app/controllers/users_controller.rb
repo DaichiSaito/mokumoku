@@ -3,6 +3,7 @@ class UsersController < GeneralController
 
   def new
     @user = User.new
+    @user.favorite_areas.build
   end
 
   def create
@@ -18,6 +19,6 @@ class UsersController < GeneralController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
   end
 end
