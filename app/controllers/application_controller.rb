@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_authenticated
-    redirect_to login_path, danger: t('flash.common.not_authenticated')
+    redirect_to login_path, danger: 'ログインしてください'
   end
 end

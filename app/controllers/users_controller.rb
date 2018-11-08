@@ -9,9 +9,9 @@ class UsersController < GeneralController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to login_url, success: t('users.flash.create.success')
+      redirect_to login_url, success: 'ユーザーを作成しました'
     else
-      flash.now[:danger] = t('users.flash.create.fail')
+      flash.now[:danger] = 'ユーザーが作成出来ませんでした'
       render :new
     end
   end
