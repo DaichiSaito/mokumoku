@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :user_sessions, only: %i[new create destroy]
 
+  namespace :mypage do
+    root to: 'dashboards#index'
+  end
+
   root 'tops#index'
 end

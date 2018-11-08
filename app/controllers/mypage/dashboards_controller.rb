@@ -1,2 +1,5 @@
-class Mypage::DashboardsController < ApplicationController
+class Mypage::DashboardsController < MypageController
+  def index
+
+  end
 end
