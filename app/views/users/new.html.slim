@@ -7,6 +7,8 @@
           = image_tag 'sample.jpg', id: "image", size: '150x150', \
             class: 'img-responsive', alt: 'sample_image'
       .form-group
+        = f.file_field :avatar
+      .form-group
         = f.label '名前'
         = f.text_field :name, class: 'form-control'
       .form-group
