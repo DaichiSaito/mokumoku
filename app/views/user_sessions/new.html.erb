@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="widget change-password">
+    <h3 class="widget-header user"><%= 'ログイン' %></h3>
+
+    <%= form_tag login_path do %>
+      <div class="form-group">
+        <%= label :name, 'メールアドレス' %>
+        <%= email_field '', :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= label :name, 'パスワード' %>
+        <%= password_field '', :password, class: 'form-control' %>
+      </div>
+      <%= submit_tag 'ログイン', class: 'btn btn-transparent' %>
+    <% end %>
+
+  </div>
+  <div class='text-center'>
+    <%= link_to '登録はこちら', new_user_path, class: 'mr15' %>
+    <%= link_to 'パスワードを忘れた方はこちら', '#' %>
+  </div>
+</div>
