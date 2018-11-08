@@ -14,9 +14,6 @@
       .form-group
         = f.label 'メールアドレス'
         = f.email_field :email, class: 'form-control'
-      .form-group
-        = f.label 'プロフィール'
-        = f.text_area :profile, class: 'form-control'
 
         = f.fields_for :favorite_areas do |f|
           .form-group
