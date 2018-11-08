@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="UTF-8" /
+    meta lang="ja" /
+    title マイページ | MOKUMOKU
+    = csrf_meta_tags
+    = stylesheet_link_tag 'mypage', media: 'all'
+    link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" /
+  body class=("#{controller_name} #{action_name} hold-transition sidebar-mini")
+    .wrapper
+      = render 'shared/mypage/header'
+      = render 'shared/mypage/menu'
+      /! Content Wrapper. Contains page content
+      .content-wrapper
+        #flash_message
+          / = render 'shared/flash'
+        = yield
+      /! /.content-wrapper
+      = render 'shared/mypage/sidebar'
+      = render 'shared/mypage/footer'
+    = javascript_include_tag 'mypage'

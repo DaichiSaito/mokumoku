@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="widget change-password">
+    <h3 class="widget-header user">ユーザー登録</h3>
+
+    <%= form_for @user do |f| %>
+      <%#= render 'shared/error_messages', object: f.object %>
+
+      <div class="form-group">
+        <%= f.label User.human_attribute_name :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label User.human_attribute_name :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label User.human_attribute_name :profile %>
+        <%= f.text_field :profile, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%#= f.label User.human_attribute_name :image %>
+        <%#= f.file_field :image, id: "file", class: 'form-control-file d-inline mt15' %>
+
+        <div class='mt15'>
+          <%= image_tag 'sample.jpg', id: "image", size: '150x150',
+                    class: 'img-responsize', alt: 'sample_image' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label User.human_attribute_name :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label User.human_attribute_name :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '登録', class: "btn btn-transparent" %>
+    <% end %>
+
+  </div>
+  <div class='text-center'>
+    <%= link_to 'ログインはこちら', login_path, class: 'mr15' %>
+    <%= link_to 'パスワードを忘れた方はこちら', "#" %>
+  </div>
+</div>
+
+<%#= javascript_include_tag 'preview' %>
