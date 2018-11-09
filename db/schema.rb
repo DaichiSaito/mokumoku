@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_070322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mokumoku_id"], name: "index_attends_on_mokumoku_id"
+    t.index ["user_id", "mokumoku_id"], name: "index_attends_on_user_id_and_mokumoku_id", unique: true
     t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
