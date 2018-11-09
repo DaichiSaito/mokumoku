@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :tops, only: :index
   resources :users, only: %i[new create]
   resources :user_sessions, only: %i[new create destroy]
+  resources :mokumokus, only: %i[show]
 
   namespace :mypage do
     root to: 'dashboards#index'
