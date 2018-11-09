@@ -1,0 +1,10 @@
+header.container
+  .row
+    .col-md-12
+      nav.navbar.navbar-expand-lg.navigation
+        = link_to root_url, class: 'nabvar-brand' do
+          = image_tag 'sample.jpg', size: '150x150'
+        .collapse.navbar-collapse#navbarSupportedContent
+          ul.navbar-nav.ml-auto.main-nav
+            li.nav-item
+              = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link login-button'
