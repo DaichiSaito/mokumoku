@@ -1,5 +1,3 @@
 class Mypage::DashboardsController < MypageController
-  def index
-
-  end
+  def index; end
 end

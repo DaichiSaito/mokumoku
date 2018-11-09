@@ -1,5 +1,4 @@
 class Mypage::MokumokusController < MypageController
-
   def index
     @mokumokus = current_user.mokumokus.all
   end
