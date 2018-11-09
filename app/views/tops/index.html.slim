@@ -1,0 +1,7 @@
+.container
+  .row
+    - if current_user.blank?
+      = link_to 'ログイン', login_path, class: 'nav-link login-button'
+  .row
+    .col-md-12
+      p Top
