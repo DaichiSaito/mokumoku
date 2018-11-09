@@ -4,7 +4,6 @@
     u.name = "#{n}番目のユーザー"
     u.profile = "#{n}番目のユーザーのプロフィール"
     u.email = "test#{n}@g.com"
-    u.salt = "asdasdastr4325234324sdfds"
-    u.crypted_password = Sorcery::CryptoProviders::BCrypt.encrypt("foobar", "asdasdastr4325234324sdfds")
+    u.crypted_password = User.encrypt('foobar')
   end
 }
