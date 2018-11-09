@@ -10,3 +10,6 @@ Style/FrozenStringLiteralComment:
 
 StringLiterals:
  Enabled: false
+
+Layout/IndentationWidth:
+ Enabled: false
