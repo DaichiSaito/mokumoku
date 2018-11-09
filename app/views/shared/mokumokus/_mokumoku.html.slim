@@ -18,3 +18,7 @@
           = mokumoku.area.name
         .col-6
           = mokumoku.open_at
+          - if current_user&.has_mokumoku?(mokumoku)
+            = link_to edit_mypage_mokumoku_path(mokumoku.id) do
+              = fa_icon 'pencil'
+
