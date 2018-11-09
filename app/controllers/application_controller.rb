@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def select_layout
-    return 'before_login' if current_user.blank?
-
-    'application'
+    current_user.blank? ? 'before_login' : 'application'
   end
 end
