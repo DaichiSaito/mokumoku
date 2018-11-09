@@ -1,0 +1,20 @@
+.col-sm-4.mb-3.card-deck.m-0.pt-3
+  .card
+    .card-body
+      .row
+        .col-3
+          p
+            = image_tag 'sample.jpg', class: 'rounded-circle', size: '50x50'
+          p.text-sm
+            = mokumoku.user.name
+        .col-9
+          h3
+            = mokumoku.title
+          p
+            = mokumoku.body
+    .card-footer
+      .row
+        .col-6
+          = mokumoku.area.name
+        .col-6
+          = mokumoku.open_at

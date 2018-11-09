@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :mypage do
     root to: 'dashboards#index'
+    resources :mokumokus
   end
 
   root 'tops#index'
