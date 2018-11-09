@@ -1,10 +1,15 @@
 class User < ApplicationRecord
-  authenticates_with_sorcery!
+  attr_accessible :email, :password, :password_confirmation, :authentications_attributes
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
 
   has_one_attached :avatar
   has_many :favorite_areas, dependent: :destroy
   has_many :areas, through: :favorite_areas
+  has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :favorite_areas
+  accepts_nested_attributes_for :authentications
 
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
