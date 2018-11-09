@@ -1,0 +1,6 @@
+= bootstrap_form_with model: [:mypage, mokumoku], local: true do |f|
+  = f.text_field :title, label: 'タイトル'
+  = f.text_area :body, label: '詳細'
+  = f.date_field :open_at, label: 'もくもく予定日時'
+  = f.collection_select :area_id, Area.all, :id, :name, include_blank: true, label: 'エリア'
+  = f.submit '登録', class: 'btn btn-primary active'
