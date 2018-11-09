@@ -6,5 +6,6 @@ class CreateAttends < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :attends, [:user_id, :mokumoku_id], unique: true
   end
 end
