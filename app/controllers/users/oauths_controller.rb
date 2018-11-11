@@ -12,7 +12,7 @@ class Users::OauthsController < GeneralController
 
     if params[:denied].present?
       logger.error('authenticate denied')
-      return redirect_to root_path
+      return redirect_to new_user_url
     end
 
     begin
