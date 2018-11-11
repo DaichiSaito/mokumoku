@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   post '/login', to: 'user_sessions#create'
   delete '/logout', to: 'user_sessions#destroy'
 
+  namespace :users do
+    get 'auth/:provider', to: 'oauths#oauth', as: :auth_at_provider
+    get 'auth/twitter/callback', to: 'oauths#callback'
+  end
+
   resources :tops, only: :index
   resources :users, only: %i[new create]
 
