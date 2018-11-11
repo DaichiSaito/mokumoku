@@ -19,16 +19,12 @@ class Users::OauthsController < GeneralController
     if @user.present?
       redirect_to root_path
     else
-      begin
-        @user = create_from(provider)
+      # see create_from() https://github.com/NoamB/sorcery/blob/master/lib/sorcery/controller/submodules/external.rb
+      sorcery_fetch_user_hash provider
+      @user = User.new(user_attrs(@provider.user_info_mapping, @user_hash))
+      @user.favorite_areas.build
 
-        reset_session # protect from session fixation attack
-        auto_login(@user)
-        redirect_to root_path
-      rescue StandardError => e
-        logger.error(e)
-        redirect_to root_path
-      end
+      reset_session # protect from session fixation attack
     end
   end
 end
