@@ -10,6 +10,11 @@ class Users::OauthsController < GeneralController
   def callback
     provider = :twitter
 
+    if params[:denied].present?
+      logger.error('authenticate denied')
+      return redirect_to root_path
+    end
+
     @user = login_from(provider)
     if @user.present?
       redirect_to root_path
