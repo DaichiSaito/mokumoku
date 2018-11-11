@@ -10,10 +10,7 @@ class Users::OauthsController < GeneralController
   def callback
     provider = :twitter
 
-    if params[:denied].present?
-      logger.error('authenticate denied')
-      return redirect_to new_user_url
-    end
+    return denied_app_collaborate if params[:denied].present?
 
     begin
       @user = login_from(provider)
@@ -23,21 +20,13 @@ class Users::OauthsController < GeneralController
       return redirect_to root_path
     end
 
-    # see create_from() https://github.com/NoamB/sorcery/blob/master/lib/sorcery/controller/submodules/external.rb
-    sorcery_fetch_user_hash provider
-    @user = User.new(user_attrs(@provider.user_info_mapping, @user_hash))
-    @user.favorite_areas.build
-
+    setup_user_instance
     reset_session # protect from session fixation attack
-
     render :new
   end
 
   def new
-    # see create_from() https://github.com/NoamB/sorcery/blob/master/lib/sorcery/controller/submodules/external.rb
-    sorcery_fetch_user_hash provider
-    @user = User.new(user_attrs(@provider.user_info_mapping, @user_hash))
-    @user.favorite_areas.build
+    setup_user_instance
   end
 
   def create
@@ -54,5 +43,18 @@ class Users::OauthsController < GeneralController
 
   def user_params
     params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
+  end
+
+  def denied_app_collaborate
+    logger.error('authenticate denied')
+    return redirect_to new_user_url
+  end
+
+  def setup_user_instance
+    provider = :twitter
+    # see create_from() https://github.com/NoamB/sorcery/blob/master/lib/sorcery/controller/submodules/external.rb
+    sorcery_fetch_user_hash provider
+    @user = User.new(user_attrs(@provider.user_info_mapping, @user_hash))
+    @user.favorite_areas.build
   end
 end
