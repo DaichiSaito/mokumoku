@@ -29,5 +29,30 @@ class Users::OauthsController < GeneralController
     @user.favorite_areas.build
 
     reset_session # protect from session fixation attack
+
+    render :new
+  end
+
+  def new
+    # see create_from() https://github.com/NoamB/sorcery/blob/master/lib/sorcery/controller/submodules/external.rb
+    sorcery_fetch_user_hash provider
+    @user = User.new(user_attrs(@provider.user_info_mapping, @user_hash))
+    @user.favorite_areas.build
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to login_url, success: 'ユーザーを作成しました'
+    else
+      flash.now[:danger] = 'ユーザーが作成出来ませんでした'
+      render :new
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
   end
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :users do
     get 'auth/:provider', to: 'oauths#oauth', as: :auth_at_provider
     get 'auth/twitter/callback', to: 'oauths#callback'
+    resources :oauths, only: %i[new create]
   end
 
   resources :tops, only: :index
