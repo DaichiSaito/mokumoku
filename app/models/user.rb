@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  require 'open-uri'
+
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
+
+  attr_accessor :profile_image_url
 
   has_one_attached :avatar
   has_many :favorite_areas, dependent: :destroy
@@ -15,4 +19,17 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+
+  def download_and_attach_avatar
+    return unless avatar_image_url
+
+    file = open(avatar_image_url)
+    avatar.attach(io: file,
+                  filename: "profile_image.#{file.content_type_parse.first.split("/").last}",
+                  content_type: file.content_type_parse.first)
+  end
+
+  def avatar_image_url
+    profile_image_url&.gsub(/_normal/, '')
+  end
 end

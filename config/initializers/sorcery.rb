@@ -116,8 +116,8 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.user_info_mapping = {
     name: 'name',
     email: 'email',
-    profile: 'description'
-    # avatar: 'profile_image_url_https'
+    profile: 'description',
+    profile_image_url: 'profile_image_url_https'
   }
   # see https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-verify_credentials.html
   config.twitter.user_info_path = "/1.1/account/verify_credentials.json?include_email=true"

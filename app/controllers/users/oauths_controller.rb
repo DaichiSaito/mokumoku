@@ -29,6 +29,8 @@ class Users::OauthsController < GeneralController
 
   def create
     @user = User.new(user_params)
+    @user.download_and_attach_avatar
+
     # new アクションで実行した create_and_validate_from() の中でセッションに保存したパラメータを取得し、認証クラスの生成に用いる
     # （add_provider_to_user() で生成する方法は「401 Authorization Required」が解決出来なかった）
     @user.authentications.build(session[:incomplete_user]['provider'])
@@ -46,7 +48,7 @@ class Users::OauthsController < GeneralController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
+    params.require(:user).permit(:name, :email, :profile, :profile_image_url, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
   end
 
   # アプリ連携を拒否
