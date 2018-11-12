@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_073212) do
     t.string "uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+    t.index ["user_id", "provider", "uid"], name: "index_authentications_on_user_id_and_provider_and_uid"
   end
 
   create_table "favorite_areas", force: :cascade do |t|
