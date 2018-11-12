@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :mokumokus, only: %i[show] do
     resources :attends, only: %i[create destroy]
+    resources :comments, only: %i[create destroy update]
   end
 
 
