@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
   has_many :attending_mokumokus, through: :attends, source: :mokumoku
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :favorite_areas
 
   validates :name, presence: true
