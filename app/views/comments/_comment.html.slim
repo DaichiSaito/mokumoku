@@ -1,0 +1,21 @@
+tr
+  td
+    p
+      = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
+  td
+    h3
+      = comment.user.name
+    div
+      = comment.body
+  td
+    = comment.created_at
+  td
+    - if current_user.has_comment?(comment)
+      ul
+        li
+          = link_to mokumoku_comment_path(comment.mokumoku, comment),
+                  class: 'delete',
+                  method: :delete,
+                  data: { confirm: '削除しますか' } do
+
+            = fa_icon 'trash'

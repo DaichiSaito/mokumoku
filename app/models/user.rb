@@ -31,4 +31,14 @@ class User < ApplicationRecord
   def leave(mokumoku)
     attends.find_by(mokumoku_id: mokumoku.id).destroy!
   end
+
+  def post_comment(mokumoku, comment)
+    comment.user_id = id
+    comment.mokumoku_id = mokumoku.id
+    comment.save
+  end
+
+  def has_comment?(comment)
+    comments.include?(comment)
+  end
 end
