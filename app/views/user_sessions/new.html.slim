@@ -1,0 +1,14 @@
+.container
+  .widget.change-password
+    h3.widget-header.user= 'ログイン'
+    = form_tag login_path do
+      .form-group
+        = label :name, 'メールアドレス'
+        = email_field '', :email, class: 'form-control'
+      .form-group
+        = label :name, 'パスワード'
+        = password_field '', :password, class: 'form-control'
+      = submit_tag 'ログイン', class: 'btn btn-transparent'
+  .text-center
+    = link_to '登録はこちら', new_user_path
+    = link_to 'パスワードを忘れた方はこちら', '#'

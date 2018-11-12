@@ -6,12 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def select_layout
-    return 'before_login' if current_user.blank?
-
-    'application'
-  end
-
-  def not_authenticated
-    redirect_to login_path, danger: t('flash.common.not_authenticated')
+    current_user.blank? ? 'before_login' : 'application'
   end
 end

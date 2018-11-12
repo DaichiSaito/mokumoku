@@ -1,0 +1,26 @@
+.container
+  .widget.change-password
+    h3.widget-header.user ユーザー登録
+    = form_for @user do |f|
+      .form-group
+        = f.label '名前'
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label 'メールアドレス'
+        = f.email_field :email, class: 'form-control'
+
+        = f.fields_for :favorite_areas do |f|
+          .form-group
+            = f.label 'お気に入りエリア'
+            = f.select :area_id, collection: Area.pluck(:name, :id)
+
+      .form-group
+        = f.label 'パスワード'
+        = f.password_field :password, class: 'form-control'
+      .form-group
+        = f.label 'パスワード再入力'
+        = f.password_field :password_confirmation, class: 'form-control'
+      = f.submit '登録', class: "btn btn-transparent"
+  .text-center
+    = link_to 'ログインはこちら', login_path
+    = link_to 'パスワードを忘れた方はこちら', "#"
