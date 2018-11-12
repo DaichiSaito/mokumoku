@@ -17,7 +17,7 @@
         .col-6
           = mokumoku.area.name
         .col-6
-          = mokumoku.open_at
+          = mokumoku.open_at.to_s :datetime
           - if current_user&.has_mokumoku?(mokumoku)
             = link_to edit_mypage_mokumoku_path(mokumoku.id) do
               = fa_icon 'pencil'
