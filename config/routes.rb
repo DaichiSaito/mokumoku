@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   resources :tops, only: :index
   resources :users, only: %i[new create]
 
+  namespace :mypage do
+    root to: 'dashboards#index'
+  end
+
   root 'tops#index'
 end
