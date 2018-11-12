@@ -1,5 +1,4 @@
-class Users::OauthsController < GeneralController
-  skip_before_action :require_login
+class Users::OauthsController < ApplicationController
   before_action :set_provider_name, only: %i[callback new]
 
   # sends the user on a trip to the provider,
