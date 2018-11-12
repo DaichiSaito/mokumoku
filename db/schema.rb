@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_09_070322) do
+ActiveRecord::Schema.define(version: 2018_11_12_021745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2018_11_09_070322) do
     t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "mokumoku_id"
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mokumoku_id"], name: "index_comments_on_mokumoku_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "favorite_areas", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "area_id", null: false
@@ -87,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_11_09_070322) do
 
   add_foreign_key "attends", "mokumokus"
   add_foreign_key "attends", "users"
+  add_foreign_key "comments", "mokumokus"
+  add_foreign_key "comments", "users"
   add_foreign_key "mokumokus", "areas"
   add_foreign_key "mokumokus", "users"
 end
