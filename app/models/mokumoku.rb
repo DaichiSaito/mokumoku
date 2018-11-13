@@ -1,6 +1,8 @@
 class Mokumoku < ApplicationRecord
   belongs_to :user
   belongs_to :area
+  has_many :attends, dependent: :destroy
+  has_many :participants, through: :attends, source: :user
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 1000 }

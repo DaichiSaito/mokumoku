@@ -10,6 +10,8 @@
           p
             = @mokumoku.user.profile
     .col-8
+      div.text-center
+        = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
       table
         tr
           th
@@ -31,3 +33,9 @@
             | エリア
           td
             = @mokumoku.area.name
+        tr
+          th
+            | 参加者リスト
+          td
+            - @mokumoku.participants.each do |user|
+              = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
