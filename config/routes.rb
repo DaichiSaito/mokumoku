@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   resources :tops, only: :index
   resources :users, only: %i[new create]
-  resources :mokumokus, only: %i[show]
+  resources :mokumokus, only: %i[show] do
+    resources :attends, only: %i[create destroy]
+  end
+
 
   namespace :mypage do
     root to: 'dashboards#index'
