@@ -4,6 +4,9 @@
       .text-center
         p
           = image_tag 'sample.jpg', class: 'rounded-circle', size: '100x100'
+          = link_to edit_mypage_user_path do
+            i.fa.fa-pencil
+
         p
           = current_user.name
     .col-sm-6
