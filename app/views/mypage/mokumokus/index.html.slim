@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-12
+      .row.justify-content-center
+        ul.nav.nav-tabs
+          li.nav-item
+            a.nav-link.active href="#"  今後の予定
+          li.nav-item
+            a.nav-link href="#"  過去
+      .row
+        = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus
