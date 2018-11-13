@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_030950) do
+ActiveRecord::Schema.define(version: 2018_11_09_070322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2018_11_08_030950) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "attends", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "mokumoku_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mokumoku_id"], name: "index_attends_on_mokumoku_id"
+    t.index ["user_id", "mokumoku_id"], name: "index_attends_on_user_id_and_mokumoku_id", unique: true
+    t.index ["user_id"], name: "index_attends_on_user_id"
+  end
+
   create_table "favorite_areas", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "area_id", null: false
@@ -49,6 +59,18 @@ ActiveRecord::Schema.define(version: 2018_11_08_030950) do
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_favorite_areas_on_area_id"
     t.index ["user_id"], name: "index_favorite_areas_on_user_id"
+  end
+
+  create_table "mokumokus", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "area_id"
+    t.string "title", null: false
+    t.text "body", null: false
+    t.datetime "open_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_mokumokus_on_area_id"
+    t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,4 +85,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_030950) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "attends", "mokumokus"
+  add_foreign_key "attends", "users"
+  add_foreign_key "mokumokus", "areas"
+  add_foreign_key "mokumokus", "users"
 end

@@ -2,6 +2,7 @@
   "name": "MOKUMOKU",
   "private": true,
   "dependencies": {
-    "admin-lte": "3.0.0-alpha.2"
+    "admin-lte": "3.0.0-alpha.2",
+    "bootstrap-material-design": "^4.1.1"
   }
 }

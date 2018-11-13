@@ -11,11 +11,8 @@
 // about supported directives.
 //
 //= require jquery3
+//= require popper
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require bootstrap-material-design
-
-$(document).on('turbolinks:load', function() {
-  $.material.init();
-});
+//= require bootstrap-material-design/dist/js/bootstrap-material-design

@@ -15,3 +15,4 @@
 //= require jquery_ujs
 //= require admin-lte/plugins/bootstrap/js/bootstrap.bundle.min
 //= require admin-lte/dist/js/adminlte
+//= require bootstrap-material-design/dist/js/bootstrap-material-design
