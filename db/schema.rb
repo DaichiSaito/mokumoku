@@ -42,15 +42,6 @@ ActiveRecord::Schema.define(version: 2018_11_09_073212) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "authentications", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "provider", null: false
-    t.string "uid", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "provider", "uid"], name: "index_authentications_on_user_id_and_provider_and_uid"
-  end
-
   create_table "attends", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "mokumoku_id"
@@ -59,6 +50,15 @@ ActiveRecord::Schema.define(version: 2018_11_09_073212) do
     t.index ["mokumoku_id"], name: "index_attends_on_mokumoku_id"
     t.index ["user_id", "mokumoku_id"], name: "index_attends_on_user_id_and_mokumoku_id", unique: true
     t.index ["user_id"], name: "index_attends_on_user_id"
+  end
+
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "provider", "uid"], name: "index_authentications_on_user_id_and_provider_and_uid"
   end
 
   create_table "favorite_areas", force: :cascade do |t|
