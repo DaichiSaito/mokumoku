@@ -1,6 +1,4 @@
-class UsersController < GeneralController
-  skip_before_action :require_login, only: %i[new create]
-
+class UsersController < ApplicationController
   def new
     @user = User.new
     @user.favorite_areas.build
