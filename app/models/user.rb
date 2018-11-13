@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :favorite_areas, dependent: :destroy
   has_many :areas, through: :favorite_areas
   has_many :authentications, dependent: :destroy
+  has_many :mokumokus
   accepts_nested_attributes_for :favorite_areas
   accepts_nested_attributes_for :authentications
 
@@ -31,5 +32,9 @@ class User < ApplicationRecord
 
   def avatar_image_url
     profile_image_url&.gsub(/_normal/, '')
+  end
+
+  def has_mokumoku?(mokumoku)
+    mokumokus.include?(mokumoku)
   end
 end

@@ -1,3 +1,5 @@
 class TopsController < ApplicationController
-  def index; end
+  def index
+    @mokumokus = Mokumoku.futures
+  end
 end

@@ -4,4 +4,8 @@
       = link_to 'ログイン', login_path, class: 'nav-link login-button'
   .row
     .col-md-12
-      p Top
+      | Top
+  .row
+    .col-12
+      .row
+        = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus

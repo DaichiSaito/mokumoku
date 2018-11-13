@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-4
+      .card
+        .card-body
+          figure
+            = image_tag 'sample.jpg', class: 'rounded-circle', size: '100x100'
+          p
+            = @mokumoku.user.name
+          p
+            = @mokumoku.user.profile
+    .col-8
+      table
+        tr
+          th
+            | タイトル
+          td
+            = @mokumoku.title
+        tr
+          th
+            | 詳細
+          td
+            = @mokumoku.body
+        tr
+          th
+            | もくもく予定日時
+          td
+            = @mokumoku.open_at
+        tr
+          th
+            | エリア
+          td
+            = @mokumoku.area.name
