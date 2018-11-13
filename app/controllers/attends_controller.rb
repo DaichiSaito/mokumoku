@@ -1,4 +1,5 @@
 class AttendsController < ApplicationController
+  before_action :require_login
   def create
     @mokumoku = Mokumoku.find(params[:mokumoku_id])
     current_user.attend(@mokumoku)

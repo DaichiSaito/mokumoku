@@ -1,6 +1,6 @@
 /! 自分のもくもくではないとき
-- unless current_user.has_mokumoku?(mokumoku)
-  - if current_user.attending?(mokumoku)
+- unless current_user&.has_mokumoku?(mokumoku)
+  - if current_user&.attending?(mokumoku)
     = render 'shared/attends/leave', { mokumoku: mokumoku }
   - else
     = render 'shared/attends/attend', { mokumoku: mokumoku }
