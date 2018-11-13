@@ -8,14 +8,14 @@ class Users::OauthsController < ApplicationController
   end
 
   def callback
-    return denied_app_collaborate if params[:denied].present?
+    denied_app_collaborate and return if params[:denied].present?
 
     begin
       @user = login_from(@provider_name)
       return redirect_to root_path if @user.present?
     rescue OAuth::Unauthorized => e
       logger.error(e)
-      return redirect_to root_path
+      redirect_to root_path and return
     end
 
     setup_user_instance @provider_name
