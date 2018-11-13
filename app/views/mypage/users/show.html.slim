@@ -4,7 +4,7 @@ h2 プロフィール表示
     .col-sm-6
       .text-center
         p
-          = image_tag @user.avatar, class: 'rounded-circle', size: '100x100'
+          = image_tag current_user.avatar_or_default, class: 'rounded-circle', size: '100x100'
       p
         h4
           | 名前

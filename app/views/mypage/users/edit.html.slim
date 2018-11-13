@@ -5,10 +5,7 @@ h2 プロフィール編集
       .col-sm-6
         .text-center
           p
-            - if @user.avatar.attached?
-                = image_tag @user.avatar, class: 'rounded-circle', size: '100x100'
-            - else
-                = image_tag 'sample.jpg', class: 'rounded-circle', size: '100x100'
+            = image_tag @user.avatar_or_default, class: 'rounded-circle', size: '100x100'
           p
             = f.file_field :avatar
         p

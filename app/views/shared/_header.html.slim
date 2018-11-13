@@ -3,8 +3,9 @@ header.container
     .col-md-12
       nav.navbar.navbar-expand-lg.navigation
         = link_to root_url, class: 'nabvar-brand' do
-          = image_tag 'sample.jpg', size: '150x150'
+          = image_tag 'sample.jpg', size: '100x100'
         .collapse.navbar-collapse#navbarSupportedContent
           ul.navbar-nav.ml-auto.main-nav
             li.nav-item
+              = image_tag current_user.avatar_or_default, size: '100x100'
               = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link login-button'
