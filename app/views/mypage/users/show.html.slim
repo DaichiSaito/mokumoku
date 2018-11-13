@@ -1,0 +1,24 @@
+h2 プロフィール表示
+.container.pt-3
+  .row
+    .col-sm-6
+      .text-center
+        p
+          = image_tag @user.avatar, class: 'rounded-circle', size: '100x100'
+      p
+        h4
+          | 名前
+        = current_user.name
+  .row
+    .col
+      h4
+        | お気に入りエリア
+      - current_user.favorite_areas.each do |area|
+        p
+          = Area.find(area.area_id).name
+  .row
+    .col
+      h4
+        | 自己紹介
+      p
+        = current_user.profile
