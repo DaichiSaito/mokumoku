@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   require 'open-uri'
+  require 'securerandom'
 
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
@@ -54,6 +55,11 @@ class User < ApplicationRecord
 
   def leave(mokumoku)
     attends.find_by(mokumoku_id: mokumoku.id).destroy!
+  end
+
+  def assign_password
+    pass = SecureRandom.base64(8)
+    assign_attributes(password: pass, password_confirmation: pass)
   end
 
   private
