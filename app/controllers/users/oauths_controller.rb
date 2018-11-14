@@ -47,7 +47,7 @@ class Users::OauthsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :profile_image_url, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
+    params.require(:user).permit(:name, :email, :profile, :profile_image_url, :avatar, :password, :password_confirmation, area_ids: [])
   end
 
   # アプリ連携を拒否

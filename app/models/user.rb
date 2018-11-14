@@ -8,13 +8,12 @@ class User < ApplicationRecord
   attr_accessor :profile_image_url
 
   has_one_attached :avatar
-  has_many :favorite_areas, -> { order('created_at ASC') }, dependent: :destroy
+  has_many :favorite_areas, dependent: :destroy
   has_many :areas, through: :favorite_areas
   has_many :authentications, dependent: :destroy
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
   has_many :attending_mokumokus, through: :attends, source: :mokumoku
-  accepts_nested_attributes_for :favorite_areas
   accepts_nested_attributes_for :authentications
 
   validates :name, presence: true

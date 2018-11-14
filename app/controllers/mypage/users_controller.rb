@@ -19,6 +19,6 @@ class Mypage::UsersController < MypageController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id, :id])
+    params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, area_ids: [])
   end
 end
