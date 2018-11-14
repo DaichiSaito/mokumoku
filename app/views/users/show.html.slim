@@ -1,5 +1,6 @@
-h2 プロフィール表示
 .container.pt-3
+  h2
+    プロフィール表示
   .row
     .col-sm-6
       .text-center
@@ -11,9 +12,11 @@ h2 プロフィール表示
         = @user.name
   .row
     .col
+      p.h4
+        | お気に入りエリア
       - @user.favorite_areas.each_with_index do |favorite, index|
-        h4
-          | お気に入りエリア #{index + 1} : #{favorite.area_name}
+        p
+          | #{favorite.area_name}
   .row
     .col
       h4
