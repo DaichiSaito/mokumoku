@@ -7,5 +7,6 @@ header.container
         .collapse.navbar-collapse#navbarSupportedContent
           ul.navbar-nav.ml-auto.main-nav
             li.nav-item
-              = image_tag current_user.avatar_or_default, size: '100x100'
+              = link_to mypage_root_path do
+                = image_tag current_user.avatar_or_default, size: '100x100'
               = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link login-button'
