@@ -1,14 +1,10 @@
 tr
   td
-    p
-      = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
+    p = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
   td
-    h3
-      = comment.user.name
-    div
-      = comment.body
-  td
-    = comment.created_at
+    h3 = comment.user.name
+    div = comment.body
+  td = comment.created_at
   td
     - if current_user.has_comment?(comment)
       ul
