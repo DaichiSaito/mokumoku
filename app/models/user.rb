@@ -21,6 +21,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validate :favorite_areas_count
 
   def avatar_or_default
     avatar.attached? ? avatar : 'sample.jpg'
@@ -53,5 +54,11 @@ class User < ApplicationRecord
 
   def leave(mokumoku)
     attends.find_by(mokumoku_id: mokumoku.id).destroy!
+  end
+
+  private
+
+  def favorite_areas_count
+    errors.add('お気に入りエリア', "を１つ以上指定して下さい") if favorite_areas.size < 1
   end
 end
