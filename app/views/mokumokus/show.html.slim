@@ -39,3 +39,10 @@
           td
             - @mokumoku.participants.each do |user|
               = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
+
+      / コメントフォーム
+      = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }
+
+      / コメントエリア
+      = render 'comments/comments', { comments: @comments }
+
