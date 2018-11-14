@@ -1,13 +1,11 @@
 class Mypage::UsersController < MypageController
   before_action :set_user
 
-  def show; end
-
   def edit; end
 
   def update
     if @user.update(user_params)
-      redirect_to mypage_user_path, success: 'プロフィールを更新しました'
+      redirect_to mypage_root_path, success: 'プロフィールを更新しました'
     else
       flash.now[:danger] = 'プロフィールを更新出来ませんでした'
       render :edit

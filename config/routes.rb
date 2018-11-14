@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     root to: 'dashboards#index'
     resources :mokumokus, only: %i[index new create edit update]
-    resource :user, only: %i[show edit update]
+    resource :user, only: %i[edit update]
   end
 
   root 'tops#index'
