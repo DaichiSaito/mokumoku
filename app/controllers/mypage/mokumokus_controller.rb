@@ -1,6 +1,8 @@
 class Mypage::MokumokusController < MypageController
+  before_action :set_mokumoku, only: %i[edit update]
+
   def index
-    @mokumokus = current_user.mokumokus.all
+    @mokumokus = current_user.mokumokus
   end
 
   def new
@@ -16,12 +18,9 @@ class Mypage::MokumokusController < MypageController
     end
   end
 
-  def edit
-    @mokumoku = current_user.mokumokus.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @mokumoku = current_user.mokumokus.find(params[:id])
     if @mokumoku.update(mokumoku_params)
       redirect_to mypage_root_path
     else
@@ -32,5 +31,9 @@ class Mypage::MokumokusController < MypageController
   private
     def mokumoku_params
       params.require(:mokumoku).permit(:title, :body, :open_at, :area_id)
+    end
+
+    def set_mokumoku
+      @mokumoku = current_user.mokumokus.find(params[:id])
     end
 end

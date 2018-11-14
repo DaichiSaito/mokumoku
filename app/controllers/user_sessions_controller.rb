@@ -1,5 +1,5 @@
-class UserSessionsController < GeneralController
-  skip_before_action :require_login, except: %i[destroy]
+class UserSessionsController < ApplicationController
+  before_action :require_login, only: %i[destroy]
 
   def new
     @user = User.new
