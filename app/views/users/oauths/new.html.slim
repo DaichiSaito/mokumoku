@@ -12,12 +12,6 @@
           = f.collection_check_boxes :area_ids, Area.all, :id, :name do |b|
             = b.check_box
             = b.label { b.text }
-      .form-group
-        = f.label 'パスワード'
-        = f.password_field :password, class: 'form-control'
-      .form-group
-        = f.label 'パスワード再入力'
-        = f.password_field :password_confirmation, class: 'form-control'
       = f.submit '登録', class: "btn btn-transparent"
   .text-center
     = link_to 'ログインはこちら', login_path
