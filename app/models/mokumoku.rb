@@ -10,4 +10,6 @@ class Mokumoku < ApplicationRecord
   validates :area_id, presence: true
 
   scope :futures, -> { where('open_at > ?', Time.current) }
+  scope :date_range, ->(from, to) { where(open_at: from.beginning_of_day..to.end_of_day) }
+  scope :attending_of, ->(user) { where(id: user.attends.select(:mokumoku_id)).or(user.mokumokus) }
 end
