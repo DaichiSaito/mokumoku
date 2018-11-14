@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_021745) do
     t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
+<<<<<<< HEAD
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "mokumoku_id"
@@ -60,6 +61,15 @@ ActiveRecord::Schema.define(version: 2018_11_12_021745) do
     t.datetime "updated_at", null: false
     t.index ["mokumoku_id"], name: "index_comments_on_mokumoku_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+=======
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "provider", "uid"], name: "index_authentications_on_user_id_and_provider_and_uid"
+>>>>>>> 958222021badc41a17f72ab79b78e3cd046efa86
   end
 
   create_table "favorite_areas", force: :cascade do |t|
