@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_021745) do
+ActiveRecord::Schema.define(version: 2018_11_14_080416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,15 @@ ActiveRecord::Schema.define(version: 2018_11_12_021745) do
     t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
-<<<<<<< HEAD
+  create_table "authentications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "provider", "uid"], name: "index_authentications_on_user_id_and_provider_and_uid"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "mokumoku_id"
@@ -61,15 +69,6 @@ ActiveRecord::Schema.define(version: 2018_11_12_021745) do
     t.datetime "updated_at", null: false
     t.index ["mokumoku_id"], name: "index_comments_on_mokumoku_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-=======
-  create_table "authentications", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "provider", null: false
-    t.string "uid", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "provider", "uid"], name: "index_authentications_on_user_id_and_provider_and_uid"
->>>>>>> 958222021badc41a17f72ab79b78e3cd046efa86
   end
 
   create_table "favorite_areas", force: :cascade do |t|
@@ -93,6 +92,18 @@ ActiveRecord::Schema.define(version: 2018_11_12_021745) do
     t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.text "body", null: false
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -111,4 +122,5 @@ ActiveRecord::Schema.define(version: 2018_11_12_021745) do
   add_foreign_key "comments", "users"
   add_foreign_key "mokumokus", "areas"
   add_foreign_key "mokumokus", "users"
+  add_foreign_key "notifications", "users"
 end
