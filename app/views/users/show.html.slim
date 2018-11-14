@@ -1,0 +1,22 @@
+h2 プロフィール表示
+.container.pt-3
+  .row
+    .col-sm-6
+      .text-center
+        p
+          = image_tag @user.avatar_or_default, class: 'rounded-circle', size: '100x100'
+      p.h4
+        | 名前
+      p
+        = @user.name
+  .row
+    .col
+      - @user.favorite_areas.each_with_index do |favorite, index|
+        h4
+          | お気に入りエリア #{index + 1} : #{favorite.area_name}
+  .row
+    .col
+      h4
+        | 自己紹介
+      p
+        = @user.profile

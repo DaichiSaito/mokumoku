@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user
+
   def new
     @user = User.new
     @user.favorite_areas.build
@@ -14,7 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def show; end
+
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
