@@ -78,6 +78,14 @@ class User < ApplicationRecord
     comments.include?(comment)
   end
 
+  def has_unread?
+    notifications.unread.present?
+  end
+
+  def unread_count
+    notifications.unread.count
+  end
+
   def update_notification_status(mokumoku)
     notifications_of_mokumoku = notifications.unread.where(notifiable_type: 'Mokumoku')
                                     .where(notifiable_id: mokumoku.id).where(read: :unread)
@@ -89,6 +97,10 @@ class User < ApplicationRecord
   def assign_password
     pass = SecureRandom.base64(Settings.twitter.auto_fill_password_count)
     assign_attributes(password: pass, password_confirmation: pass)
+  end
+
+  def my_notifications
+    notifications.order(created_at: :desc)
   end
 
   private
