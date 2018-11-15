@@ -11,7 +11,8 @@ ja:
         password_confirmation:  パスワード確認
         crypted_password:       パスワード
         salt:                   Salt
-        favorite_areas:         お気に入りエリア
+        # 登録時のフォームのエラー表示に用います
+        area_ids:               お気に入りエリア
   # 全モデル共通のアトリビュート名
   attributes:
     created_at: 作成日時
