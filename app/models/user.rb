@@ -67,7 +67,7 @@ class User < ApplicationRecord
   def has_comment?(comment)
     comments.include?(comment)
   end
-  
+
   def assign_password
     pass = SecureRandom.base64(8)
     assign_attributes(password: pass, password_confirmation: pass)
