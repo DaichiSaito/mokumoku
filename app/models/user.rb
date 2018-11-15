@@ -77,6 +77,6 @@ class User < ApplicationRecord
 
   def favorite_areas_count
     count = Settings.favorite_areas.minimum_count
-    errors.add('お気に入りエリア', "を#{count}つ以上指定して下さい") if favorite_areas.size < count
+    errors.add(:favorite_areas, "を#{count}つ以上指定して下さい") if favorite_areas.size < count
   end
 end
