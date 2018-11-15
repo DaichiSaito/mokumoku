@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap_form', '>= 4.0.0'
 
+# カレンダー
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 gem 'seed-fu', '~> 2.3'
 
 gem 'slim-rails'

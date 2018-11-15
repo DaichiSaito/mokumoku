@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
-  has_many :attending_mokumokus, through: :attends, source: :mokumoku
+  has_many :attending_mokumokus, through: :attends, source: :mokumoku # 自分の投稿したもくもくを含めない参加予定のもくもく
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
@@ -27,6 +27,12 @@ class User < ApplicationRecord
 
   def avatar_or_default
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name
+  end
+
+
+  # 自分の投稿したもくもくも含めた参加予定のもくもく
+  def attending_including_own
+    Mokumoku.attending_of(self)
   end
 
   def download_and_attach_avatar
