@@ -11,6 +11,8 @@ class Mokumoku < ApplicationRecord
   validates :area_id, presence: true
   validate :date_cannot_be_in_the_past
 
+  scope :date_range, ->(from, to) { where(open_at: from.beginning_of_day..to.end_of_day) }
+  scope :attending_of, ->(user) { where(id: user.attends.select(:mokumoku_id)).or(user.mokumokus) }
   scope :futures, -> { where('open_at >= ?', Date.today) }
   scope :recent_opens, -> { order(open_at: :asc) }
 
