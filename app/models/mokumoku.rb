@@ -12,6 +12,7 @@ class Mokumoku < ApplicationRecord
   validate :date_cannot_be_in_the_past
 
   scope :futures, -> { where('open_at >= ?', Date.today) }
+  scope :recent_opens, -> { order(open_at: :asc) }
 
   def date_cannot_be_in_the_past
     # 昨日以前のものはNGとする。時間は見ないので当日であれば許容する。
