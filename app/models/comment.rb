@@ -7,6 +7,6 @@ class Comment < ApplicationRecord
   validates :body, presence: true
 
   def notification_link
-    mokumoku_path(mokumoku.id)
+    mokumoku_path(mokumoku)
   end
 end
