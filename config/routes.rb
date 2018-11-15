@@ -27,5 +27,9 @@ Rails.application.routes.draw do
     resource :user, only: %i[edit update]
   end
 
+  namespace :mokumoku do
+    resources :searches, only: %i[index]
+  end
+
   root 'tops#index'
 end
