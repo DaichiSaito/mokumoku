@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy]
   end
 
+  get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
+
 
   namespace :mypage do
     root to: 'dashboards#index'

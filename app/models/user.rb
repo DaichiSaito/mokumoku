@@ -9,12 +9,14 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :favorite_areas, dependent: :destroy
-  has_many :areas, through: :favorite_areas
+  # 中間テーブルをfavorite_areasという名前にしてしまったため致し方なくlike_areasにした
+  has_many :like_areas, through: :favorite_areas, source: :area
   has_many :authentications, dependent: :destroy
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
   has_many :attending_mokumokus, through: :attends, source: :mokumoku # 自分の投稿したもくもくを含めない参加予定のもくもく
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   accepts_nested_attributes_for :favorite_areas
   accepts_nested_attributes_for :authentications
@@ -68,5 +70,13 @@ class User < ApplicationRecord
 
   def has_comment?(comment)
     comments.include?(comment)
+  end
+
+  def update_notification_status(mokumoku)
+     notifications_of_mokumoku = notifications.unread.where(notifiable_type: 'Mokumoku')
+                                     .where(notifiable_id: mokumoku.id).where(read: :unread)
+    notifications_of_mokumoku.each do |notification|
+      notification.read!
+    end
   end
 end
