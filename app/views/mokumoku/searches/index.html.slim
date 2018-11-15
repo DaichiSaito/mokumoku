@@ -1,0 +1,11 @@
+.container
+  h2
+    | 検索画面
+  .row
+    .col-md-12
+      .text-center
+        = link_to 'お気に入りエリアで検索', '#'
+  .row
+    .col-12
+      .row
+        = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus
