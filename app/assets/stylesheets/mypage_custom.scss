@@ -1,3 +1,32 @@
 .form-control:focus {
   box-shadow: none;
 }
+.fc-view, .fc-view > table {
+  z-index: 0!important;
+}
+
+.notification-doropdown {
+  max-width: 500px;
+  width: 500px;
+  a {
+    display: block;
+    padding: 5%;
+    font-size: .8rem;
+  }
+}
+
+.navbar-badge {
+  top: 0!important;
+  right: -5px!important;
+}
+
+.notificcation_read {
+  background-color: #eee;
+}
+
+@media screen and (max-width: 767px) {
+  .notification-doropdown {
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -1,5 +1,7 @@
 class Mypage::DashboardsController < MypageController
-  def index; end
+  def index
+    @notifications = current_user.notifications.order('created_at DESC')
+  end
 
   def schedule
     mokumokus = current_user.attending_including_own.date_range(Time.at(params[:start].to_i), Time.at(params[:end].to_i))

@@ -1,6 +1,6 @@
 class Mypage::MokumokusController < MypageController
   before_action :set_mokumoku, only: %i[edit update]
-
+  after_action :create_notifications, only: [:create]
   def index
     @mokumokus = current_user.mokumokus
   end
@@ -35,5 +35,13 @@ class Mypage::MokumokusController < MypageController
 
     def set_mokumoku
       @mokumoku = current_user.mokumokus.find(params[:id])
+    end
+
+    def create_notifications
+      return unless @mokumoku.persisted?
+      users_of_this_area_excluding_self = @mokumoku.area.users.reject { |user| user.id == current_user.id }
+      users_of_this_area_excluding_self.each do |user|
+        @mokumoku.notifications.create(user_id: user.id, body: 'あなたのお気に入りエリアでのもくもくが投稿されました。')
+      end
     end
 end
