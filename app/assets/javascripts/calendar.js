@@ -10,18 +10,24 @@ $('#calendar').fullCalendar({
                 // our hypothetical feed requires UNIX timestamps
                 start: start.unix(),
                 end: end.unix()
-            },
-            success: function(res) {
-                var events = [];
-                res.events.forEach(function(event) {
-                    events.push({
-                        title: event.title,
-                        start: event.start, // will be parsed
-                        url: event.url
-                    })
-                })
-                callback(events);
             }
+        })
+        .done((data, textStatus, jqXHR) => {
+            var events = [];
+            data.events.forEach(function(event) {
+                events.push({
+                    title: event.title,
+                    start: event.start, // will be parsed
+                    url: event.url
+                })
+            })
+            callback(events);
+        })
+        .fail((jqXHR, textStatus, errorThrown) => {
+            alert('エラーです。\nページを再読み込みしても解消されない場合はお問い合わせください。')
+        })
+        .always(() => {
+
         });
     }
 });
