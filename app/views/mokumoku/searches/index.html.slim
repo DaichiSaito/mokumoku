@@ -4,7 +4,11 @@
   .row
     .col-md-12
       .text-center
-        = link_to 'お気に入りエリアで検索', '#'
+        h3
+          | お気に入りエリア
+        - current_user.areas.each do |area|
+          p
+            | 【#{area.name}】
   .row
     .col-12
       .row
