@@ -37,6 +37,8 @@ gem 'seed-fu', '~> 2.3'
 
 gem 'slim-rails'
 
+gem 'config'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

@@ -2,7 +2,10 @@
   .widget.change-password
     h3.widget-header.user ユーザー登録
     .text-center
-      = link_to 'Twitter認証', users_auth_at_provider_path(provider: :twitter), class: 'nav-link login-button'
+      h5
+        = link_to users_auth_at_provider_path(provider: :twitter), class: 'nav-link login-button'
+          i.fa.fa-twitter.fa-lg
+          | Twitter でログイン
     = form_for @user do |f|
       .form-group
         = f.label '名前'
@@ -10,12 +13,12 @@
       .form-group
         = f.label 'メールアドレス'
         = f.email_field :email, class: 'form-control'
-
-        = f.fields_for :favorite_areas do |f|
-          .form-group
-            = f.label 'お気に入りエリア'
-            = f.select :area_id, collection: Area.pluck(:name, :id)
-
+      .form-group
+        = f.label 'お気に入りエリア'
+        p
+          = f.collection_check_boxes :area_ids, Area.all, :id, :name do |b|
+            = b.check_box
+            = b.label { b.text }
       .form-group
         = f.label 'パスワード'
         = f.password_field :password, class: 'form-control'

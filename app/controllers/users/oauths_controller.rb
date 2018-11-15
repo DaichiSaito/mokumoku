@@ -28,6 +28,8 @@ class Users::OauthsController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # SNS認証の場合はパスワードを自動で入力してバリデーションを通す
+    @user.assign_password
     @user.download_and_attach_avatar
 
     # new アクションで実行した create_and_validate_from() の中でセッションに保存したパラメータを取得し、認証クラスの生成に用いる
@@ -47,7 +49,7 @@ class Users::OauthsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :profile_image_url, :avatar, :password, :password_confirmation, favorite_areas_attributes: [:area_id])
+    params.require(:user).permit(:name, :email, :profile, :profile_image_url, :avatar, area_ids: [])
   end
 
   # アプリ連携を拒否
