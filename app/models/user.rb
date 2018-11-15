@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
   has_many :attending_mokumokus, through: :attends, source: :mokumoku
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
   validates :name, presence: true
@@ -57,6 +58,16 @@ class User < ApplicationRecord
     attends.find_by(mokumoku_id: mokumoku.id).destroy!
   end
 
+  def post_comment(mokumoku, comment)
+    comment.user_id = id
+    comment.mokumoku_id = mokumoku.id
+    comment.save
+  end
+
+  def has_comment?(comment)
+    comments.include?(comment)
+  end
+  
   def assign_password
     pass = SecureRandom.base64(8)
     assign_attributes(password: pass, password_confirmation: pass)

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create show]
   resources :mokumokus, only: %i[show] do
     resources :attends, only: %i[create destroy]
+    resources :comments, only: %i[create destroy]
   end
 
   namespace :mypage do
