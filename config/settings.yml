@@ -3,6 +3,8 @@ common:
     name: MOKUMOKU
     url: http://localhost.com/
     description: もくもくを募集したり共有するサイトです
+    og:
+      image: sample.jpg
   password:
     minimum_count: 6
   avatar:
