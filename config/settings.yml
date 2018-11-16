@@ -1,4 +1,6 @@
 common:
+  app:
+    url: http://localhost.com/
   password:
     minimum_count: 6
   avatar:
@@ -6,7 +8,9 @@ common:
     by_sns_file_name: profile_image
 
 twitter:
+  account_name: MOKUMOK63955523
   auto_fill_password_count: 8
+  share_url: https://twitter.com/intent/tweet
 
 favorite_areas:
   minimum_count: 1
