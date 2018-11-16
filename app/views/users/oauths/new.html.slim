@@ -1,22 +1,17 @@
 .container
   .widget.change-password
     h3.widget-header.user ユーザー登録
-
     = form_for @user, url: users_oauths_url, method: :post do |f|
       = f.hidden_field :name
       = f.hidden_field :email
       = f.hidden_field :profile
       = f.hidden_field :profile_image_url
-      = f.fields_for :favorite_areas do |f|
-        .form-group
-          = f.label 'お気に入りエリア'
-          = f.select :area_id, collection: Area.pluck(:name, :id)
       .form-group
-        = f.label 'パスワード'
-        = f.password_field :password, class: 'form-control'
-      .form-group
-        = f.label 'パスワード再入力'
-        = f.password_field :password_confirmation, class: 'form-control'
+        = f.label 'お気に入りエリア'
+        p
+          = f.collection_check_boxes :area_ids, Area.all, :id, :name do |b|
+            = b.check_box
+            = b.label { b.text }
       = f.submit '登録', class: "btn btn-transparent"
   .text-center
     = link_to 'ログインはこちら', login_path

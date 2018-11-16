@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2018_11_14_080416) do
 
   # These are extensions that must be enabled in order to support this database
@@ -92,6 +91,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_080416) do
     t.index ["area_id"], name: "index_mokumokus_on_area_id"
     t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
+
 
   create_table "notifications", force: :cascade do |t|
     t.text "body", null: false
