@@ -11,85 +11,18 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom
 
   /! Right navbar links
   ul.navbar-nav.ml-auto.align-items-center
-    /! Messages Dropdown Menu
-    li.nav-item.dropdown
-      a.nav-link data-toggle="dropdown" href="#" 
-        i.fa.fa-comments-o
-        span.badge.badge-danger.navbar-badge 3
-      .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
-        a.dropdown-item href="#" 
-          /! Message Start
-          .media
-            = image_tag 'dist/img/user1-128x128.jpg', class: 'img-size-50 mr-3 img-circle'
-            .media-body
-              h3.dropdown-item-title
-                | Brad Diesel
-                span.float-right.text-sm.text-danger
-                  i.fa.fa-star
-              p.text-sm Call me whenever you can...
-              p.text-sm.text-muted
-                i.fa.fa-clock-o.mr-1
-                | 4 Hours Ago
-        /! Message End
-        .dropdown-divider
-        a.dropdown-item href="#" 
-          /! Message Start
-          .media
-            = image_tag 'dist/img/user8-128x128.jpg', class: 'img-size-50 mr-3 img-circle'
-            .media-body
-              h3.dropdown-item-title
-                | John Pierce
-                span.float-right.text-sm.text-muted
-                  i.fa.fa-star
-              p.text-sm I got your message bro
-              p.text-sm.text-muted
-                i.fa.fa-clock-o.mr-1
-                | 4 Hours Ago
-        /! Message End
-        .dropdown-divider
-        a.dropdown-item href="#" 
-          /! Message Start
-          .media
-            = image_tag 'dist/img/user3-128x128.jpg', class: 'img-size-50 mr-3 img-circle'
-            .media-body
-              h3.dropdown-item-title
-                | Nora Silvester
-                span.float-right.text-sm.text-warning
-                  i.fa.fa-star
-              p.text-sm The subject goes here
-              p.text-sm.text-muted
-                i.fa.fa-clock-o.mr-1
-                | 4 Hours Ago
-        /! Message End
-        .dropdown-divider
-        a.dropdown-item.dropdown-footer href="#"  See All Messages
     /! Notifications Dropdown Menu
     li.nav-item.dropdown
       a.nav-link data-toggle="dropdown" href="#" 
         i.fa.fa-bell-o
-        span.badge.badge-warning.navbar-badge 15
-      .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
-        span.dropdown-header 15 Notifications
-        .dropdown-divider
-        a.dropdown-item href="#" 
-          i.fa.fa-envelope.mr-2
-          | 4 new messages
-          span.float-right.text-muted.text-sm 3 mins
-        .dropdown-divider
-        a.dropdown-item href="#" 
-          i.fa.fa-users.mr-2
-          | 8 friend requests
-          span.float-right.text-muted.text-sm 12 hours
-        .dropdown-divider
-        a.dropdown-item href="#" 
-          i.fa.fa-file.mr-2
-          | 3 new reports
-          span.float-right.text-muted.text-sm 2 days
-        .dropdown-divider
-        a.dropdown-item.dropdown-footer href="#"  See All Notifications
+        span.badge.badge-warning.navbar-badge
+          / TODO 汚すぎる。デコレータを使うなりして改善すべし。
+          = current_user.unread_count if current_user.has_unread?
+      .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.notification-doropdown
+        = render 'shared/notifications/header_notifications',
+                notifications: current_user.my_notifications
     li.nav-item.dropdown.ml-3
       a data-toggle="dropdown" href="#" 
         = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
       .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
-        = link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :post
-/! /.navbar
+        = link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete

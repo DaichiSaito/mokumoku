@@ -1,9 +1,11 @@
 class Mokumoku < ApplicationRecord
+  include Rails.application.routes.url_helpers
   belongs_to :user
   belongs_to :area
   has_many :attends, dependent: :destroy
   has_many :participants, through: :attends, source: :user
   has_many :comments, dependent: :destroy
+  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 1000 }
@@ -27,5 +29,9 @@ class Mokumoku < ApplicationRecord
     "タイトル　　　　：#{title}%0A" \
     "もくもく予定日時：#{open_at.to_s(:datetime)}%0A" \
     "エリア　　　　　：#{area.name}"
+  end
+
+  def notification_link
+    mokumoku_path(id)
   end
 end

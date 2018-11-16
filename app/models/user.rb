@@ -10,12 +10,16 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :favorite_areas, dependent: :destroy
-  has_many :areas, through: :favorite_areas
+  # 中間テーブルをfavorite_areasという名前にしてしまったため致し方なくlike_areasにした
+  has_many :like_areas, through: :favorite_areas, source: :area
   has_many :authentications, dependent: :destroy
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
   has_many :attending_mokumokus, through: :attends, source: :mokumoku # 自分の投稿したもくもくを含めない参加予定のもくもく
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+
+  accepts_nested_attributes_for :favorite_areas
   accepts_nested_attributes_for :authentications
 
   validates :name, presence: true
@@ -74,9 +78,25 @@ class User < ApplicationRecord
     comments.include?(comment)
   end
 
+  def has_unread?
+    notifications.unread.present?
+  end
+
+  def unread_count
+    notifications.unread.count
+  end
+
+  def update_notification_status(mokumoku)
+    notifications.unread.mokumoku_notifications(mokumoku).each(&:read!)
+  end
+
   def assign_password
     pass = SecureRandom.base64(Settings.twitter.auto_fill_password_count)
     assign_attributes(password: pass, password_confirmation: pass)
+  end
+
+  def my_notifications
+    notifications.order(created_at: :desc)
   end
 
   private
