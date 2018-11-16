@@ -1,6 +1,8 @@
 common:
   app:
+    name: MOKUMOKU
     url: http://localhost.com/
+    description: もくもくを募集したり共有するサイトです
   password:
     minimum_count: 6
   avatar:
