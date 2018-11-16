@@ -16,6 +16,7 @@ class Mokumoku < ApplicationRecord
   scope :date_range, ->(from, to) { where(open_at: from.beginning_of_day..to.end_of_day) }
   scope :attending_of, ->(user) { where(id: user.attends.select(:mokumoku_id)).or(user.mokumokus) }
   scope :futures, -> { where('open_at >= ?', Date.today) }
+  scope :recent_opens, -> { order(open_at: :asc) }
 
   def date_cannot_be_in_the_past
     # 昨日以前のものはNGとする。時間は見ないので当日であれば許容する。

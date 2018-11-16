@@ -1,10 +1,15 @@
 .container
+  h2
+    | トップ画面
   .row
     - if current_user.blank?
       = link_to 'ログイン', login_path, class: 'nav-link login-button'
   .row
     .col-md-12
-      | Top
+      h3
+        .text-center
+          = link_to 'お気に入りエリアで検索', mokumoku_searches_path, class: 'nav-link login-button'
+
   .row
     .col-12
       .row
