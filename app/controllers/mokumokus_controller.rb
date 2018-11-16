@@ -1,6 +1,6 @@
 class MokumokusController < ApplicationController
   def show
-    @mokumoku = Mokumoku.find(params[:id]).decorate
+    @mokumoku = Mokumoku.find(params[:id])
     @comments = @mokumoku.comments
     @comment = Comment.new
   end
