@@ -39,11 +39,8 @@ gem 'slim-rails'
 
 gem 'config'
 
-<<<<<<< HEAD
-=======
 gem 'ransack'
 
->>>>>>> 015b40f9a428b5b22bf94e30955e22c32029f0f6
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
