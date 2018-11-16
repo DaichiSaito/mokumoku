@@ -22,4 +22,10 @@ class Mokumoku < ApplicationRecord
       errors.add(:open_at, '過去の日付は使用できません')
     end
   end
+
+  def share_message
+    "タイトル　　　　：#{title}%0A" \
+    "もくもく予定日時：#{open_at.to_s(:datetime)}%0A" \
+    "エリア　　　　　：#{area.name}"
+  end
 end
