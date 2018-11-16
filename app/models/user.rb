@@ -87,8 +87,7 @@ class User < ApplicationRecord
   end
 
   def update_notification_status(mokumoku)
-    notifications.unread.where(notifiable_type: 'Mokumoku')
-        .where(notifiable_id: mokumoku.id).where(read: :unread).each(&:read!)
+    notifications.unread.mokumoku_notifications(mokumoku).each(&:read!)
   end
 
   def assign_password
