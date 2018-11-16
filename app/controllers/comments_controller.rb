@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
       return unless @comment.persisted?
       @mokumoku.notifications.create(user_id: @mokumoku.user.id, body: 'あなたのもくもくにコメントがありました。')
       @mokumoku.participants.each do |user|
-        @comment.notifications.create(user_id: user.id, body: 'あなたの参加予定のもくもくにコメントがありました。')
+        @mokumoku.notifications.create(user_id: user.id, body: 'あなたの参加予定のもくもくにコメントがありました。')
       end
     end
 end
