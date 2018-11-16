@@ -36,6 +36,6 @@ class Mypage::MokumokusController < MypageController
     end
 
     def set_mokumoku
-      @mokumoku = current_user.mokumokus.find(params[:id])
+      @mokumoku = current_user.mokumokus.find(params[:id]).decorate
     end
 end
