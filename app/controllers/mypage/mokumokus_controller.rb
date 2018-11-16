@@ -1,5 +1,5 @@
 class Mypage::MokumokusController < MypageController
-  before_action :set_mokumoku, only: %i[edit update]
+  before_action :set_mokumoku, only: %i[edit update show]
 
   def index
     @mokumokus = current_user.mokumokus
@@ -12,13 +12,15 @@ class Mypage::MokumokusController < MypageController
   def create
     @mokumoku = current_user.mokumokus.build(mokumoku_params)
     if @mokumoku.save
-      redirect_to mypage_root_path
+      redirect_to mypage_mokumoku_url(@mokumoku)
     else
       render :new
     end
   end
 
   def edit; end
+
+  def show; end
 
   def update
     if @mokumoku.update(mokumoku_params)

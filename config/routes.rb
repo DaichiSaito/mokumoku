@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     root to: 'dashboards#index'
     get '/dashboards/schedule', to: 'dashboards#schedule'
-    resources :mokumokus, only: %i[index new create edit update]
+    resources :mokumokus, only: %i[index new create edit update show]
     resource :user, only: %i[edit update]
   end
 
