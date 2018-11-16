@@ -2,7 +2,10 @@
   .widget.change-password
     h3.widget-header.user= 'ログイン'
     .text-center
-      = link_to 'Twitterでログイン', users_auth_at_provider_path(provider: :twitter), class: 'nav-link login-button'
+      h5
+        = link_to users_auth_at_provider_path(provider: :twitter), class: 'nav-link login-button' do
+          i.fa.fa-twitter.fa-lg
+          | Twitter でログイン
     = form_tag login_path do
       .form-group
         = label :name, 'メールアドレス'

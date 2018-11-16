@@ -1,0 +1,8 @@
+.dropdown-divider
+- notifications.each do |notification|
+  = link_to link_through_path(notification), class: "#{ 'notificcation_read' if notification.read? }" do
+    i.fa.fa-envelope.mr-2
+    = notification.body
+    span.float-right.text-muted.text-sm
+      = notification.created_at.to_s(:datetime)
+  .dropdown-divider

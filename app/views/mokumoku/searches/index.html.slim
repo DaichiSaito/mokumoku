@@ -1,0 +1,15 @@
+.container
+  h2
+    | 検索画面
+  .row
+    .col-md-12
+      .text-center
+        h3
+          | お気に入りエリア
+        - current_user.areas.each do |area|
+          p
+            | 【#{area.name}】
+  .row
+    .col-12
+      .row
+        = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus

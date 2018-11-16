@@ -1,0 +1,12 @@
+common:
+  password:
+    minimum_count: 6
+  avatar:
+    default_file_name: sample.jpg
+    by_sns_file_name: profile_image
+
+twitter:
+  auto_fill_password_count: 8
+
+favorite_areas:
+  minimum_count: 1
