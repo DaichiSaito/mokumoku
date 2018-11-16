@@ -1,9 +1,11 @@
 class Mokumoku < ApplicationRecord
+  include Rails.application.routes.url_helpers
   belongs_to :user
   belongs_to :area
   has_many :attends, dependent: :destroy
   has_many :participants, through: :attends, source: :user
   has_many :comments, dependent: :destroy
+  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 1000 }
@@ -21,5 +23,9 @@ class Mokumoku < ApplicationRecord
     if open_at.present? && open_at.to_date <= Date.yesterday
       errors.add(:open_at, '過去の日付は使用できません')
     end
+  end
+
+  def notification_link
+    mokumoku_path(id)
   end
 end
