@@ -6,7 +6,7 @@
       .text-center
         h3
           | お気に入りエリア
-        - current_user.areas.each do |area|
+        - current_user.like_areas.each do |area|
           p
             | 【#{area.name}】
   .row
