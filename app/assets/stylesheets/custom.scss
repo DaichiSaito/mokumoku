@@ -1,0 +1,212 @@
+body {
+  background-color: white;
+}
+
+// bootstrap4の上書き
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+.container {
+  padding-top: 3rem;
+}
+
+// ログイン画面
+.login-form {
+  height: 100vh;
+}
+.login-form-inner {
+  max-width: 400px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// もくもくのパーシャル
+.mokumoku {
+  .title {
+    font-size: 1.4rem;
+  }
+  .username {
+    font-size: .5rem;
+  }
+}
+
+
+// もくもくの詳細
+.profile-box {
+  height: 100%;
+  .username {
+    font-weight: bold;
+    font-sie: 1.5rem;
+    text-align: center;
+  }
+}
+
+// コメントエリア
+
+.chatroom {
+  &.show {
+
+    .attention {
+      background: #eee;
+      border-radius: 10px;
+      padding: 3%;
+    }
+
+    .avatar_image {
+      width: 90px;
+      height: 90px;
+
+      @media (max-width: 480px) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    #chat-frame {
+      min-width: 320px;
+      // max-width: 800px;
+      margin: auto;
+      padding: 1em 1em;
+      //background-color: #D8F3F0;
+      background-color: white;
+      padding-bottom: 50px;
+    }
+    .chat-talk {
+      overflow: hidden;
+      margin: 0 0 1em 0;
+      padding: 0;
+    }
+    .chat-talk span {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+    .chat-talk .talk-icon {
+      float: left;
+      width: auto;
+    }
+    .chat-talk .talk-content {
+      position: relative;
+      box-sizing: border-box;
+      width: auto;
+      min-height: 50px;
+      border-radius: 10px;
+      //background-color: #fff;
+      background-color: #eee;
+      margin: 0 auto 0 100px;
+
+      padding: 1em;
+      margin-top: 15px!important;
+      @media(max-width: 480px) {
+        margin: 0 auto 0 60px;
+        margin-top: 0!important;
+      }
+    }
+    .chat-talk .talk-icon img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: bottom;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+    .chat-talk .talk-content:before {
+      position: absolute;
+      top: 15px;
+      left: -20px;
+      display: block;
+      width: 0;
+      height: 0;
+      content: '';
+      border: 10px solid transparent;
+      //border-right-color: #FFFFFF;
+      border-right-color: #eee;
+    }
+    .chat-talk.mytalk .talk-icon {
+      float: right;
+    }
+    .chat-talk.mytalk .talk-content {
+      margin: 0 100px 0 auto;
+      @media(max-width: 480px) {
+        margin: 0 60px 0 auto;
+      }
+      color: #000;
+      //background: #78FF6C;
+      background: #eee;
+    }
+    .chat-talk.mytalk .talk-content:before {
+      right: -20px;
+      left: auto;
+      border-color: transparent;
+      //border-left-color: #78FF6C;
+      border-left-color: #eee;
+    }
+
+    .send-box {
+      position: absolute;
+      bottom: 0;
+
+      button {
+        font-size: 16px;
+      }
+    }
+
+    // textarea {
+    //   font-size: 16px;
+    //   transform: scale(0.8);
+    // }
+    // body {font-size: 14px;}
+    // これがないとiPhoneでテキストを打つ時にズームされてしまう
+    textarea {font-size: 16px;}
+  }
+
+  .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+
+    padding: 20px;
+  }
+
+  .strike > span {
+    position: relative;
+    display: inline-block;
+    color: red;
+  }
+
+  .strike > span:before,
+  .strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: red;
+  }
+
+  .strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+
+  .strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+}
+
+.chat-additional-items-box {
+  display: flex;
+
+  .chat-additional-item {
+    flex-basis: 50%;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 3%;
+  }
+}

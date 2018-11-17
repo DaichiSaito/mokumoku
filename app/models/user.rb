@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :favorite_areas, dependent: :destroy
   # 中間テーブルをfavorite_areasという名前にしてしまったため致し方なくlike_areasにした
-  has_many :like_areas, through: :favorite_areas, source: :area
+  has_many :areas, through: :favorite_areas, source: :area
   has_many :authentications, dependent: :destroy
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy

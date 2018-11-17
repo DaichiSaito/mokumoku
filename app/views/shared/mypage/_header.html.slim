@@ -13,7 +13,7 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom
   ul.navbar-nav.ml-auto.align-items-center
     /! Notifications Dropdown Menu
     li.nav-item.dropdown
-      a.nav-link data-toggle="dropdown" href="#" 
+      a.nav-link data-toggle="dropdown" href="#"
         i.fa.fa-bell-o
         span.badge.badge-warning.navbar-badge
           / TODO 汚すぎる。デコレータを使うなりして改善すべし。
@@ -22,7 +22,7 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom
         = render 'shared/notifications/header_notifications',
                 notifications: current_user.my_notifications
     li.nav-item.dropdown.ml-3
-      a data-toggle="dropdown" href="#" 
+      a data-toggle="dropdown" href="#"
         = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
       .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
         = link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete

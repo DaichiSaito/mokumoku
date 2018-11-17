@@ -1,2 +1,18 @@
-.comments
-  table = render comments
+/ .comments
+/   table = render comments
+
+
+.chatroom.show
+  div
+    - unread_messages = false
+    #chat-frame data-behavior="messages" style=("min-height: calc(100vh - 95px);")
+      - comments.each do |comment|
+        = render comment
+    / .panel-footer.send-box
+    /   = form_for [@chatroom, Message.new] do |f|
+    /     .input-group
+    /       span.input-group-btn
+    /         button.btn.btn-default.btn-sm data-target="#sampleModal" data-toggle="modal" type="button"  ＋
+    /       = f.text_area :body, rows: 1, class: "form-control input-sm chat_input", autofocus: true
+    /       span.input-group-btn
+    /         button#btn-chat.btn.btn-primary.btn-sm= fa_icon("paper-plane-o")

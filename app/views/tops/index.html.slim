@@ -1,14 +1,10 @@
 .container
-  h2
-    | トップ画面
-  .row
-    - if current_user.blank?
-      = link_to 'ログイン', login_path, class: 'nav-link login-button'
   .row
     .col-md-12
-      h3
-        .text-center
-          = link_to 'お気に入りエリアで検索', mokumoku_searches_path, class: 'nav-link login-button'
+      p.text-center
+        = link_to mokumoku_searches_path, class: 'btn btn-raised btn-info btn-lg' do
+          | お気に入りエリアで検索
+          = fa_icon 'map-marker', class: 'pl-3'
 
   .row
     .col-12
