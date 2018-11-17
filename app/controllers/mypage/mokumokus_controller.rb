@@ -1,7 +1,7 @@
 class Mypage::MokumokusController < MypageController
   before_action :set_mokumoku, only: %i[edit update show]
   after_action :create_notifications, only: [:create]
-  
+
   def index
     @mokumokus = current_user.mokumokus
   end
