@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_080416) do
     t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
 
-
   create_table "notifications", force: :cascade do |t|
     t.text "body", null: false
     t.string "notifiable_type"
