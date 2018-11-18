@@ -9,7 +9,7 @@
       .form-group
         = f.label 'お気に入りエリア'
         p
-          = f.collection_check_boxes :area_ids, Area.all, :id, :name do |b|
+          = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
             = b.check_box
             = b.label { b.text }
       = f.submit '登録', class: "btn btn-transparent"

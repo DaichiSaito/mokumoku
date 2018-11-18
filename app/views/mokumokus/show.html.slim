@@ -1,7 +1,7 @@
 .container
   .row
-    .col-md-4
-      .card.profile-box
+    .col-md-4.mb-3
+      .card.profile-box.sticky-top
         .card-body
           figure.text-center
             = image_tag @mokumoku.user.avatar_or_default, class: 'rounded-circle', size: '100x100'
@@ -10,7 +10,7 @@
           p
             = @mokumoku.user.profile
     .col-md-8
-      div.text-center
+      div.text-center.mb-3
         = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
       table.table.mb-5
         tr
@@ -39,7 +39,7 @@
             | 参加者リスト
           td
             - @mokumoku.participants.each do |user|
-              = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
+              = image_tag user.avatar_or_default, class: 'rounded-circle', size: '30x30'
 
       / コメントフォーム
       = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }

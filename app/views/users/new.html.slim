@@ -32,8 +32,8 @@
 
 
 .container
-  .login-form
-    .login-form-inner
+  .row
+    .col-md-4.offset-md-4
       h5.text-center
         = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info btn-lg mb-5' do
           i.fa.fa-twitter.fa-lg
@@ -48,10 +48,14 @@
           = f.email_field :email, class: 'form-control'
         .form-group
           = f.label 'お気に入りエリア'
-          p
-            = f.collection_check_boxes :area_ids, Area.all, :id, :name do |b|
-              / = b.check_box
-              = b.label(class: 'checkbox-inline') { b.check_box + b.text}
+          div
+            = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
+              .checkbox
+                = b.label(class: 'text-dark') do
+                  = b.check_box
+                  = b.text
+                  span.checkbox-decorator
+                    span.check
         .form-group
           = f.label 'パスワード'
           = f.password_field :password, class: 'form-control'

@@ -1,4 +1,4 @@
-.col-sm-6.mb-3.card-deck.m-0.pt-3.mokumoku
+.col-md-6.mb-3.card-deck.m-0.pt-3.mokumoku
   .card
     .card-body
       .row
@@ -15,6 +15,7 @@
     .card-footer
       .row
         .col-6
+          = fa_icon 'map-marker', class: 'pr-3'
           = mokumoku.area.name
         .col-6.text-right
           = mokumoku.open_at.to_s :datetime

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :favorite_areas, dependent: :destroy
   # 中間テーブルをfavorite_areasという名前にしてしまったため致し方なくlike_areasにした
-  has_many :areas, through: :favorite_areas, source: :area
+  has_many :like_areas, through: :favorite_areas, source: :area
   has_many :authentications, dependent: :destroy
   has_many :mokumokus, dependent: :destroy
   has_many :attends, dependent: :destroy
@@ -103,6 +103,6 @@ class User < ApplicationRecord
 
   def favorite_areas_count
     count = Settings.favorite_areas.minimum_count
-    errors.add(:area_ids, "を#{count}つ以上指定して下さい") if area_ids.size < count
+    errors.add(:like_area_ids, "を#{count}つ以上指定して下さい") if like_area_ids.size < count
   end
 end

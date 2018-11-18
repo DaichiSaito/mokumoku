@@ -2,30 +2,32 @@
   h2 プロフィール編集
   = form_for @user, url: mypage_user_path, method: :patch do |f|
     .row
-      .col-sm-6
+      .col-md-6
         .text-center
           p
             = image_tag @user.avatar_or_default, class: 'rounded-circle', size: '100x100'
-          p
-            = f.file_field :avatar
-        p
-          h4
-            .form-group
-              = f.label '名前'
-              = f.text_field :name, class: 'form-control'
+          p.custom-file
+            = f.file_field :avatar, class: 'custom-file-input'
+            = f.label :avatar, class: 'custom-file-label'
+      .col-md-6
+        div
+          .form-group
+            = f.label '名前'
+            = f.text_field :name, class: 'form-control'
+        div
+          .form-group
+            = f.label '自己紹介'
+            = f.text_area :profile, class: 'form-control', rows: '10'
     .row
       .col
         .form-group
           = f.label 'お気に入りエリア'
-          p
-            = f.collection_check_boxes :area_ids, Area.all, :id, :name do |b|
-              = b.check_box
-              = b.label { b.text }
-    .row
-      .col
-        h4
-          .form-group
-            = f.label '自己紹介'
-            = f.text_area :profile, class: 'form-control'
-
-    = f.submit '更新', class: "btn btn-transparent"
+          .checkbox
+            = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
+              = b.label(class: 'text-dark') do
+                = b.check_box
+                = b.text
+                span.checkbox-decorator
+                  span.check
+    .text-center
+      = f.submit '更新', class: 'btn btn-primary btn-lg btn-raised'

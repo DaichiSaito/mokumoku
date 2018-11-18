@@ -1,21 +1,12 @@
 .container.pt-3
   .row
-    .col-sm-6
-      .text-center
-        p
-          = image_tag current_user.avatar_or_default, class: 'rounded-circle', size: '100x100'
-          = link_to edit_mypage_user_path do
-            i.fa.fa-pencil
-
-        p
-          = current_user.name
-    .col-sm-6
+    .col-lg-8.offset-lg-2
       #calendar
   .row
     .col
       h2
         | お知らせ部分
-      ul
+      ul.mypage_notifications_lists
         - current_user.my_notifications.each do |notification|
           li
             = link_to notification.body, link_through_path(notification)
