@@ -1,7 +1,6 @@
 common:
   app:
     name: MOKUMOKU
-    url: https://t-mokumoku-arte.herokuapp.com
     og:
       title: MOKUMOKU
       type: website
