@@ -1,5 +1,6 @@
 class Mypage::MokumokusController < MypageController
   before_action :set_mokumoku, only: %i[edit update]
+  before_action :ichijiteki
   after_action :create_notifications, only: [:create]
   def index
     @mokumokus = current_user.mokumokus
@@ -42,6 +43,11 @@ class Mypage::MokumokusController < MypageController
       users_of_this_area_excluding_self = @mokumoku.area.users.reject { |user| user.id == current_user.id }
       users_of_this_area_excluding_self.each do |user|
         @mokumoku.notifications.create(user_id: user.id, body: 'あなたのお気に入りエリアでのもくもくが投稿されました。')
+        NotificationMailer.send_favorite_areas_user(user, @mokumoku).deliver_later
       end
+    end
+
+    def ichijiteki
+      @notifications = current_user.notifications.order('created_at DESC')
     end
 end

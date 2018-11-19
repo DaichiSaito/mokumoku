@@ -22,8 +22,10 @@ class CommentsController < ApplicationController
     def create_notifications
       return unless @comment.persisted?
       @mokumoku.notifications.create(user_id: @mokumoku.user.id, body: 'あなたのもくもくにコメントがありました。')
+      NotificationMailer.send_mokumoku_owner(@mokumoku.user, @mokumoku).deliver_later
       @mokumoku.participants.each do |user|
-        @mokumoku.notifications.create(user_id: user.id, body: 'あなたの参加予定のもくもくにコメントがありました。')
+        @comment.notifications.create(user_id: user.id, body: 'あなたの参加予定のもくもくにコメントがありました。')
+        NotificationMailer.send_mokumoku_participants(user, @mokumoku).deliver_later
       end
     end
 end
