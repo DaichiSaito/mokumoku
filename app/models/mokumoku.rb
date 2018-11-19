@@ -5,7 +5,7 @@ class Mokumoku < ApplicationRecord
   has_many :attends, dependent: :destroy
   has_many :participants, through: :attends, source: :user
   has_many :comments, dependent: :destroy
-  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
+  has_many :notifications
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 1000 }

@@ -1,0 +1,8 @@
+= link_to root_path do
+  = image_tag notification.notified_by.avatar_or_default, class: 'rounded-circle', size: '30x30'
+  = notification.notified_by.name
+| が
+= link_to link_through_path(notification) do
+  = "#{ notification.mokumoku.area.name }エリアのもくもく"
+end
+| を公開しました。

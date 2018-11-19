@@ -3,6 +3,7 @@ class AttendsController < ApplicationController
   def create
     @mokumoku = Mokumoku.find(params[:mokumoku_id])
     current_user.attend(@mokumoku)
+    @mokumoku.notifications.create(user_id: @mokumoku.user.id, notified_by: current_user, notified_type: :attend_mokumoku)
     redirect_to mokumoku_path(@mokumoku)
   end
 

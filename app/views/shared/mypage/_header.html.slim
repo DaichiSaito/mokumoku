@@ -19,8 +19,8 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom
           / TODO 汚すぎる。デコレータを使うなりして改善すべし。
           = current_user.unread_count if current_user.has_unread?
       .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.notification-doropdown
-        = render 'shared/notifications/header_notifications',
-                notifications: current_user.my_notifications
+        / = render 'shared/notifications/header_notifications',
+                notifications: current_user.notifications.recent.decorate
     li.nav-item.dropdown.ml-3
       a data-toggle="dropdown" href="#"
         = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'

@@ -6,8 +6,11 @@
     .col
       h2
         | お知らせ部分
-      ul.mypage_notifications_lists
-        - current_user.my_notifications.each do |notification|
-          li
-            = link_to notification.body, link_through_path(notification)
-            span = notification.created_at.to_s(:datetime)
+      ul.notification-lists
+        - current_user.notifications.recent.each do |notification|
+          / li
+          /   = link_to notification.body, link_through_path(notification)
+          /   span = notification.created_at.to_s(:datetime)
+          / li
+          /   = notification.notification_body
+          = render 'notifications/notifications', notification: notification
