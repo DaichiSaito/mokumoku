@@ -1,0 +1,3 @@
+common:
+  twitter:
+    callback_url: http://localhost:3000/users/auth/twitter/callback
