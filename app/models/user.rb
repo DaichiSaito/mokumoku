@@ -87,16 +87,12 @@ class User < ApplicationRecord
   end
 
   def update_notification_status(mokumoku)
-    notifications.unread.mokumoku_notifications(mokumoku).each(&:read!)
+    notifications.unread.where(mokumoku_id: mokumoku.id).each(&:read!)
   end
 
   def assign_password
     pass = SecureRandom.base64(Settings.twitter.auto_fill_password_count)
     assign_attributes(password: pass, password_confirmation: pass)
-  end
-
-  def my_notifications
-    notifications.order(created_at: :desc)
   end
 
   private

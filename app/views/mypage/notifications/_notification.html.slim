@@ -1,0 +1,12 @@
+li
+  - if notification.unread?
+    .unread 未読
+    br
+  - if notification.favorite_area_created?
+    = render 'mypage/notifications/favorite_area_created', notification: notification
+  - elsif notification.commented_to_own_mokumoku?
+    = render 'mypage/notifications/commented_to_own_mokumoku', notification: notification
+  - elsif notification.commented_to_attending_mokumoku?
+    = render 'mypage/notifications/commented_to_attending_mokumoku', notification: notification
+  - elsif notification.attend_mokumoku?
+    = render 'mypage/notifications/attend_mokumoku', notification: notification
