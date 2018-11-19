@@ -9,7 +9,7 @@ $('#calendar').fullCalendar({
             data: {
                 // our hypothetical feed requires UNIX timestamps
                 start: start.unix(),
-                end: end.unix()
+                end: end.unix(),
             }
         })
         .done((data, textStatus, jqXHR) => {
@@ -18,7 +18,7 @@ $('#calendar').fullCalendar({
                 events.push({
                     title: event.title,
                     start: event.start, // will be parsed
-                    url: event.url
+                    url: event.url,
                 })
             })
             callback(events);

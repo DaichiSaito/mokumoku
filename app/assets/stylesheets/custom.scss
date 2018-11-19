@@ -1,0 +1,106 @@
+body {
+  background-color: white;
+}
+
+// bootstrap4の上書き
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+.btn {
+  border-radius: 0!important;
+}
+
+// 共通
+.container {
+  padding-top: 3rem;
+}
+
+// ログイン画面
+.login-form {
+  height: 100vh;
+}
+.login-form-inner {
+  max-width: 400px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// もくもくのパーシャル
+.mokumoku {
+  .title {
+    font-size: 1.4rem;
+  }
+  .username {
+    font-size: .5rem;
+  }
+}
+
+
+// もくもくの詳細
+.profile-box {
+  height: 100%;
+  .username {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+// コメントエリア
+.comments {
+  max-height: 500px;
+  overflow: scroll;
+
+  .comment-box {
+    .comment-user-name {
+      font-size: 9px;
+    }
+    .comment-content-box {
+      display: flex;
+
+      .comment-body-box {
+        flex: 1;
+        margin-left: 10px;
+        .comment-body {
+          background: #eee;
+          padding: 2%;
+          border-radius: 3px;
+        }
+        .comment-sent_at {
+          text-align: right;
+          font-size: 9px;
+        }
+      }
+    }
+
+    // 自分のコメント場合
+    &.mycomment {
+      .comment-user-thumbnail {
+        order: 1;
+      }
+
+      .comment-user-name {
+        text-align: right;
+      }
+
+      .comment-body-box {
+        margin-left: auto;
+        margin-right: 10px;
+
+        .comment-body {
+          background: #00adb5;
+          color: white;
+        }
+
+        .comment-sent_at {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

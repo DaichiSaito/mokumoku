@@ -1,6 +1,17 @@
-= bootstrap_form_with model: [:mypage, mokumoku], local: true do |f|
-  = f.text_field :title, label: 'タイトル'
-  = f.text_area :body, label: '詳細'
-  = f.datetime_field :open_at, label: 'もくもく予定日時'
-  = f.collection_select :area_id, Area.all, :id, :name, include_blank: true, label: 'エリア'
-  = f.submit '登録', class: 'btn btn-primary active'
+= form_for [:mypage, mokumoku] do |f|
+  .form-group
+    = f.label 'タイトル'
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label '詳細'
+    = f.text_area :body, class: 'form-control', rows: '10'
+  .form-group.md-form
+    = f.label 'もくもく予定日時'
+    = f.text_field :open_at, class: 'form-control js-date-picker datepicker'
+  .form-group
+    = f.label 'エリア'
+    = f.collection_select :area_id, Area.all, :id, :name, {}, class: 'custom-select', include_blank: true
+  = f.submit '登録', class: 'btn btn-primary btn-raised'
+
+
+

@@ -13,10 +13,11 @@
 //= require jquery3
 //= require popper
 //= require jquery_ujs
-//= require admin-lte/plugins/bootstrap/js/bootstrap.bundle.min
-//= require admin-lte/dist/js/adminlte
 //= require bootstrap-material-design/dist/js/bootstrap-material-design
+//= require admin-lte/dist/js/adminlte
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/locale-all
 //= require calendar
+//= require bootstrap-material-datetimepicker
+//= require mypage_custom

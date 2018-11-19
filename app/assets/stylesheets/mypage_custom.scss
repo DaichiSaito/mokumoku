@@ -1,8 +1,60 @@
+body {
+  position: relative;
+}
+
+.btn {
+  border-radius: 0!important;
+}
+
+.container {
+  padding-top: 3rem;
+}
+
 .form-control:focus {
   box-shadow: none;
 }
+
+// カレンダー
+.fc-view-container {
+  border: 1px solid #eee;
+}
+.fc-body {
+  background-color: white;
+}
+
+
+.fc-button {
+  border-radius: 0!important;
+  background: white!important;
+}
+
+.fc-widget-header {
+  background: #fefefe;
+}
 .fc-view, .fc-view > table {
   z-index: 0!important;
+}
+
+.fc-title {
+  font-size: 9px;
+}
+
+.fc-left {
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+.mypage_notifications_lists {
+  overflow: scroll;
+  height: 100px;
+}
+
+.mypage-btn-mokumoku {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .notification-doropdown {
@@ -16,12 +68,43 @@
 }
 
 .navbar-badge {
-  top: 0!important;
-  right: -5px!important;
+  top: 3px!important;
+  right: -3px!important;
 }
 
 .notificcation_read {
   background-color: #eee;
+}
+
+
+// タブ
+.tab {
+  border-radius: 3px;
+  overflow: hidden;
+  display: inline-flex;
+  border: 1px solid #eceef1;
+  border-bottom: 2px solid #e7ecf0;
+  margin-bottom: 25px;
+
+  .tab-child {
+    &.active {
+      border-right: 1px solid transparent;
+      background: #00adb5;
+      color: #fff;
+    }
+
+    font-size: 14px;
+    line-height: 23px;
+    padding: 7px 17px;
+    text-align: center;
+    background: #fff;
+    color: #4f4f4f;
+    border-right: 1px solid #eceef1;
+    display: inline-block;
+    letter-spacing: normal;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 @media screen and (max-width: 767px) {

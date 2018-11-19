@@ -1,19 +1,41 @@
-.container
-  .widget.change-password
-    h3.widget-header.user= 'ログイン'
-    .text-center
-      h5
-        = link_to users_auth_at_provider_path(provider: :twitter), class: 'nav-link login-button' do
+/ .container
+/   .row
+/     .col-md-4.offset-4
+/       h5.text-center
+/         = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info btn-lg mb-5' do
+/           i.fa.fa-twitter.fa-lg
+/           | Twitter でログイン
+/
+/       = form_tag login_path do
+/         .form-group
+/           = label :name, 'メールアドレス'
+/           = email_field '', :email, class: 'form-control'
+/         .form-group
+/           = label :name, 'パスワード'
+/           = password_field '', :password, class: 'form-control'
+/         .text-center
+/           = submit_tag 'ログイン', class: 'btn btn-primary btn-lg btn-raised'
+/       .text-center
+/         p = link_to '登録はこちら', new_user_path
+/         p = link_to 'パスワードを忘れた方はこちら', '#'
+
+.container.pt-0
+  .login-form
+    .login-form-inner
+      h5.text-center
+        = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info btn-lg mb-5' do
           i.fa.fa-twitter.fa-lg
           | Twitter でログイン
-    = form_tag login_path do
-      .form-group
-        = label :name, 'メールアドレス'
-        = email_field '', :email, class: 'form-control'
-      .form-group
-        = label :name, 'パスワード'
-        = password_field '', :password, class: 'form-control'
-      = submit_tag 'ログイン', class: 'btn btn-transparent'
-  .text-center
-    = link_to '登録はこちら', new_user_path
-    = link_to 'パスワードを忘れた方はこちら', '#'
+
+      = form_tag login_path do
+        .form-group
+          = label :name, 'メールアドレス'
+          = email_field '', :email, class: 'form-control'
+        .form-group
+          = label :name, 'パスワード'
+          = password_field '', :password, class: 'form-control'
+        .text-center
+          = submit_tag 'ログイン', class: 'btn btn-primary btn-lg btn-raised'
+      .text-center
+        p = link_to '登録はこちら', new_user_path
+        p = link_to 'パスワードを忘れた方はこちら', '#'
