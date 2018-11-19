@@ -111,7 +111,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.twitter.key = Rails.application.credentials.twitter[:key]
   config.twitter.secret = Rails.application.credentials.twitter[:secret]
-  config.twitter.callback_url = 'http://localhost:3000/users/auth/twitter/callback'
+  config.twitter.callback_url = Settings.common.twitter.callback_url
 
   config.twitter.user_info_mapping = {
     name: 'name',

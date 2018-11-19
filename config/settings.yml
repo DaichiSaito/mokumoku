@@ -1,4 +1,13 @@
 common:
+  app:
+    name: MOKUMOKU
+    og:
+      title: MOKUMOKU
+      type: website
+      url: https://t-mokumoku-arte.herokuapp.com
+      image: site_image.jpg
+      site_name: MOKUMOKU
+      description: もくもくを募集したり共有するサイトです
   password:
     minimum_count: 6
   avatar:
@@ -6,6 +15,9 @@ common:
     by_sns_file_name: profile_image
 
 twitter:
+  account_name: MOKUMOK63955523
+  share_url: https://twitter.com/intent/tweet
+  card: summary_large_image
   auto_fill_password_count: 8
 
 favorite_areas:
