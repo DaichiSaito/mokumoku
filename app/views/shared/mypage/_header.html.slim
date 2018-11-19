@@ -24,6 +24,6 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom
           = render 'mypage/notifications/header_notifications'
     li.nav-item.dropdown.ml-3
       a data-toggle="dropdown" href="#"
-        = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
+        = image_tag current_user.avatar_or_default, class: 'rounded-circle', size: '30x30'
       .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
         = link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete
