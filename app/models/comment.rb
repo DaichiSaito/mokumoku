@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   include Rails.application.routes.url_helpers
   belongs_to :user
   belongs_to :mokumoku
-  has_many :notifications, as: :notifiable, inverse_of: :notifiable, dependent: :destroy
+  has_many :notifications
 
   validates :body, presence: true
 

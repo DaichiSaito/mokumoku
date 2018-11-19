@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_080416) do
+ActiveRecord::Schema.define(version: 2018_11_18_114553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,14 +93,15 @@ ActiveRecord::Schema.define(version: 2018_11_14_080416) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.text "body", null: false
-    t.string "notifiable_type"
-    t.bigint "notifiable_id"
     t.bigint "user_id"
+    t.bigint "notified_by_id"
+    t.bigint "mokumoku_id"
+    t.integer "notified_type", null: false
     t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["mokumoku_id"], name: "index_notifications_on_mokumoku_id"
+    t.index ["notified_by_id"], name: "index_notifications_on_notified_by_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
@@ -122,5 +123,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_080416) do
   add_foreign_key "comments", "users"
   add_foreign_key "mokumokus", "areas"
   add_foreign_key "mokumokus", "users"
+  add_foreign_key "notifications", "mokumokus"
   add_foreign_key "notifications", "users"
+  add_foreign_key "notifications", "users", column: "notified_by_id"
 end

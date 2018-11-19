@@ -1,3 +1,4 @@
+@import '_notification';
 body {
   position: relative;
 }
@@ -45,10 +46,6 @@ body {
   }
 }
 
-.mypage_notifications_lists {
-  overflow: scroll;
-  height: 100px;
-}
 
 .mypage-btn-mokumoku {
   position: absolute;
@@ -56,26 +53,6 @@ body {
   top: 50%;
   transform: translate(-50%,-50%);
 }
-
-.notification-doropdown {
-  max-width: 500px;
-  width: 500px;
-  a {
-    display: block;
-    padding: 5%;
-    font-size: .8rem;
-  }
-}
-
-.navbar-badge {
-  top: 3px!important;
-  right: -3px!important;
-}
-
-.notificcation_read {
-  background-color: #eee;
-}
-
 
 // タブ
 .tab {
@@ -104,12 +81,5 @@ body {
     letter-spacing: normal;
     font-weight: 600;
     -webkit-font-smoothing: antialiased;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .notification-doropdown {
-    max-width: 100%;
-    width: 100%;
   }
 }

@@ -21,13 +21,13 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy]
   end
 
-  get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
-
   namespace :mypage do
     root to: 'dashboards#index'
     get '/dashboards/schedule', to: 'dashboards#schedule'
     resources :mokumokus, only: %i[index new create edit update]
     resource :user, only: %i[edit update]
+    resources :notifications, only: %i[index]
+    get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
   end
 
   namespace :mokumoku do
