@@ -1,7 +1,11 @@
 header
   nav.navbar.navbar-expand.navbar-light.bg-white
     = link_to 'もくもく', root_url, class: 'nabvar-brand', style: 'padding: 10px;'
-    #navbarSupportedContent.ml-auto
+    = link_to new_mypage_mokumoku_path, class: 'btn btn-primary btn-mokumoku btn-raised ml-auto mr-auto' do
+      = image_tag 'icon-mokumoku'
+      | もくもくする
+      end
+    #navbarSupportedContent
       ul.navbar-nav.align-items-center
         li.nav-item
           = link_to 'ログイン', login_path
