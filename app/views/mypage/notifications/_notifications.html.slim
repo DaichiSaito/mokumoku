@@ -1,5 +1,8 @@
 - notifications.each do |notification|
   li
+    - if notification.unread?
+      .unread 未読
+      br
     - if notification.favorite_area_created?
       = render 'mypage/notifications/favorite_area_created', notification: notification
     - elsif notification.commented_to_own_mokumoku?
