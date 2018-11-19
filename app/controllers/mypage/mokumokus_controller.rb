@@ -45,6 +45,7 @@ class Mypage::MokumokusController < MypageController
       users_of_this_area_excluding_self = @mokumoku.area.users.reject { |user| user.id == current_user.id }
       users_of_this_area_excluding_self.each do |user|
         @mokumoku.notifications.create(user_id: user.id, body: 'あなたのお気に入りエリアでのもくもくが投稿されました。')
+        NotificationMailer.send_favorite_areas_user(user, @mokumoku).deliver_later
       end
     end
 end
