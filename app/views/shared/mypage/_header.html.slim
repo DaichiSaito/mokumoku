@@ -20,7 +20,7 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom
             = current_user.unread_count
       .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.notification-doropdown
         ul.notification-lists.header-notification-lists
-          = render 'notifications/notifications'
+          = render 'mypage/notifications/header_notifications'
     li.nav-item.dropdown.ml-3
       a data-toggle="dropdown" href="#"
         = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'

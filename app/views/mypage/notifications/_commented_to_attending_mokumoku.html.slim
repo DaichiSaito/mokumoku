@@ -2,8 +2,6 @@
   = image_tag notification.notified_by.avatar_or_default, class: 'rounded-circle', size: '30x30'
   = notification.notified_by.name
 | が
-= link_to link_through_path(notification) do
-  = "#{ notification.mokumoku.area.name }エリアのもくもく"
-end
-| を公開しました。
+= link_to 'あなたが参加予定のもくもく', mypage_link_through_path(notification)
+| にコメントしました。
 p.text-right = notification.created_at.to_s(:datetime)

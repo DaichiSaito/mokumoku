@@ -1,5 +1,9 @@
-class NotificationsController < ApplicationController
-  before_action :require_login
+class Mypage::NotificationsController < MypageController
+
+  def index
+    @notifications = current_user.notifications
+  end
+
   def link_through
     @notification = current_user.notifications.find(params[:id])
     @notification.read! if @notification.unread?
