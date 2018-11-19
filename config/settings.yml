@@ -1,11 +1,11 @@
 common:
   app:
     name: MOKUMOKU
-    url: http://localhost.com/
+    url: https://t-mokumoku-arte.herokuapp.com
     og:
       title: MOKUMOKU
       type: website
-      url: http://localhost.com/
+      url: https://t-mokumoku-arte.herokuapp.com
       image: site_image.jpg
       site_name: MOKUMOKU
       description: もくもくを募集したり共有するサイトです
