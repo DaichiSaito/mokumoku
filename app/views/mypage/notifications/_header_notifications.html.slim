@@ -1,0 +1,17 @@
+- current_user.notifications.recent.each do |notification|
+  li
+    - if notification.unread?
+      .unread 未読
+      br
+    - if notification.favorite_area_created?
+      = render 'mypage/notifications/favorite_area_created', notification: notification
+    - elsif notification.commented_to_own_mokumoku?
+      = render 'mypage/notifications/commented_to_own_mokumoku', notification: notification
+    - elsif notification.commented_to_attending_mokumoku?
+      = render 'mypage/notifications/commented_to_attending_mokumoku', notification: notification
+    - elsif notification.attend_mokumoku?
+      = render 'mypage/notifications/attend_mokumoku', notification: notification
+
+- if current_user.notifications.size > 5
+  li.footer.text-center
+    = link_to '全てのお知らせを見る', mypage_notifications_path
