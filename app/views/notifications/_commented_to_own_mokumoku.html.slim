@@ -4,3 +4,4 @@
 | が
 = link_to 'あなたのもくもく', link_through_path(notification)
 | にコメントしました。
+p.text-right = notification.created_at.to_s(:datetime)

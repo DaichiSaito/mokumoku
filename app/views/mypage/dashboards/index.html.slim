@@ -7,10 +7,4 @@
       h2
         | お知らせ部分
       ul.notification-lists
-        - current_user.notifications.recent.each do |notification|
-          / li
-          /   = link_to notification.body, link_through_path(notification)
-          /   span = notification.created_at.to_s(:datetime)
-          / li
-          /   = notification.notification_body
-          = render 'notifications/notifications', notification: notification
+        = render 'notifications/notifications', notifications: current_user.notifications.recent

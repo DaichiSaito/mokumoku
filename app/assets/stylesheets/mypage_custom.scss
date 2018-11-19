@@ -45,6 +45,7 @@ body {
   }
 }
 
+// お知らせ
 .notification-lists {
   list-style: none;
   padding-left: 0;
@@ -56,6 +57,18 @@ body {
     }
   }
 }
+
+
+.notification-lists.header-notification-lists {
+  li {
+    font-size: 10px;
+    a {
+      display: inline-block;
+      padding: 0;
+    }
+  }
+}
+
 
 .mypage_notifications_lists {
   overflow: scroll;
