@@ -2,9 +2,13 @@ common:
   app:
     name: MOKUMOKU
     url: http://localhost.com/
-    description: もくもくを募集したり共有するサイトです
     og:
-      image: sample.jpg
+      title: MOKUMOKU
+      type: website
+      url: http://localhost.com/
+      image: site_image.jpg
+      site_name: MOKUMOKU
+      description: もくもくを募集したり共有するサイトです
   password:
     minimum_count: 6
   avatar:
@@ -13,8 +17,9 @@ common:
 
 twitter:
   account_name: MOKUMOK63955523
-  auto_fill_password_count: 8
   share_url: https://twitter.com/intent/tweet
+  card: summary_large_image
+  auto_fill_password_count: 8
 
 favorite_areas:
   minimum_count: 1
