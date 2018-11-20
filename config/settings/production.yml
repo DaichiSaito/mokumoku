@@ -1,6 +1,6 @@
 common:
   app:
-    url: https://t-mokumoku-arte.herokuapp.com
+    url: https://new-mokumoku.herokuapp.com
 
 common:
   twitter:
