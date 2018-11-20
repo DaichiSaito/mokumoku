@@ -19,12 +19,12 @@
             = f.label '自己紹介'
             = f.text_area :profile, class: 'form-control', rows: '10'
     .row
-      .col
+      .col-md-8.offset-2
         .form-group
-          = f.label 'お気に入りエリア'
-          .checkbox
+          = f.label 'お気に入りエリア', class: 'mb-3'
+          .checkbox.favorite_areas-box
             = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
-              = b.label(class: 'text-dark') do
+              = b.label(class: 'text-dark favarite-label') do
                 = b.check_box
                 = b.text
                 span.checkbox-decorator

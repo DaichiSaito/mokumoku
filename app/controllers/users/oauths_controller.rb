@@ -61,6 +61,8 @@ class Users::OauthsController < ApplicationController
   def setup_user_instance(provider_name)
     # see https://github.com/NoamB/sorcery/blob/master/lib/sorcery/controller/submodules/external.rb
     @user = create_and_validate_from provider_name
+    # エラーオブジェクトを消さないとチェックボックスのチェックができなくなる
+    @user.errors.clear
     @user.favorite_areas.build
   end
 
