@@ -2,8 +2,14 @@ class Mypage::MokumokusController < MypageController
   before_action :set_mokumoku, only: %i[edit update show]
   after_action :create_notifications, only: [:create]
 
-  def index
-    @mokumokus = current_user.mokumokus
+  def futures
+    @mokumokus = current_user.attending_including_own.futures
+    render :index
+  end
+
+  def pasts
+    @mokumokus = current_user.attending_including_own.pasts
+    render :index
   end
 
   def new
