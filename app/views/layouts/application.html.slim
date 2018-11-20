@@ -2,6 +2,8 @@ doctype html
 html
   head
     title MOKUMOKU
+
+    = render partial: 'layouts/meta_tags'
     = csrf_meta_tags
     = csp_meta_tag
 
@@ -9,7 +11,10 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    = render 'shared/header'
+    - if current_user.blank?
+      = render 'shared/before_login_header'
+    - else
+      = render 'shared/header'
 
     = yield
 

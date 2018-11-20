@@ -3,6 +3,7 @@
     h3.widget-header.user ユーザー登録
     = form_for @user, url: users_oauths_url, method: :post do |f|
       = f.hidden_field :name
+      = f.hidden_field :screen_name
       = f.hidden_field :email
       = f.hidden_field :profile
       = f.hidden_field :profile_image_url

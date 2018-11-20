@@ -1,3 +1,4 @@
+@import '_header';
 @import '_notification';
 body {
   position: relative;
@@ -44,14 +45,6 @@ body {
   h2 {
     font-size: 1.6rem;
   }
-}
-
-
-.mypage-btn-mokumoku {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
 }
 
 // タブ

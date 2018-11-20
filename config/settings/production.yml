@@ -1,0 +1,7 @@
+common:
+  app:
+    url: https://t-mokumoku-arte.herokuapp.com
+
+common:
+  twitter:
+    callback_url: https://t-mokumoku-arte.herokuapp.com/users/auth/twitter/callback

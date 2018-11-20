@@ -41,6 +41,8 @@ gem 'config'
 
 gem 'ransack'
 
+# デコレーター
+gem 'draper'
 
 gem 'aws-sdk-s3', require: false
 
