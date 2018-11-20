@@ -24,7 +24,12 @@ Rails.application.routes.draw do
   namespace :mypage do
     root to: 'dashboards#index'
     get '/dashboards/schedule', to: 'dashboards#schedule'
-    resources :mokumokus, only: %i[index new create edit update show]
+    resources :mokumokus, only: %i[new create edit update show] do
+      collection do
+        get :futures
+        get :pasts
+      end
+    end
     resource :user, only: %i[edit update]
     resources :notifications, only: %i[index]
     get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
