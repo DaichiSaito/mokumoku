@@ -13,6 +13,7 @@
 //= require jquery3
 //= require popper
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap-material-design/dist/js/bootstrap-material-design
 //= require admin-lte/dist/js/adminlte
 //= require moment

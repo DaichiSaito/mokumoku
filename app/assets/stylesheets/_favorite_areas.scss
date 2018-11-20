@@ -1,0 +1,12 @@
+// お気に入りエリア
+.favorite_areas-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .favarite-label {
+    flex-basis: 50%;
+    @media screen and (max-width: 767px) {
+      flex-basis: 100%;
+    }
+  }
+}

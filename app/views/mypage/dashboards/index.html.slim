@@ -1,10 +1,10 @@
 .container.pt-3
-  .row
+  .row.mb-5
     .col-lg-8.offset-lg-2
       #calendar
   .row
-    .col
-      h2
-        | お知らせ部分
+    .col-lg-8.offset-lg-2
+      h2 style=('font-size: 1.6rem;')
+        | お知らせ
       ul.notification-lists
         = render 'mypage/notifications/dashboard_notifications'
