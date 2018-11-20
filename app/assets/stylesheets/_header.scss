@@ -1,0 +1,16 @@
+.btn-mokumoku {
+  padding: 10px 30px;
+  color: white;
+  font-size: 1.6rem;
+  border-radius: 5px!important;
+  img {
+    width: 50px;
+  }
+
+  @media screen and (max-width: 991px) {
+    font-size: 1.0rem;
+    img {
+      width: 30px;
+    }
+  }
+}

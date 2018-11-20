@@ -25,6 +25,12 @@ class Mokumoku < ApplicationRecord
     end
   end
 
+  def share_message
+    "タイトル　　　　：#{title}%0A" \
+    "もくもく予定日時：#{open_at.to_s(:datetime)}%0A" \
+    "エリア　　　　　：#{area.name}"
+  end
+
   def notification_link
     mokumoku_path(id)
   end
