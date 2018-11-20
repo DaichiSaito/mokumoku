@@ -31,6 +31,10 @@ class Mokumoku < ApplicationRecord
     "エリア　　　　　：#{area.name}"
   end
 
+  def page_url
+    "/mokumokus/#{id}"
+  end
+
   def notification_link
     mokumoku_path(id)
   end
