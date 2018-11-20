@@ -1,28 +1,27 @@
-/ TODO ログイン前後でテンプレートを分ける
-
-- if current_user.blank?
-
-- else
-    header
-      nav.navbar.navbar-expand.navbar-light.bg-white
-        = link_to 'もくもく', root_url, class: 'nabvar-brand'
-        #navbarSupportedContent.ml-auto
-          ul.navbar-nav.align-items-center
-            li.nav-item.dropdown
-              a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-                i.fa.fa-bell-o
-                - if current_user.has_unread?
-                  span.badge.badge-warning.navbar-badge
-                    = current_user.unread_count
-              .dropdown-menu.dropdown-menu-right.notification-doropdown
-                ul.notification-lists.header-notification-lists
-                  = render 'mypage/notifications/header_notifications'
-            li.nav-item.dropdown
-              a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-                = image_tag current_user.avatar_or_default, class:'rounded-circle', size: '30x30'
-              .dropdown-menu.dropdown-menu-right
-                = link_to 'ダッシュボード', mypage_root_path, class: 'dropdown-item'
-                = link_to 'もくもく一覧', mypage_mokumokus_path, class: 'dropdown-item'
-                = link_to 'プロフィール編集', edit_mypage_user_path, class: 'dropdown-item'
-                .dropdown-divider
-                = link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item'
+header
+  nav.navbar.navbar-expand.navbar-light.bg-white
+    = link_to 'もくもく', root_url, class: 'nabvar-brand'
+    = link_to new_mypage_mokumoku_path, class: 'btn btn-primary btn-mokumoku btn-raised ml-auto mr-auto' do
+      = image_tag 'icon-mokumoku'
+      | もくもくする
+      end
+    #navbarSupportedContent
+      ul.navbar-nav.align-items-center
+        li.nav-item.dropdown
+          a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+            i.fa.fa-bell-o
+            - if current_user.has_unread?
+              span.badge.badge-warning.navbar-badge
+                = current_user.unread_count
+          .dropdown-menu.dropdown-menu-right.notification-doropdown
+            ul.notification-lists.header-notification-lists
+              = render 'mypage/notifications/header_notifications'
+        li.nav-item.dropdown
+          a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+            = image_tag current_user.avatar_or_default, class:'rounded-circle', size: '30x30'
+          .dropdown-menu.dropdown-menu-right
+            = link_to 'ダッシュボード', mypage_root_path, class: 'dropdown-item'
+            = link_to 'もくもく一覧', futures_mypage_mokumokus_path, class: 'dropdown-item'
+            = link_to 'プロフィール編集', edit_mypage_user_path, class: 'dropdown-item'
+            .dropdown-divider
+            = link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item'
