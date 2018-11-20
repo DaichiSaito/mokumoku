@@ -1,9 +1,9 @@
-@import 'admin-lte/plugins/font-awesome/css/font-awesome.min.css';
-@import 'admin-lte/dist/css/adminlte.css';
-@import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
+@import 'admin-lte/plugins/font-awesome/css/font-awesome.min';
+@import 'admin-lte/dist/css/adminlte';
+@import 'bootstrap-material-design/dist/css/bootstrap-material-design';
 @import 'rails_bootstrap_forms';
 @import 'mypage_custom';
 @import 'error';
 @import 'fullcalendar';
 // 色々なdatetimepickerを試したけどbootstrap-material-designとバッティングしないのがこれ。
-@import 'bootstrap-material-datetimepicker.css';
+@import 'bootstrap-material-datetimepicker';
