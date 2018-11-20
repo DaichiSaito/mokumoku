@@ -3,7 +3,8 @@
     .col-12
       .row.justify-content-center
         .tab
-          a.tab-child.active href="#" 今後のもくもく
-          a.tab-child href="#" 過去のもくもく
+          = link_to '今後のもくもく', futures_mypage_mokumokus_path, class: "tab-child #{ controller.action_name == 'futures' ? 'active' : '' }"
+          = link_to '過去のもくもく', pasts_mypage_mokumokus_path, class: "tab-child #{ controller.action_name == 'pasts' ? 'active' : '' }"
+
       .row
         = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus
