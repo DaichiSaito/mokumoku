@@ -1,4 +1,4 @@
-class Mokumoku::SearchesController < ApplicationController
+class Mokumokus::SearchController < ApplicationController
   before_action :require_login
 
   def index
