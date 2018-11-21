@@ -8,4 +8,8 @@ module ApplicationHelper
   def sns_account_url(sub_url)
     "#{Settings.twitter.url}/#{sub_url}"
   end
+
+  def flash_class(key)
+    { alert: 'danger', notice: 'success' }.fetch(key.to_sym) { 'danger' }
+  end
 end

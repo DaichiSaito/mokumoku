@@ -1,12 +1,11 @@
 header
   nav.navbar.navbar-expand.navbar-light.bg-white.fixed-top
-    = link_to root_url, class: 'nabvar-brand', style: 'padding: 10px;' do
+    = link_to root_url, class: 'nabvar-brand' do
       = image_tag 'logo.png', style: 'width: 80px;'
-    = link_to new_mypage_mokumoku_path, class: 'btn btn-primary btn-mokumoku btn-raised ml-auto mr-3' do
-      = image_tag 'icon-mokumoku.png'
-      | もくもくする
-      end
-    #navbarSupportedContent
+
+    #navbarSupportedContent.ml-auto
       ul.navbar-nav.align-items-center
         li.nav-item
-          = link_to 'ログイン', login_path
+           = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info' do
+             i.fa.fa-twitter.fa-lg
+             | ログイン
