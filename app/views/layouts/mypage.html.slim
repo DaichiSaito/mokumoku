@@ -2,6 +2,7 @@ doctype html
 html
   head
     = render partial: 'layouts/meta_tags'
+    = favicon_link_tag('favicon.ico')
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta charset="UTF-8" /
     meta lang="ja" /
@@ -24,4 +25,3 @@ html
       /! /.content-wrapper
       = render 'shared/mypage/sidebar'
       = render 'shared/mypage/footer'
-
