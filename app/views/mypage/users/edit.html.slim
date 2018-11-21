@@ -5,10 +5,10 @@
       .col-md-6
         .text-center
           p
-            = image_tag @user.avatar_or_default, class: 'rounded-circle', size: '100x100'
-          p.custom-file
-            = f.file_field :avatar, class: 'custom-file-input'
-            = f.label :avatar, class: 'custom-file-label'
+            = image_tag @user.avatar_or_default, class: 'rounded-circle', id: 'js-user-avatar', size: '100x100'
+          .file
+            | ファイルを選択
+            = f.file_field :avatar
       .col-md-6
         div
           .form-group
