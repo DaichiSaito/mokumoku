@@ -4,4 +4,8 @@ module ApplicationHelper
     "?text=#{message}%0A" \
     "&url=#{Settings.common.app.og.url}#{sub_url}"
   end
+
+  def sns_account_url(sub_url)
+    "#{Settings.twitter.url}/#{sub_url}"
+  end
 end

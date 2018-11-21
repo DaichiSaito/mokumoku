@@ -10,12 +10,12 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
     .user-panel.mt-3.pb-3.mb-3.d-flex
       .image
         = link_to edit_mypage_user_path do
-          = image_tag current_user.avatar_or_default, class: 'img-circle elevation-2'
+          = render 'shared/users/avatar', user: current_user, size: '30x30', assign_class: 'img-circle elevation-2'
       .info
         = link_to current_user.name, edit_mypage_user_path, class: 'd-block'
     /! Sidebar Menu
     nav.mt-2
-      ul.nav.nav-pills.nav-sidebar.flex-column data-accordion="false" data-widget="treeview" role="menu" 
+      ul.nav.nav-pills.nav-sidebar.flex-column data-accordion="false" data-widget="treeview" role="menu"
         /!
           | Add icons to the links using the .nav-icon class
           | with font-awesome or any other icon font library

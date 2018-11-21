@@ -15,6 +15,7 @@ common:
     by_sns_file_name: profile_image
 
 twitter:
+  url: https://twitter.com
   account_name: MOKUMOK63955523
   share_url: https://twitter.com/intent/tweet
   card: summary_large_image

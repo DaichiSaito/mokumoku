@@ -55,7 +55,7 @@ class Users::OauthsController < ApplicationController
   # アプリ連携を拒否
   def denied_app_collaborate
     logger.error('authenticate denied')
-    redirect_to new_user_url
+    redirect_to login_url
   end
 
   def setup_user_instance(provider_name)
