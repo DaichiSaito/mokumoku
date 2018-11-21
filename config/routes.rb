@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
 
     scope module: :development do
-      resources :users, only: %i[new create show]
+      resources :users, only: %i[new create]
     end
   end
 
