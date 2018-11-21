@@ -10,7 +10,11 @@ body {
 }
 
 .container {
+}
+
+main {
   padding-top: 3rem;
+  min-height: 100vh;
 }
 
 .form-control:focus {
@@ -76,4 +80,10 @@ body {
     font-weight: 600;
     -webkit-font-smoothing: antialiased;
   }
+}
+
+
+// フッター
+.main-footer {
+  padding: 3%;
 }
