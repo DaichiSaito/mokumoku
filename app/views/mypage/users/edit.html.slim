@@ -5,7 +5,7 @@
       .col-md-6
         .text-center
           p
-            = image_tag @user.avatar_or_default, class: 'rounded-circle', id: 'js-user-avatar', size: '100x100'
+            = render 'shared/users/avatar', user: @user, assign_id: 'js-user-avatar'
           .file
             | ファイルを選択
             = f.file_field :avatar, accept: 'image/jpg,image/jpeg,image/png,image/gif'

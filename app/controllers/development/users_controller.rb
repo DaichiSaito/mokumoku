@@ -1,6 +1,4 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
-
+class Development::UsersController < ApplicationController
   def new
     @user = User.new
     @user.favorite_areas.build
@@ -8,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.assign_attributes(screen_name: @user.name)
     if @user.save
       redirect_to login_url, success: 'ユーザーを作成しました'
     else
@@ -16,13 +15,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
-
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def user_params
     params.require(:user).permit(:name, :email, :profile, :avatar, :password, :password_confirmation, like_area_ids: [])
