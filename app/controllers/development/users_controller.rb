@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Development::UsersController < ApplicationController
   before_action :set_user, only: %i[show]
 
   def new
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.assign_attributes(screen_name: @user.name)
     if @user.save
       redirect_to login_url, success: 'ユーザーを作成しました'
     else
