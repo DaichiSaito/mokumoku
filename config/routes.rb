@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :oauths, only: %i[new create]
   end
 
+  namespace :mokumokus do
+    get '/search', to: 'search#index'
+  end
+
   resources :tops, only: :index
   resources :mokumokus, only: %i[show] do
     resources :attends, only: %i[create destroy]
@@ -37,10 +41,6 @@ Rails.application.routes.draw do
     resource :user, only: %i[edit update]
     resources :notifications, only: %i[index]
     get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
-  end
-
-  namespace :mokumoku do
-    resources :searches, only: %i[index]
   end
 
   root 'tops#index'
