@@ -2,7 +2,7 @@
 @import '_notification';
 @import '_favorite_areas';
 body {
-  background-color: white;
+  //background-color: white;
 }
 
 // bootstrap4の上書き
@@ -13,7 +13,8 @@ body {
 }
 
 .btn {
-  border-radius: 0!important;
+  //border-radius: 0!important;
+  text-transform: none!important;
 }
 
 // 共通
@@ -22,7 +23,7 @@ body {
 }
 
 main {
-  padding-top: 3rem;
+  padding-top: 100px;
   min-height: 100vh;
 }
 
@@ -36,6 +37,23 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+// 検索画面
+.search-condition-box {
+  background-color: #f3f3f3;
+  padding: 3%;
+  border-radius: 10px;
+
+  .midashi {
+    font-size: 1.4rem;
+  }
+
+  .search-condition-lists {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }
 
 // もくもくのパーシャル
@@ -56,6 +74,13 @@ main {
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
+  }
+}
+
+.attend-btn-box {
+  &>* {
+    vertical-align: middle;
+    margin-right: 10px;
   }
 }
 
@@ -115,6 +140,7 @@ main {
 
 // フッター
 #footer {
+  background: white;
   padding: 3%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }

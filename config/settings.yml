@@ -8,11 +8,15 @@ common:
       image: site_image.jpg
       site_name: MOKUMOKU
       description: 孤独なプログラミングとはおさらば！気軽にプログラミング仲間を探せるサービス登場！
+    mail:
+      from: '"MOKUMOKU~もくもく~" <noreply@new-mokumoku.herokuapp.com>'
+    contact: https://twitter.com/MOKUMOK63955523
   password:
     minimum_count: 6
   avatar:
     default_file_name: sample.jpg
     by_sns_file_name: profile_image
+  host_name: new-mokumoku.herokuapp.com
 
 twitter:
   url: https://twitter.com

@@ -6,15 +6,20 @@ body {
 }
 
 .btn {
-  border-radius: 0!important;
+  //border-radius: 0!important;
 }
 
 .container {
 }
 
 main {
-  padding-top: 3rem;
+  padding-top: 100px;
   min-height: 100vh;
+}
+
+// サイドメニュー
+.brand-text {
+  font-size: 15px;
 }
 
 .form-control:focus {
@@ -98,6 +103,7 @@ main {
   border: 1px solid #dd0000;
   background-color: #dd0000;
   color: white;
+  border-radius: 5px;
 }
 
 .file input[type="file"] {

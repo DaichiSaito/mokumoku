@@ -1,7 +1,7 @@
 .container
   .row
     .col-md-4.mb-3
-      .card.profile-box.sticky-top
+      .card.profile-box
         .card-body
           figure.text-center
             = render 'shared/users/avatar', user: @mokumoku.user
@@ -10,7 +10,7 @@
           p
             = @mokumoku.user.profile
     .col-md-8
-      div.text-center.mb-3
+      div.text-center.mb-3.attend-btn-box
         = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
       table.table.mb-5
         tr
