@@ -4,7 +4,7 @@
       .card.profile-box.sticky-top
         .card-body
           figure.text-center
-            = image_tag @mokumoku.user.avatar_or_default, class: 'rounded-circle', size: '100x100'
+            = render 'shared/users/avatar', user: @mokumoku.user
           p.username
             = @mokumoku.user.name
           p
@@ -39,11 +39,10 @@
             | 参加者リスト
           td
             - @mokumoku.participants.each do |user|
-              = image_tag user.avatar_or_default, class: 'rounded-circle', size: '30x30'
+              = render 'shared/users/avatar', user: user, size: '30x30'
 
       / コメントフォーム
       = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }
 
       / コメントエリア
       = render 'comments/comments', { comments: @comments }
-

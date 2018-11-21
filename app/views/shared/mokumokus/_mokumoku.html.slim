@@ -4,7 +4,7 @@
       .row
         .col-3
           p.text-center
-            = image_tag mokumoku.user.avatar_or_default, class: 'rounded-circle', size: '50x50'
+            = render 'shared/users/avatar', user: mokumoku.user, size: '50x50'
           p.username
             = mokumoku.user.name
         .col-9
@@ -22,4 +22,3 @@
           - if current_user&.has_mokumoku?(mokumoku)
             = link_to edit_mypage_mokumoku_path(mokumoku.id), class: 'pl-3' do
               = fa_icon 'pencil'
-

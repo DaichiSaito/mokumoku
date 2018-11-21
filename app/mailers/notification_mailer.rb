@@ -1,6 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: 'notifications@example.com'
-
+  default from: '"MOKUMOKU~もくもく~" <noreply@new-mokumoku.herokuapp.com>'
   def send_favorite_areas_user(user, mokumoku)
     @mokumoku = mokumoku
     mail(to: user.email, subject: 'あなたのお気に入りエリアのもくもくが投稿されました。')

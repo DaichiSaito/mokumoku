@@ -4,10 +4,10 @@ common:
     og:
       title: MOKUMOKU
       type: website
-      url: https://t-mokumoku-arte.herokuapp.com
+      url: https://new-mokumoku.herokuapp.com
       image: site_image.jpg
       site_name: MOKUMOKU
-      description: もくもくを募集したり共有するサイトです
+      description: 孤独なプログラミングとはおさらば！気軽にプログラミング仲間を探せるサービス登場！
   password:
     minimum_count: 6
   avatar:
@@ -15,6 +15,7 @@ common:
     by_sns_file_name: profile_image
 
 twitter:
+  url: https://twitter.com
   account_name: MOKUMOK63955523
   share_url: https://twitter.com/intent/tweet
   card: summary_large_image

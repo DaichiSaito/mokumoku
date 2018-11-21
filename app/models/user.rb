@@ -91,6 +91,10 @@ class User < ApplicationRecord
     notifications.unread.where(mokumoku_id: mokumoku.id).each(&:read!)
   end
 
+  def sns_sub_url
+    screen_name
+  end
+
   def assign_password
     pass = SecureRandom.base64(Settings.twitter.auto_fill_password_count)
     assign_attributes(password: pass, password_confirmation: pass)

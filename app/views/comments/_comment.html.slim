@@ -30,7 +30,7 @@ div class=("comment-box #{'mycomment' if comment.user == current_user}")
     = comment.user.name
   .comment-content-box
     .comment-user-thumbnail
-      = image_tag comment.user.avatar_or_default, class: 'rounded-circle', size: '50x50'
+      = render 'shared/users/avatar', user: comment.user, size: '50x50'
     .comment-body-box
       .comment-body
         = comment.body
