@@ -6,7 +6,7 @@ body {
 }
 
 .btn {
-  border-radius: 0!important;
+  //border-radius: 0!important;
 }
 
 .container {
@@ -98,6 +98,7 @@ main {
   border: 1px solid #dd0000;
   background-color: #dd0000;
   color: white;
+  border-radius: 5px;
 }
 
 .file input[type="file"] {
