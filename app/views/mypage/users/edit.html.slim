@@ -8,7 +8,7 @@
             = image_tag @user.avatar_or_default, class: 'rounded-circle', id: 'js-user-avatar', size: '100x100'
           .file
             | ファイルを選択
-            = f.file_field :avatar
+            = f.file_field :avatar, accept: 'image/jpg,image/jpeg,image/png,image/gif'
       .col-md-6
         div
           .form-group
