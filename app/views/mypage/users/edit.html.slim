@@ -5,7 +5,7 @@
       .col-md-6
         .text-center
           p
-            = image_tag @user.avatar_or_default, class: 'rounded-circle', size: '100x100'
+            = render 'shared/users/avatar', user: @user
           p.custom-file
             = f.file_field :avatar, class: 'custom-file-input'
             = f.label :avatar, class: 'custom-file-label'

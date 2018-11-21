@@ -1,5 +1,5 @@
 = link_to root_path do
-  = image_tag notification.notified_by.avatar_or_default, class: 'rounded-circle', size: '30x30'
+  = render 'shared/users/avatar', user: notification.notified_by, size: '30x30'
   = notification.notified_by.name
 | が
 = link_to mypage_link_through_path(notification) do

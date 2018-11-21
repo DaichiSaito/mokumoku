@@ -1,0 +1,6 @@
+ruby:
+  size = local_assigns[:size] || '100x100'
+  assign_class = local_assigns[:assign_class] || 'rounded-circle'
+
+= link_to sns_account_url(user.sns_sub_url), target: :_blank, rel: %i[noopener noreferrer] do
+  = image_tag user.avatar_or_default, class: assign_class, size: size
