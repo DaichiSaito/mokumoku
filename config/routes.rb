@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   if Rails.env.development?
     get '/login_as/:user_id', to: 'development/sessions#login_as'
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
+
+    scope module: :development do
+      resources :users, only: %i[new create show]
+    end
   end
 
   get '/login', to: 'user_sessions#new'
