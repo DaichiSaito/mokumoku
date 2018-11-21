@@ -8,7 +8,7 @@ class Development::UsersController < ApplicationController
     @user = User.new(user_params)
     @user.assign_attributes(screen_name: @user.name)
     if @user.save
-      redirect_to login_url, success: 'ユーザーを作成しました'
+      redirect_to root_url, success: 'ユーザーを作成しました'
     else
       flash.now[:danger] = 'ユーザーが作成出来ませんでした'
       render :new
