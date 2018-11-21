@@ -1,4 +1,5 @@
 document.addEventListener("turbolinks:load", function(){
+    $('#calendar').empty();
     $('#calendar').fullCalendar({
         locale: "ja",
         eventLimit: true, // allow "more" link when too many events
@@ -32,8 +33,4 @@ document.addEventListener("turbolinks:load", function(){
                 });
         }
     });
-})
-
-document.addEventListener("turbolinks:before-cache", function(){
-    $('#calendar').empty();
-})
+});
