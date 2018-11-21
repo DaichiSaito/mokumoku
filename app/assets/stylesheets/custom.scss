@@ -76,6 +76,13 @@ main {
   }
 }
 
+.attend-btn-box {
+  &>* {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+
 // コメントエリア
 .comments {
   max-height: 500px;
