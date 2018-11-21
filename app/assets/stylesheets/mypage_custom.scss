@@ -91,7 +91,11 @@ main {
 
 // フッター
 .main-footer {
-  padding: 3%;
+  padding: 2%;
+  font-size: 12px;
+  .copyright {
+    font-size: 9px;
+  }
 }
 
 
