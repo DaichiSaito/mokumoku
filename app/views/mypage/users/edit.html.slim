@@ -21,7 +21,7 @@
     .row
       .col-md-8.offset-2
         .form-group
-          = f.label 'お気に入りエリア', class: 'mb-3'
+          = f.label 'よく行くエリア', class: 'mb-3'
           .checkbox.favorite_areas-box
             = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
               = b.label(class: 'text-dark favarite-label') do

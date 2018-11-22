@@ -2,7 +2,7 @@ class NotificationMailer < ApplicationMailer
   default from: '"MOKUMOKU~もくもく~" <noreply@new-mokumoku.herokuapp.com>'
   def send_favorite_areas_user(user, mokumoku)
     @mokumoku = mokumoku
-    mail(to: user.email, subject: 'あなたのお気に入りエリアのもくもくが投稿されました。')
+    mail(to: user.email, subject: 'あなたのよく行くエリアのもくもくが投稿されました。')
   end
 
   def send_mokumoku_owner(user, mokumoku)
