@@ -25,6 +25,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :screen_name, presence: true
   validates :email, uniqueness: true, presence: true
+  validates :profile, length: { maximum: 1000 }
   validates :password, length: { minimum: Settings.common.password.minimum_count }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }

@@ -1,14 +1,13 @@
 .container
-  h2
-    | 検索画面
   .row
-    .col-md-12
-      .text-center
-        h3
+    .col-md-8.offset-md-2
+      .text-center.search-condition-box
+        h2.midashi
           | よく行くエリア
-        - current_user.like_areas.each do |area|
-          p
-            | 【#{area.name}】
+        ul.list-unstyled.p-0.search-condition-lists
+          - current_user.like_areas.each do |area|
+            li
+              | 【#{area.name}】
   .row
     .col-12
       .row
