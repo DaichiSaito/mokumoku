@@ -43,4 +43,8 @@ class Mokumoku < ApplicationRecord
   def notification_link
     mokumoku_path(id)
   end
+
+  def past?
+    open_at < Date.today
+  end
 end

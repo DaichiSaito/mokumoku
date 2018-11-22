@@ -10,8 +10,9 @@
           p
             = escape_with_linefeed @mokumoku.user.profile
     .col-md-8
-      div.text-center.mb-3.attend-btn-box
-        = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
+      - unless @mokumoku.past?
+        div.text-center.mb-3.attend-btn-box
+          = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
       table.table.mb-5
         tr
           th
@@ -41,8 +42,9 @@
             - @mokumoku.participants.each do |user|
               = render 'shared/users/avatar', user: user, size: '30x30'
 
-      / コメントフォーム
-      = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }
+      - unless @mokumoku.past?
+        / コメントフォーム
+        = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }
 
       / コメントエリア
       = render 'comments/comments', { comments: @comments }
