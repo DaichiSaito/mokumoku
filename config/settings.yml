@@ -20,6 +20,7 @@ twitter:
   share_url: https://twitter.com/intent/tweet
   card: summary_large_image
   auto_fill_password_count: 8
+  hashtag: MOKUMOKU
 
 favorite_areas:
   minimum_count: 1
