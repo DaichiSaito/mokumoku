@@ -1,7 +1,7 @@
 common:
   app:
-    url: https://new-mokumoku.herokuapp.com
+    url: https://www.mo-ku-mo-ku.com
 
 common:
   twitter:
-    callback_url: https://new-mokumoku.herokuapp.com/users/auth/twitter/callback
+    callback_url: https://www.mo-ku-mo-ku.com/users/auth/twitter/callback
