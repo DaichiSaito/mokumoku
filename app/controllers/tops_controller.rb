@@ -1,6 +1,6 @@
 class TopsController < ApplicationController
   def index
-    @mokumokus = Mokumoku.futures
+    @mokumokus = Mokumoku.futures.recent_opens
     @mokumokus_past = Mokumoku.pasts.limit(8)
   end
 
