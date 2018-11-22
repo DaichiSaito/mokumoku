@@ -1,7 +1,75 @@
-.container.pt-0
-  .login-form
-    .login-form-inner
-      h5.text-center
-        = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info btn-lg mb-5' do
-          i.fa.fa-twitter.fa-lg
-          | Twitter でログイン
+/ .container.pt-0
+/   .login-form
+/     .login-form-inner
+/       h5.text-center
+/         = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info btn-lg mb-5' do
+/           i.fa.fa-twitter.fa-lg
+/           | Twitter でログイン
+.login_page_wrapper
+  div.text-center.login_title
+
+    p.font-italic 『仕事終わりにちょっともくもく！』
+    p.font-italic 『デートの前にちょっともくもく！』
+
+    p.sekkaku
+      span せっかくなら誰かともくもくしませんか？
+
+    p MOKUMOKUは気軽にいろんなエンジニアともくもくできる機会を提供するサービスです。
+
+
+    / p.kokogachigau.mt-5
+    /   span ここが違う！
+    /
+    / div
+    /   p よくある勉強会プラットフォーム
+    /   p 人数が集まらなかったら中止ということもあり得るので主催側も参加側も多少なりともハードルが！
+    /
+    / p MOKUMOKU
+    / p 基本一人だけど「あわよくば誰かと一緒にもくもくできたらラッキー」程度のゆるさ。肩の力を抜いて自分の好きなタイミングでもくもくできる！
+
+.container
+  .about-mokumoku-box
+    .row
+      .col-12
+        h2.text-center.mb-5
+          span.midashi なぜMOKUMOKU？
+    .row.mb-5
+      .col-md-6
+        h3 よくある勉強会プラットフォームは
+        p 人数が集まらなかったら中止ということもあり得るので主催側も参加側も多少なりともハードルがあります。
+      .col-md-6
+        h3 MOKUMOKUは
+        p 基本一人だけど「あわよくば誰かと一緒にもくもくできたらラッキー」程度のゆるさ。肩の力を抜いて自分の好きなタイミングでもくもくできる。
+    hr.featurette-divider
+
+    .row
+      .col-12
+        h2.text-center.mb-5
+          span.midashi これだけ知ってればOK！
+
+    .row.featurette
+      .col-md-7
+        h3.featurette-heading
+          | もくもく予定の登録
+        p ちょっと先の予定でもこの後すぐの予定でもOK！内容とエリアを指定してもくもく予定を登録しよう！Twitterでシェアすればより多くの人にアプローチできます！誰かから反応があればラッキー！
+      .col-md-5
+        = image_tag 'introduction01-min.jpg', class: 'img featurette-image img-fluid mx-auto'
+    hr.featurette-divider
+
+    .row.featurette
+      .col-md-7.order-md-2
+        h3.featurette-heading
+          | 誰かのもくもくに参加
+        p 気になるもくもくがあったら参加のアクションをしよう！もくもくのオーナーに通知が行きます！『場所の詳細を聞きたい！』などがあればコメントでやりとりするもよし、直接TwitterでDMを送るもよし！
+      .col-md-5.order-md-1
+        = image_tag 'introduction02-min.jpg', class: 'img featurette-image img-fluid mx-auto'
+    hr.featurette-divider
+
+    .row.featurette
+      .col-md-7
+        h3.featurette-heading
+          | 予定はカレンダーで確認
+        p ダッシュボード上でスケジュールの確認ができます。重複しないように気をつけましょう。
+      .col-md-5
+        = image_tag 'introduction03-min.jpg', class: 'img featurette-image img-fluid mx-auto'
+    hr.featurette-divider

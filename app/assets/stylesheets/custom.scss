@@ -23,9 +23,13 @@ body {
 }
 
 main {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 66.78px;
   min-height: 100vh;
+
+  .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 // ログイン画面
@@ -38,6 +42,101 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.login_page_wrapper {
+  //background-image: url(image_path('site_image.jpg'));
+  //background-size: cover;
+
+  width: 100vw;
+  min-height: 100vh;
+  background: #666 url(image_path('site_image.jpg')) no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .login_title {
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+    //padding-top: calc(100vh / 2 - 60px);
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 80%;
+    }
+
+    @media screen and (max-width: 767px) {
+      padding: 30px 5px;
+      font-size: 1.0rem;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    /* 輪郭がぼやけてしまうのでブラー範囲を広げる */
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    background: inherit;
+    //opacity: 0.5
+    //filter: blur(5px);
+    filter: brightness(50%);
+    //z-index: -1;
+  }
+
+  .sekkaku {
+    font-size: 2.0rem;
+    font-weight: bold;
+
+    span {
+      border-bottom: 3px solid yellow;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 5vw;
+    }
+  }
+  .kokogachigau {
+    font-size: 2.0rem;
+    font-weight: bold;
+
+    span {
+      border-bottom: 3px solid yellow;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 5vw;
+    }
+  }
+}
+
+.about-mokumoku-box {
+  .midashi {
+    border-bottom: 4px solid yellow;
+    font-weight: bold;
+  }
+
+  h2 {
+
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .featurette {
+    .featurette-image {
+      border: 1px solid #ccc;
+      //width: 300px;
+    }
+  }
 }
 
 // 検索画面
