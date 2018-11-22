@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
   belongs_to :mokumoku
   has_many :notifications
 
-  validates :body, presence: true
+  validates :body, presence: true, length: { maximum: 400 }
 
   def notification_link
     mokumoku_path(mokumoku)

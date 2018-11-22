@@ -19,6 +19,10 @@ class Mokumoku < ApplicationRecord
   scope :pasts, -> { where('open_at < ?', Date.today) }
   scope :recent_opens, -> { order(open_at: :asc) }
 
+  def body_caption
+    body.truncate(Settings.mokumoku.body_caption_limit, omission: '...')
+  end
+
   def date_cannot_be_in_the_past
     # 昨日以前のものはNGとする。時間は見ないので当日であれば許容する。
     if open_at.present? && open_at.to_date <= Date.yesterday
