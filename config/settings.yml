@@ -24,6 +24,7 @@ twitter:
   share_url: https://twitter.com/intent/tweet
   card: summary_large_image
   auto_fill_password_count: 8
+  hashtag: MOKUMOKU
 
 mokumoku:
   body_caption_limit: 36
