@@ -8,11 +8,13 @@
         = form_for @user, url: users_oauths_url, method: :post do |f|
           = f.hidden_field :name
           = f.hidden_field :screen_name
-          = f.hidden_field :email
           = f.hidden_field :profile
           = f.hidden_field :profile_image_url
           .row
             .col-12
+              .form-group
+                = label :name, 'メールアドレス'
+                = f.email_field :email, class: 'form-control'
               .form-group
                 = f.label 'よく行くエリア', class: 'mb-3 font-weight-bold'
                 .checkbox.favorite_areas-box
