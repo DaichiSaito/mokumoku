@@ -2,8 +2,8 @@
 aside.main-sidebar.sidebar-dark-primary.elevation-4
   /! Brand Logo
   = link_to root_path, class: 'brand-link' do
-    = image_tag 'dist/img/AdminLTELogo.png', class: 'brand-image img-circle elevation-3', style: 'opacity: .8'
-    span.brand-text.font-weight-light AdminLTE 3
+    = image_tag 'logo.png', class: 'brand-image', style: 'background: white;'
+    span.brand-text.font-weight-light MOKUMOKU
   /! Sidebar
   .sidebar
     /! Sidebar user panel (optional)
@@ -21,11 +21,11 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
           | with font-awesome or any other icon font library
         li.nav-item
           = link_to mypage_root_path, {class: 'nav-link'}  do
-            = fa_icon 'file-o', class: 'nav-icon'
+            = fa_icon 'calendar', class: 'nav-icon'
             p ダッシュボード
         li.nav-item
           = link_to futures_mypage_mokumokus_path, {class: 'nav-link'}  do
-            = fa_icon 'user-o', class: 'nav-icon'
+            = fa_icon 'compass', class: 'nav-icon'
             p もくもく一覧
         / li.nav-item
         /   = link_to '#', {class: 'nav-link'}  do

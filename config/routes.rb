@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/about', to: 'user_sessions#new'
   get '/login', to: 'user_sessions#new'
   post '/login', to: 'user_sessions#create'
   delete '/logout', to: 'user_sessions#destroy'
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
     get 'auth/:provider', to: 'oauths#oauth', as: :auth_at_provider
     get 'auth/twitter/callback', to: 'oauths#callback'
     resources :oauths, only: %i[new create]
+  end
+
+  namespace :mokumokus do
+    get '/search', to: 'search#index'
   end
 
   resources :tops, only: :index
@@ -37,10 +42,6 @@ Rails.application.routes.draw do
     resource :user, only: %i[edit update]
     resources :notifications, only: %i[index]
     get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
-  end
-
-  namespace :mokumoku do
-    resources :searches, only: %i[index]
   end
 
   root 'tops#index'

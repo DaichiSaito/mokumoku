@@ -1,17 +1,18 @@
 .container
   .row
     .col-md-4.mb-3
-      .card.profile-box.sticky-top
+      .card.profile-box
         .card-body
           figure.text-center
             = render 'shared/users/avatar', user: @mokumoku.user
           p.username
             = @mokumoku.user.name
           p
-            = @mokumoku.user.profile
+            = escape_with_linefeed @mokumoku.user.profile
     .col-md-8
-      div.text-center.mb-3
-        = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
+      - unless @mokumoku.past?
+        div.text-center.mb-3.attend-btn-box
+          = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
       table.table.mb-5
         tr
           th
@@ -22,7 +23,7 @@
           th
             | 詳細
           td
-            = @mokumoku.body
+            = escape_with_linefeed @mokumoku.body
         tr
           th
             | もくもく予定日時
@@ -41,8 +42,9 @@
             - @mokumoku.participants.each do |user|
               = render 'shared/users/avatar', user: user, size: '30x30'
 
-      / コメントフォーム
-      = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }
+      - unless @mokumoku.past?
+        / コメントフォーム
+        = render 'comments/form', { mokumoku: @mokumoku, comment: @comment }
 
       / コメントエリア
       = render 'comments/comments', { comments: @comments }

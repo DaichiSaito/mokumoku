@@ -1,10 +1,8 @@
 /! Main Footer
 footer.main-footer
-  /! To the right
-  .float-right.d-none.d-sm-inline
-    = link_to '利用規約', term_path
-  /! Default to the left
-  strong
+  ul.list-unstyled
+    li = link_to '利用規約', term_path
+  p.copyright.mb-0
     | Copyright © 2018
-    a href="https://adminlte.io"  MOKUMOKU ~もくもく~
-  | All rights reserved.
+    a href=Settings.common.app.contact target="_blank" MOKUMOKU ~もくもく~
+    | All rights reserved.

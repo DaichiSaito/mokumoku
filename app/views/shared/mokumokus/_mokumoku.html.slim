@@ -11,7 +11,7 @@
           h3.title
             = link_to mokumoku.title, mokumoku_path(mokumoku.id)
           p
-            = mokumoku.body
+            = escape_with_linefeed mokumoku.body_caption
     .card-footer
       .row
         .col-6

@@ -14,7 +14,7 @@
           = f.label 'メールアドレス'
           = f.email_field :email, class: 'form-control'
         .form-group
-          = f.label 'お気に入りエリア'
+          = f.label 'よく行くエリア'
           div
             = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
               .checkbox

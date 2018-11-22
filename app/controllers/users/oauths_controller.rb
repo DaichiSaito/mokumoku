@@ -41,6 +41,8 @@ class Users::OauthsController < ApplicationController
       auto_login(@user)
       redirect_to root_url, success: 'ユーザーを作成しました'
     else
+      # エラーオブジェクトを消さないとチェックボックスのチェックができなくなる
+      @user.errors.clear
       flash.now[:danger] = 'ユーザーが作成出来ませんでした'
       render :new
     end
