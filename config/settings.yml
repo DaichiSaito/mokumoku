@@ -1,13 +1,16 @@
 common:
   app:
     name: MOKUMOKU
+    page_description: プログラミングでもくもくするならMOKUMOKU。MOKUMOKUは気軽にいろんなエンジニアともくもくできる機会を提供するサービスです。
+    page_keywords: "もくもく,モクモク,MOKUMOKU,プログラミング,勉強会,エンジニア"
+    page_title: プログラミング仲間と繋がるなら
     og:
-      title: MOKUMOKU
+      title: 孤独なプログラミングとはおさらば！MOKUMOKUは気軽にプログラミング仲間を探せるサービスです。
       type: website
       url: https://www.mo-ku-mo-ku.com
       image: site_image.jpg
       site_name: MOKUMOKU
-      description: 孤独なプログラミングとはおさらば！気軽にプログラミング仲間を探せるサービス登場！
+      description: 孤独なプログラミングとはおさらば！MOKUMOKUは気軽にプログラミング仲間を探せるサービスです。
     mail:
       from: '"MOKUMOKU~もくもく~" <noreply@mo-ku-mo-ku.com>'
     contact: https://twitter.com/MOKUMOK63955523
