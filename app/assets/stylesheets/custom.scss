@@ -194,6 +194,26 @@ main {
   }
 }
 
+.mokumoku-detail-table {
+  th {
+    font-weight: bold;
+  }
+  @media screen and (max-width: 767px) {
+    table-layout:fixed;
+    border: 1px solid #eee;
+    th, td {
+      display: block;
+    }
+    th {
+      background: white;
+    }
+    td {
+      word-wrap: break-word;
+      font-size: .8rem;
+    }
+  }
+}
+
 // コメントエリア
 .comments {
   max-height: 500px;
