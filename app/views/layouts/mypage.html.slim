@@ -13,6 +13,27 @@ html
     / datetimepickerのために必要
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
     = javascript_include_tag 'mypage'
+
+    - if Rails.env.production?
+      /! Global site tag (gtag.js) - Google Analytics
+      script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-106801865-5"
+      javascript:
+          window.dataLayer = window.dataLayer || [];
+
+          function gtag() {
+              dataLayer.push(arguments);
+          }
+
+          gtag('js', new Date());
+          gtag('config', 'UA-106801865-5');
+
+          document.addEventListener('turbolinks:load', event => {
+              if (typeof gtag === 'function') {
+                  gtag('config', 'UA-106801865-5', {
+                      'page_location': event.data.url
+                  });
+              }
+          });
   body class=("#{controller_name} #{action_name} hold-transition sidebar-mini")
     .wrapper
       = render 'shared/mypage/header'
