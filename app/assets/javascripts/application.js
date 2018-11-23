@@ -16,3 +16,11 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-material-design/dist/js/bootstrap-material-design
+
+document.addEventListener("turbolinks:load", function(){
+    if (typeof gtag === 'function') {
+        return gtag('config', 'UA-106801865-5', {
+            'page_path': window.location.pathname
+        });
+    }
+});

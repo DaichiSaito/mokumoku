@@ -23,4 +23,16 @@ module ApplicationHelper
     end
     return text
   end
+
+  def default_meta_tags
+    {
+        site: Settings.common.app.name,
+        reverse: true,
+        title: Settings.common.app.page_title,
+        description: Settings.common.app.page_description,
+        keywords: Settings.common.app.page_keywords,
+        canonical: request.original_url,
+        separator: '|'
+    }
+  end
 end
