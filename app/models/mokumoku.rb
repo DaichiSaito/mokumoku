@@ -19,6 +19,8 @@ class Mokumoku < ApplicationRecord
   scope :pasts, -> { where('open_at < ?', Date.today) }
   scope :recent_opens, -> { order(open_at: :asc) }
 
+  paginates_per 20
+
   def body_caption
     body.truncate(Settings.mokumoku.body_caption_limit, omission: '...')
   end
