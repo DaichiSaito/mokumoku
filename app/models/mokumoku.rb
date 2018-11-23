@@ -18,6 +18,7 @@ class Mokumoku < ApplicationRecord
   scope :futures, -> { where('open_at >= ?', Date.today) }
   scope :pasts, -> { where('open_at < ?', Date.today) }
   scope :recent_opens, -> { order(open_at: :asc) }
+  scope :new_arrivals, -> { order(created_at: :desc) }
 
   paginates_per 20
 
