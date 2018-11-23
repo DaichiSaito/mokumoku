@@ -9,23 +9,24 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-    /! Global site tag (gtag.js) - Google Analytics
-    script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-106801865-5"
-    javascript:
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-106801865-5');
+    - if Rails.env.production?
+      /! Global site tag (gtag.js) - Google Analytics
+      script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-106801865-5"
+      javascript:
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+              dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'UA-106801865-5');
 
-        document.addEventListener('turbolinks:load', event => {
-            if (typeof gtag === 'function') {
-                gtag('config', 'UA-106801865-5', {
-                    'page_location': event.data.url
-                });
-            }
-        });
+          document.addEventListener('turbolinks:load', event => {
+              if (typeof gtag === 'function') {
+                  gtag('config', 'UA-106801865-5', {
+                      'page_location': event.data.url
+                  });
+              }
+          });
 
   body
     - if current_user.blank?
