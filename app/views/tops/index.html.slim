@@ -8,15 +8,35 @@
 
   .row.mb-5
     .col-12
+      h2.text-center
+        span
+          = fa_icon 'clock-o', class: 'mr-3'
+          | 新着もくもく
+      .row
+        = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus_new_arrivals
+
+  hr.featurette-divider
+
+  .row.mb-5
+    .col-12
+      h2.text-center
+        span
+          = fa_icon 'calendar', class: 'mr-3'
+          | 直近もくもく
       .row
         = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus
       .row
         .col-md-8.offset-md-2
           = paginate @mokumokus
 
+  hr.featurette-divider
+
   .row
     .col-12
-      h2.text-center 過去のもくもく
+      h2.text-center
+        span
+          = fa_icon 'history', class: 'mr-3'
+          | 過去のもくもく
       .row
         - if @mokumokus_past.size > 0
           = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus_past
