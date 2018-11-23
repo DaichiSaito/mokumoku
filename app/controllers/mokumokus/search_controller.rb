@@ -5,6 +5,6 @@ class Mokumokus::SearchController < ApplicationController
     @q = Mokumoku.futures
                  .recent_opens
                  .ransack(area_id_in: current_user.like_areas.pluck(:id))
-    @mokumokus = @q.result(distinct: true)
+    @mokumokus = @q.result(distinct: true).page(params[:page])
   end
 end
