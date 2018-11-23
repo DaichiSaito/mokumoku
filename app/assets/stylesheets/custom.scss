@@ -1,0 +1,261 @@
+@import '_header';
+@import '_notification';
+@import '_favorite_areas';
+body {
+  //background-color: white;
+  font-family:"ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+}
+
+// bootstrap4の上書き
+@media (max-width: 991px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+.btn {
+  //border-radius: 0!important;
+  text-transform: none!important;
+}
+
+// 共通
+.container {
+
+}
+
+main {
+  padding-top: 66px;
+  min-height: 100vh;
+
+  .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+// ページネーション
+.pagination {
+  justify-content: center;
+  &>* {
+    padding: 10px; // %指定にするとページネーションした時になぜかレイアウトが崩れる
+  }
+}
+
+// ログイン画面
+.login-form {
+  height: 100vh;
+}
+.login-form-inner {
+  max-width: 400px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login_page_wrapper {
+  //background-image: url(image_path('site_image.jpg'));
+  //background-size: cover;
+
+  width: 100vw;
+  min-height: 100vh;
+  background: #666 url(image_path('site_image.jpg')) no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .login_title {
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+    //padding-top: calc(100vh / 2 - 60px);
+    width: 80%;
+    //@media screen and (min-width: 768px) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      //width: 80%;
+    //}
+
+    @media screen and (max-width: 767px) {
+      padding: 30px 5px;
+      font-size: 1.0rem;
+      width: 100%;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    /* 輪郭がぼやけてしまうのでブラー範囲を広げる */
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    background: inherit;
+    //opacity: 0.5
+    //filter: blur(5px);
+    filter: brightness(50%);
+    //z-index: -1;
+  }
+
+  .sekkaku {
+    font-size: 2.0rem;
+    font-weight: bold;
+
+    span {
+      border-bottom: 3px solid yellow;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 5vw;
+    }
+  }
+  .kokogachigau {
+    font-size: 2.0rem;
+    font-weight: bold;
+
+    span {
+      border-bottom: 3px solid yellow;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 5vw;
+    }
+  }
+}
+
+.about-mokumoku-box {
+  .midashi {
+    border-bottom: 4px solid yellow;
+    font-weight: bold;
+  }
+
+  h2 {
+
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .featurette {
+    .featurette-image {
+      border: 1px solid #ccc;
+      //width: 300px;
+    }
+  }
+}
+
+// 検索画面
+.search-condition-box {
+  background-color: #f3f3f3;
+  padding: 3%;
+  border-radius: 10px;
+
+  .midashi {
+    font-size: 1.4rem;
+  }
+
+  .search-condition-lists {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+// もくもくのパーシャル
+.mokumoku {
+  .title {
+    font-size: 1.4rem;
+  }
+  .username {
+    font-size: .5rem;
+  }
+}
+
+
+// もくもくの詳細
+.profile-box {
+  height: 100%;
+  .username {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+.attend-btn-box {
+  &>* {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+
+// コメントエリア
+.comments {
+  max-height: 500px;
+  overflow: scroll;
+
+  .comment-box {
+    .comment-user-name {
+      font-size: 9px;
+    }
+    .comment-content-box {
+      display: flex;
+
+      .comment-body-box {
+        flex: 1;
+        margin-left: 10px;
+        .comment-body {
+          background: #eee;
+          padding: 2%;
+          border-radius: 3px;
+        }
+        .comment-sent_at {
+          text-align: right;
+          font-size: 9px;
+        }
+      }
+    }
+
+    // 自分のコメント場合
+    &.mycomment {
+      .comment-user-thumbnail {
+        order: 1;
+      }
+
+      .comment-user-name {
+        text-align: right;
+      }
+
+      .comment-body-box {
+        margin-left: auto;
+        margin-right: 10px;
+
+        .comment-body {
+          background: #00adb5;
+          color: white;
+        }
+
+        .comment-sent_at {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// フッター
+#footer {
+  font-size: 12px;
+  background: white;
+  padding: 2%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  .copyright {
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,7 @@
+common:
+  app:
+    url: https://www.mo-ku-mo-ku.com
+
+common:
+  twitter:
+    callback_url: https://www.mo-ku-mo-ku.com/users/auth/twitter/callback

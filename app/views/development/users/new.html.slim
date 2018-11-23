@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-md-4.offset-md-4
+      h5.text-center
+        = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info btn-lg mb-5' do
+          i.fa.fa-twitter.fa-lg
+          | Twitter でログイン
+
+      = form_for @user do |f|
+        .form-group
+          = f.label '名前'
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label 'メールアドレス'
+          = f.email_field :email, class: 'form-control'
+        .form-group
+          = f.label 'よく行くエリア'
+          div
+            = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
+              .checkbox
+                = b.label(class: 'text-dark') do
+                  = b.check_box
+                  = b.text
+                  span.checkbox-decorator
+                    span.check
+        .form-group
+          = f.label 'パスワード'
+          = f.password_field :password, class: 'form-control'
+          .form-group
+            = f.label 'パスワード再入力'
+            = f.password_field :password_confirmation, class: 'form-control'
+        .text-center
+          = submit_tag '登録', class: 'btn btn-primary btn-lg btn-raised'
+      .text-center

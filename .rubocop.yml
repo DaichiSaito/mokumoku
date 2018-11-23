@@ -1,0 +1,15 @@
+inherit_gem:
+ rubocop-rails_config:
+   - config/rails.yml
+
+AllCops:
+ TargetRubyVersion: 2.5
+
+Style/FrozenStringLiteralComment:
+ Enabled: false
+
+StringLiterals:
+ Enabled: false
+
+Layout/IndentationWidth:
+ Enabled: false

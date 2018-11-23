@@ -1,0 +1,8 @@
+.container
+  .text-center
+    h2
+      | Twitterでシェアする！
+      p
+        = render 'shared/share_button',
+                 message: @mokumoku.share_message,
+                 sub_url: @mokumoku.page_url

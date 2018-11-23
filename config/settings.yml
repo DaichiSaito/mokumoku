@@ -1,0 +1,36 @@
+common:
+  app:
+    name: MOKUMOKU
+    og:
+      title: MOKUMOKU
+      type: website
+      url: https://www.mo-ku-mo-ku.com
+      image: site_image.jpg
+      site_name: MOKUMOKU
+      description: 孤独なプログラミングとはおさらば！気軽にプログラミング仲間を探せるサービス登場！
+    mail:
+      from: '"MOKUMOKU~もくもく~" <noreply@mo-ku-mo-ku.com>'
+    contact: https://twitter.com/MOKUMOK63955523
+  password:
+    minimum_count: 6
+  avatar:
+    default_file_name: sample.jpg
+    by_sns_file_name: profile_image
+  host_name: www.mo-ku-mo-ku.com
+
+twitter:
+  url: https://twitter.com
+  account_name: MOKUMOK63955523
+  share_url: https://twitter.com/intent/tweet
+  card: summary_large_image
+  auto_fill_password_count: 8
+  hashtag: MOKUMOKU
+
+mokumoku:
+  body_caption_limit: 36
+
+comment:
+  body_caption_limit: 36
+
+favorite_areas:
+  minimum_count: 1

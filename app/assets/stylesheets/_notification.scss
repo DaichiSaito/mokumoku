@@ -1,0 +1,65 @@
+// お知らせ
+.notification-lists {
+  list-style: none;
+  padding-left: 0;
+  li {
+    position: relative;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+
+    .unread {
+      background: red;
+      padding: 5px;
+      display: table-cell;
+      color: white;
+      border-radius: 3px;
+      font-size: 9px;
+    }
+    img {
+      margin-right: .5rem;
+    }
+  }
+}
+
+.notification-lists.header-notification-lists {
+  li {
+    font-size: 10px;
+    a {
+      display: inline-block;
+      padding: 0;
+    }
+  }
+}
+
+
+.mypage_notifications_lists {
+  overflow: scroll;
+  height: 100px;
+}
+
+.notification-doropdown {
+  max-width: 500px;
+  width: 500px;
+  a {
+    display: block;
+    padding: 5%;
+    font-size: .8rem;
+  }
+}
+
+.navbar-badge {
+  top: 3px!important;
+  right: -3px!important;
+  position: absolute;
+}
+
+@media screen and (max-width: 767px) {
+  .notification-doropdown {
+    //max-width: 100%;
+    //width: 100%;
+    max-width: 80vw;
+    width: 80vw;
+    max-height: 80vh;
+    overflow: scroll;
+  }
+}

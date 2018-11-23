@@ -1,0 +1,32 @@
+.container.pt-3
+  = form_for @user, url: mypage_user_path, method: :patch do |f|
+    .row
+      .col-md-6
+        .text-center
+          p
+            = render 'shared/users/avatar', user: @user, assign_id: 'js-user-avatar'
+          .file
+            | ファイルを選択
+            = f.file_field :avatar, accept: 'image/jpg,image/jpeg,image/png,image/gif'
+      .col-md-6
+        div
+          .form-group
+            = f.label '名前'
+            = f.text_field :name, class: 'form-control'
+        div
+          .form-group
+            = f.label '自己紹介'
+            = f.text_area :profile, class: 'form-control', rows: '10'
+    .row
+      .col-md-8.offset-2
+        .form-group
+          = f.label 'よく行くエリア', class: 'mb-3'
+          .checkbox.favorite_areas-box
+            = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
+              = b.label(class: 'text-dark favarite-label') do
+                = b.check_box
+                = b.text
+                span.checkbox-decorator
+                  span.check
+    .text-center
+      = f.submit '更新', class: 'btn btn-primary btn-lg btn-raised'

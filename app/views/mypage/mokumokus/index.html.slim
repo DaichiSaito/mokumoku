@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-12
+      .row.justify-content-center
+        .tab
+          = link_to '今後のもくもく', futures_mypage_mokumokus_path, class: "tab-child #{ controller.action_name == 'futures' ? 'active' : '' }"
+          = link_to '過去のもくもく', pasts_mypage_mokumokus_path, class: "tab-child #{ controller.action_name == 'pasts' ? 'active' : '' }"
+
+      .row
+        = render partial: 'shared/mokumokus/mokumoku', collection: @mokumokus

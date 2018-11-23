@@ -1,0 +1,5 @@
+.block.comment
+  = bootstrap_form_with model: [mokumoku, comment], local: true do |f|
+    .form-group.mb-30
+      = f.text_area :body, label: 'コメント', required: true, placeholder: 'コメント内容'
+    = f.submit '投稿', class: 'btn btn-raised btn-warning'

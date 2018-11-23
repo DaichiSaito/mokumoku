@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    = render partial: 'layouts/meta_tags'
+    = favicon_link_tag('favicon.ico')
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="UTF-8" /
+    meta lang="ja" /
+    title マイページ | MOKUMOKU
+    = csrf_meta_tags
+    = stylesheet_link_tag 'mypage', media: 'all'
+    link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" /
+    / datetimepickerのために必要
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+    = javascript_include_tag 'mypage'
+  body class=("#{controller_name} #{action_name} hold-transition sidebar-mini")
+    .wrapper
+      = render 'shared/mypage/header'
+      = render 'shared/mypage/menu'
+      /! Content Wrapper. Contains page content
+      main.content-wrapper
+        #flash_message
+          / = render 'shared/flash'
+        = yield
+      /! /.content-wrapper
+      = render 'shared/mypage/sidebar'
+      = render 'shared/mypage/footer'

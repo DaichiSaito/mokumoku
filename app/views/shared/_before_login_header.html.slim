@@ -1,0 +1,13 @@
+header
+  nav.navbar.navbar-expand.navbar-light.bg-white.fixed-top
+    = link_to root_url, class: 'nabvar-brand' do
+      = image_tag 'logo.png', style: 'width: 50px;'
+
+    = link_to 'MOKUMOKUについて', about_path, class: 'navbar-item pl-3'
+
+    #navbarSupportedContent.ml-auto
+      ul.navbar-nav.align-items-center
+        li.nav-item
+           = link_to users_auth_at_provider_path(provider: :twitter), class: 'twitter-button btn btn-raised btn-info' do
+             i.fa.fa-twitter.fa-lg
+             | ログイン

@@ -1,0 +1,37 @@
+/! Main Sidebar Container
+aside.main-sidebar.sidebar-dark-primary.elevation-4
+  /! Brand Logo
+  = link_to root_path, class: 'brand-link' do
+    = image_tag 'logo.png', class: 'brand-image', style: 'background: white;'
+    span.brand-text.font-weight-light MOKUMOKU
+  /! Sidebar
+  .sidebar
+    /! Sidebar user panel (optional)
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      .image
+        = link_to edit_mypage_user_path do
+          = render 'shared/users/avatar', user: current_user, size: '30x30', assign_class: 'img-circle elevation-2'
+      .info
+        = link_to current_user.name, edit_mypage_user_path, class: 'd-block'
+    /! Sidebar Menu
+    nav.mt-2
+      ul.nav.nav-pills.nav-sidebar.flex-column data-accordion="false" data-widget="treeview" role="menu"
+        /!
+          | Add icons to the links using the .nav-icon class
+          | with font-awesome or any other icon font library
+        li.nav-item
+          = link_to mypage_root_path, {class: 'nav-link'}  do
+            = fa_icon 'calendar', class: 'nav-icon'
+            p ダッシュボード
+        li.nav-item
+          = link_to futures_mypage_mokumokus_path, {class: 'nav-link'}  do
+            = fa_icon 'compass', class: 'nav-icon'
+            p もくもく一覧
+        / li.nav-item
+        /   = link_to '#', {class: 'nav-link'}  do
+        /     = fa_icon 'user-o', class: 'nav-icon'
+        /     p もくフレ（仮）
+        / li.nav-item
+        /   = link_to '#', {class: 'nav-link'}  do
+        /     = fa_icon 'user-o', class: 'nav-icon'
+        /     p パスワードリセット

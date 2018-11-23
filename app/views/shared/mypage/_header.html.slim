@@ -1,0 +1,29 @@
+/! Navbar
+nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom.fixed-top
+  /! Left navbar links
+  ul.navbar-nav
+    li.nav-item
+      a.nav-link data-widget="pushmenu" href="#"
+        i.fa.fa-bars
+  = link_to new_mypage_mokumoku_path, class: 'btn btn-primary btn-mokumoku btn-raised ml-auto mr-3' do
+    = image_tag 'icon-mokumoku.png'
+    | もくもくする
+    end
+
+  /! Right navbar links
+  ul.navbar-nav.align-items-center
+    /! Notifications Dropdown Menu
+    li.nav-item.dropdown
+      a.nav-link data-toggle="dropdown" href="#"
+        i.fa.fa-bell-o
+        - if current_user.has_unread?
+          span.badge.badge-warning.navbar-badge
+            = current_user.unread_count
+      .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.notification-doropdown
+        ul.notification-lists.header-notification-lists
+          = render 'mypage/notifications/header_notifications'
+    li.nav-item.dropdown.ml-3
+      a data-toggle="dropdown" href="#"
+        = image_tag current_user.avatar_or_default, class: 'rounded-circle', size: '30x30'
+      .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
+        = link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete

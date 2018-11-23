@@ -1,0 +1,38 @@
+/ tr
+/   td
+/     p = image_tag 'sample.jpg', class: 'rounded-circle', size: '30x30'
+/   td
+/     h3 = comment.user.name
+/     div = comment.body
+/   td = comment.created_at
+/   td
+/     - if current_user&.has_comment?(comment)
+/       ul
+/         li
+/           = link_to mokumoku_comment_path(comment.mokumoku, comment),
+/                   class: 'delete',
+/                   method: :delete,
+/                   data: { confirm: '削除しますか' } do
+/
+/             = fa_icon 'trash'
+
+
+/ div class=("chat-talk #{'mytalk' if comment.user == current_user}")
+/   .talk-icon
+/     p = image_tag comment.user.avatar_or_default, class: 'avatar_image'
+/     / p = comment.user.name
+/   .talk-content
+/     = comment.body
+
+
+div class=("comment-box #{'mycomment' if comment.user == current_user}")
+  .comment-user-name
+    = comment.user.name
+  .comment-content-box
+    .comment-user-thumbnail
+      = render 'shared/users/avatar', user: comment.user, size: '50x50'
+    .comment-body-box
+      .comment-body
+        = escape_with_linefeed comment.body
+      .comment-sent_at
+        = comment.created_at.to_s(:datetime)

@@ -1,0 +1,24 @@
+.col-md-6.mb-3.card-deck.m-0.pt-3.mokumoku
+  .card
+    .card-body
+      .row
+        .col-3
+          p.text-center
+            = render 'shared/users/avatar', user: mokumoku.user, size: '50x50'
+          p.username
+            = mokumoku.user.name
+        .col-9
+          h3.title
+            = link_to mokumoku.title, mokumoku_path(mokumoku.id)
+          p
+            = escape_with_linefeed mokumoku.body_caption
+    .card-footer
+      .row
+        .col-6
+          = fa_icon 'map-marker', class: 'pr-3'
+          = mokumoku.area.name
+        .col-6.text-right
+          = mokumoku.open_at.to_s :datetime
+          - if current_user&.has_mokumoku?(mokumoku)
+            = link_to edit_mypage_mokumoku_path(mokumoku.id), class: 'pl-3' do
+              = fa_icon 'pencil'
