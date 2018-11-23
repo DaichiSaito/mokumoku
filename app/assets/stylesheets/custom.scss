@@ -33,6 +33,14 @@ main {
   }
 }
 
+// ページネーション
+.pagination {
+  justify-content: center;
+  &>* {
+    padding: 10px; // %指定にするとページネーションした時になぜかレイアウトが崩れる
+  }
+}
+
 // ログイン画面
 .login-form {
   height: 100vh;
