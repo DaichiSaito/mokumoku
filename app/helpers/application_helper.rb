@@ -1,7 +1,11 @@
 module ApplicationHelper
   require 'uri'
-  def escape_with_linefeed(text)
-    simple_format(h(text))
+  def escape_with_linefeed(text, link: false)
+    if link
+      simple_format(text_url_to_link(text))
+    else
+      simple_format(h(text))
+    end
   end
 
   def sns_share_url_with_message(message, sub_url)
