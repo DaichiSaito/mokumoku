@@ -234,6 +234,9 @@ main {
           background: #eee;
           padding: 2%;
           border-radius: 3px;
+          a {
+            color: white;
+          }
         }
         .comment-sent_at {
           text-align: right;
