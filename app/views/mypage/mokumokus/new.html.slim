@@ -1,6 +1,10 @@
 .container
   .row
     .col-md-6.offset-md-3
+      - if current_user.mokumokus.present?
+        = render 'mypage/mokumokus/modal_button'
+        = render 'mypage/mokumokus/mokumoku_past_modal', mokumokus: current_user.mokumokus.order(created_at: :desc).limit(5)
+
       .card.mt-3
         .card-body
           = render 'form', mokumoku: @mokumoku
