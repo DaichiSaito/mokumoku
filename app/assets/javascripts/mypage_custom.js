@@ -6,7 +6,8 @@ document.addEventListener("turbolinks:load", function(){
         minDate : new Date(),
         year: false,
         switchOnClick: true,
-        lang: "ja"
+        lang: "ja",
+        cancelText: '戻る'
     });
 
     // 画像選択時にサムネイルを切り替える
