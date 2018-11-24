@@ -8,7 +8,7 @@
           p.username
             = @mokumoku.user.name
           p
-            = escape_with_linefeed @mokumoku.user.profile
+            = escape_with_linefeed @mokumoku.user.profile, link: true
     .col-md-8
       - unless @mokumoku.past?
         div.text-center.mb-3.attend-btn-box
@@ -23,7 +23,7 @@
           th
             | 詳細
           td
-            = escape_with_linefeed @mokumoku.body
+            = escape_with_linefeed @mokumoku.body, link: true
         tr
           th
             | もくもく予定日時
