@@ -30,4 +30,20 @@ document.addEventListener("turbolinks:load", function(){
             reader.readAsDataURL(file);
         }
     }
+
+    // 過去のもくもくからデータを引っ張ってくる時のモーダルの処理
+    $('#js-selectFromPastMokumoku').on('click', function (e) {
+        let id = document.querySelector('#selectFromPastMokumokuModal input[name="mokumoku"]:checked').value
+        let title = $(document.querySelector('#selectFromPastMokumokuModal input[name="mokumoku"]:checked')).data("title")
+        let body = $(document.querySelector('#selectFromPastMokumokuModal input[name="mokumoku"]:checked')).data("body")
+        let area_id = $(document.querySelector('#selectFromPastMokumokuModal input[name="mokumoku"]:checked')).data("area_id")
+
+        $("#mokumoku_title").val(title);
+        $("#mokumoku_body").val(body);
+        $("#mokumoku_area_id").val(area_id);
+    });
+    // モーダルを閉じる時に発火するイベント。キャンセルの時も動くので注意。
+    $('#selectFromPastMokumokuModal').on('hidden.bs.modal', function (e) {
+        // 何もしない
+    })
 })
