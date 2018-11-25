@@ -33,6 +33,6 @@ div class=("comment-box #{'mycomment' if comment.user == current_user}")
       = render 'shared/users/avatar', user: comment.user, size: '50x50'
     .comment-body-box
       .comment-body
-        = escape_with_linefeed comment.body
+        = escape_with_linefeed comment.body, link: true
       .comment-sent_at
         = comment.created_at.to_s(:datetime)

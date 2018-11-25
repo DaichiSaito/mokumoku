@@ -1,0 +1,19 @@
+/! Modal
+#selectFromPastMokumokuModal.modal.fade aria-hidden="true" aria-labelledby="selectFromPastMokumokuLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#selectFromPastMokumokuLabel.modal-title 過去のもくもくから入力内容をコピー
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  ×
+      .modal-body
+        - mokumokus.each do |mokumoku|
+          .radio
+            label style=("color: #666;")
+              input name="mokumoku" type="radio" value="#{mokumoku.id}" data-title="#{mokumoku.title}" data-body="#{mokumoku.body}" data-area_id="#{mokumoku.area_id}"
+              span.bmd-radio
+                .ripple-container
+              = mokumoku.title
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  キャンセル
+        button#js-selectFromPastMokumoku.btn.btn-primary data-dismiss="modal" type="button"  決定
