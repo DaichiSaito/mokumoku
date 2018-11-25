@@ -20,7 +20,7 @@
                 p
                   = link_to '#collapse-tokyo-area', class: 'btn btn-primary', data: { toggle: "collapse" }, role: "button", aria: { expanded: "false", controls: "collapse-tokyo-area" } do
                     | 東京23区
-                  .collapse.show id="collapse-tokyo-area"
+                  .collapse.show#collapse-tokyo-area
                     .card.card-body
                       .form-group
                         = render 'shared/users/check_boxes', f: f, areas: Area.tokyo
