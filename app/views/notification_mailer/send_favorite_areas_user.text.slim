@@ -1,2 +1,6 @@
 | あなたのよく行くエリアのもくもくが投稿されました。
+  タイトル: #{@mokumoku.title}
+  詳細: #{@mokumoku.body}
+  場所: #{@mokumoku.area.name}
+  予定日時: #{@mokumoku.open_at.to_s(:datetime)}くらい
 = mokumoku_url(@mokumoku)
