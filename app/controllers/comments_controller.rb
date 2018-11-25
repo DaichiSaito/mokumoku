@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
       return unless @comment.persisted?
       # あなたのもくもくにコメントがありました。
       # 自分のコメントの場合はこれは送らない
-      unless @mokumoku.user.id == current_user.id
+      unless current_user.has_mokumoku?(@mokumoku)
         @mokumoku.notifications.create(user_id: @mokumoku.user.id, notified_by: current_user, notified_type: :commented_to_own_mokumoku)
         NotificationMailer.send_mokumoku_owner(@mokumoku.user, @mokumoku, @comment).deliver_later
       end
