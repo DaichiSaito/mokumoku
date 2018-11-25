@@ -1,2 +1,8 @@
-h1 あなたのもくもくにコメントがありました。
+h3 あなたのもくもくにコメントがありました。
+table
+  tr
+    th
+      | コメント
+    td
+      = @comment.body
 = link_to 'コメントを見る', mokumoku_url(@mokumoku)

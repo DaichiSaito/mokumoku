@@ -1,2 +1,25 @@
-h1 あなたのよく行くエリアのもくもくが投稿されました。
+h3 あなたのよく行くエリアのもくもくが投稿されました。
+table
+  tr
+    th
+      | タイトル
+    td
+      = @mokumoku.title
+  tr
+    th
+      | 詳細
+    td
+      = @mokumoku.body
+  tr
+    th
+      | もくもく予定日時
+    td
+      = @mokumoku.open_at.to_s(:datetime)
+      | くらい
+  tr
+    th
+      | 場所
+    td
+      = @mokumoku.area.name
+
 = link_to 'もくもくを見る', mokumoku_url(@mokumoku)
