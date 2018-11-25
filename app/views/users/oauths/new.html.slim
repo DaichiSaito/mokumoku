@@ -23,23 +23,11 @@
                   .collapse.show id="collapse-tokyo-area"
                     .card.card-body
                       .form-group
-                        .checkbox.favorite_areas-box
-                          = f.collection_check_boxes :like_area_ids, Area.where(tokyo: true), :id, :name do |b|
-                            = b.label(class: 'text-dark favarite-label') do
-                              = b.check_box
-                              = b.text
-                              span.checkbox-decorator
-                                span.check
+                        = render 'shared/users/check_boxes', f: f, areas: Area.tokyo
                 p
                   .card.card-body
                     .form-group
-                      .checkbox.favorite_areas-box
-                        = f.collection_check_boxes :like_area_ids, Area.where(tokyo: false), :id, :name do |b|
-                          = b.label(class: 'text-dark favarite-label') do
-                            = b.check_box
-                            = b.text
-                            span.checkbox-decorator
-                              span.check
+                      = render 'shared/users/check_boxes', f: f, areas: Area.not_tokyo
 
               .text-center
                 = f.submit '登録', class: 'btn btn-primary btn-lg btn-raised'
