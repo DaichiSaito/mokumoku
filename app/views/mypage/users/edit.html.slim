@@ -20,13 +20,24 @@
     .row
       .col-md-8.offset-2
         .form-group
-          = f.label 'よく行くエリア', class: 'mb-3'
+          = f.label 'よく行くエリア（東京）', class: 'mb-3'
           .checkbox.favorite_areas-box
-            = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
+            = f.collection_check_boxes :like_area_ids, Area.where(tokyo: true), :id, :name do |b|
               = b.label(class: 'text-dark favarite-label') do
                 = b.check_box
                 = b.text
                 span.checkbox-decorator
                   span.check
+
+        .form-group
+          = f.label 'よく行くエリア（東京以外）', class: 'mb-3'
+          .checkbox.favorite_areas-box
+            = f.collection_check_boxes :like_area_ids, Area.where(tokyo: false), :id, :name do |b|
+              = b.label(class: 'text-dark favarite-label') do
+                = b.check_box
+                = b.text
+                span.checkbox-decorator
+                  span.check
+
     .text-center
       = f.submit '更新', class: 'btn btn-primary btn-lg btn-raised'
