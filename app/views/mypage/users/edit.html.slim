@@ -18,15 +18,19 @@
             = f.label '自己紹介'
             = f.text_area :profile, class: 'form-control', rows: '10'
     .row
-      .col-md-8.offset-2
-        .form-group
-          = f.label 'よく行くエリア', class: 'mb-3'
-          .checkbox.favorite_areas-box
-            = f.collection_check_boxes :like_area_ids, Area.all, :id, :name do |b|
-              = b.label(class: 'text-dark favarite-label') do
-                = b.check_box
-                = b.text
-                span.checkbox-decorator
-                  span.check
+      .col-md-8.offset-md-2
+        = f.label 'よく行くエリア', class: 'mb-3'
+        p
+          = link_to '#collapse-tokyo-area', class: 'btn btn-primary', data: { toggle: "collapse" }, role: "button", aria: { expanded: "false", controls: "collapse-tokyo-area" } do
+            | 東京23区
+          .collapse.show#collapse-tokyo-area
+            .card.card-body
+              .form-group
+                = render 'shared/users/check_boxes', f: f, areas: Area.tokyo
+        p
+          .card.card-body
+            .form-group
+              = render 'shared/users/check_boxes', f: f, areas: Area.not_tokyo
+
     .text-center
       = f.submit '更新', class: 'btn btn-primary btn-lg btn-raised'
