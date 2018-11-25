@@ -1,2 +1,8 @@
-h1 参加予定のもくもくにコメントがありました。
+h3 参加予定のもくもくにコメントがありました。
+table
+  tr
+    th
+      | コメント
+    td
+      = @comment.body
 = link_to 'コメントを見る', mokumoku_url(@mokumoku)
