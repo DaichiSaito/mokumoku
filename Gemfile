@@ -74,6 +74,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem "rubocop-rails_config"
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'factory_bot_rails', '~> 4.11'
 end
 
 group :development do
