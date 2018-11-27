@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_050222) do
+ActiveRecord::Schema.define(version: 2018_11_27_015418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 2018_11_24_050222) do
     t.index ["user_id"], name: "index_favorite_areas_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "mokumoku_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mokumoku_id"], name: "index_likes_on_mokumoku_id"
+    t.index ["user_id", "mokumoku_id"], name: "index_likes_on_user_id_and_mokumoku_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "mokumokus", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "area_id"
@@ -89,6 +99,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_050222) do
     t.datetime "open_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes", default: 0
     t.index ["area_id"], name: "index_mokumokus_on_area_id"
     t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
