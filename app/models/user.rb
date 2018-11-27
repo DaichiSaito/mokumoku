@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :attending_mokumokus, through: :attends, source: :mokumoku # 自分の投稿したもくもくを含めない参加予定のもくもく
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_mokumokus, through: :likes, source: :mokumoku
 
   accepts_nested_attributes_for :favorite_areas
   accepts_nested_attributes_for :authentications
