@@ -37,7 +37,6 @@ class User < ApplicationRecord
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name
   end
 
-
   # 自分の投稿したもくもくも含めた参加予定のもくもく
   def attending_including_own
     Mokumoku.attending_of(self)
@@ -92,6 +91,22 @@ class User < ApplicationRecord
 
   def update_notification_status(mokumoku)
     notifications.unread.where(mokumoku_id: mokumoku.id).each(&:read!)
+  end
+
+  def like(mokumoku)
+    likes.create!(mokumoku_id: mokumoku.id)
+  end
+
+  def not_like(mokumoku)
+    likes.find_by(mokumoku_id: mokumoku.id).destroy!
+  end
+
+  def like_the_mokumoku(mokumoku)
+    like_mokumokus.find_by(id: mokumoku)
+  end
+
+  def has_like_mokumoku?(mokumoku)
+    !!like_the_mokumoku(mokumoku)
   end
 
   def sns_sub_url
