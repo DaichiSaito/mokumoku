@@ -1,0 +1,3 @@
+= link_to mokumoku_like_path(mokumoku, current_user.like_the_mokumoku(mokumoku)), class: 'js-likes like-icon', method: :delete, remote: true do
+  = fa_icon 'thumbs-o-up', class: 'fw pl-3'
+  span.likes_count = mokumoku.likes.count
