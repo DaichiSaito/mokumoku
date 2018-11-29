@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_015418) do
     t.datetime "open_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes", default: 0
     t.index ["area_id"], name: "index_mokumokus_on_area_id"
     t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
