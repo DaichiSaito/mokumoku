@@ -1,8 +1,5 @@
 .like_info
-  - if mokumoku.past?
-    = render 'likes/like_and_count', mokumoku: mokumoku
+  - if current_user&.has_like_mokumoku?(mokumoku)
+    = render 'likes/liking', mokumoku: mokumoku
   - else
-    - if current_user&.has_like_mokumoku?(mokumoku)
-      = render 'likes/liking', mokumoku: mokumoku
-    - else
-      = render 'likes/not_like', mokumoku: mokumoku
+    = render 'likes/not_like', mokumoku: mokumoku
