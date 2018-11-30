@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :mokumokus, only: %i[show] do
     resources :attends, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
-    resources :likes, only: %i[create destroy]
+    resources :likes, only: %i[create]
   end
 
   namespace :mypage do
