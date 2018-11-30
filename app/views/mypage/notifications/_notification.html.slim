@@ -10,3 +10,5 @@ li
     = render 'mypage/notifications/commented_to_attending_mokumoku', notification: notification
   - elsif notification.attend_mokumoku?
     = render 'mypage/notifications/attend_mokumoku', notification: notification
+  - elsif notification.like_to_own_mokumoku?
+    = render 'mypage/notifications/like_to_own_mokumoku', notification: notification

@@ -4,8 +4,7 @@ class LikesController < ApplicationController
   def create
     @mokumoku = Mokumoku.find(params[:mokumoku_id])
     current_user.like(@mokumoku)
-    # TODO: notify
-    # @mokumoku.notifications.create(user_id: @mokumoku.user.id, notified_by: current_user, notified_type: :attend_mokumoku)
+    @mokumoku.notifications.create(user_id: @mokumoku.user.id, notified_by: current_user, notified_type: :like_to_own_mokumoku)
   end
 
   def destroy
