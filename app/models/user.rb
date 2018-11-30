@@ -109,6 +109,10 @@ class User < ApplicationRecord
     !!like_the_mokumoku(mokumoku)
   end
 
+  def has_like_or_own_mokumoku?(mokumoku)
+    has_like_mokumoku?(mokumoku) || has_mokumoku?(mokumoku)
+  end
+
   def sns_sub_url
     screen_name
   end
