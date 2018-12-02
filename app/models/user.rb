@@ -98,7 +98,7 @@ class User < ApplicationRecord
   end
 
   def not_like(mokumoku)
-    likes.find_by(mokumoku_id: mokumoku.id).destroy!
+    likes.find(mokumoku_id: mokumoku.id).destroy!
   end
 
   def like_the_mokumoku(mokumoku)
