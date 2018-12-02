@@ -10,9 +10,17 @@
           p
             = escape_with_linefeed @mokumoku.user.profile, link: true
     .col-md-8
-      - unless @mokumoku.past?
-        div.text-center.mb-3.attend-btn-box
-          = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
+      .row
+        .col-4
+          - if current_user&.has_mokumoku?(@mokumoku)
+            = link_to edit_mypage_mokumoku_path(@mokumoku.id), class: 'pl-3' do
+              = fa_icon 'pencil'
+          = render 'likes/like', mokumoku: @mokumoku
+        .col-8
+          - unless @mokumoku.past?
+            div.mb-3.attend-btn-box
+              = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
+
       table.table.mb-5.mokumoku-detail-table
         tr
           th
