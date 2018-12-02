@@ -98,11 +98,11 @@ class User < ApplicationRecord
   end
 
   def not_like(mokumoku)
-    likes.find(mokumoku_id: mokumoku.id).destroy!
+    likes.find_by!(mokumoku_id: mokumoku.id).destroy!
   end
 
   def like_the_mokumoku(mokumoku)
-    like_mokumokus.find_by(id: mokumoku)
+    likes.find_by(mokumoku_id: mokumoku)
   end
 
   def has_like_mokumoku?(mokumoku)
