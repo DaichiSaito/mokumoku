@@ -1,16 +1,16 @@
 = form_for [:mypage, mokumoku] do |f|
   .form-group
-    = f.label 'タイトル'
+    = f.label :title
     = f.text_field :title, class: 'form-control', placeholder: '渋谷あたりでRailsやりまーす', required: true
   .form-group
-    = f.label '詳細'
+    = f.label :body
     = f.text_area :body, class: 'form-control', rows: '10',
             placeholder: "渋谷のカフェでRailsをもくもくしようと思います！\nRails Tutorialむずいから誰か助けて欲しい😂\n飽きたらRailsに限らず他のことやるかもしれません（笑）",
             required: true
   .form-group.md-form
-    = f.label 'もくもく予定日時'
+    = f.label :open_at
     = f.text_field :open_at, class: 'form-control js-date-picker datepicker', required: true
   .form-group
-    = f.label 'エリア'
+    = f.label :area_id
     = f.collection_select :area_id, Area.all, :id, :name, {}, class: 'custom-select', include_blank: true, required: true
   = f.submit '登録', class: 'btn btn-primary btn-raised'

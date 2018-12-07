@@ -19,6 +19,15 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
+
+  config.before :suite do
+    # ここで投入したデータはテスト終了後にもクリアされない!!なのでSeedデータとかを入れ直す処理を書く？
+    # fixture_paths = "#{Rails.root}/db/fixtures"
+    # # filter = /test/
+    # # SeedFu.seed(fixture_paths, filter)
+    # SeedFu.seed(fixture_paths)
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

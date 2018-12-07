@@ -17,30 +17,33 @@
         tr
           th
             | タイトル
-          td
+          td.title
             = @mokumoku.title
         tr
           th
             | 詳細
-          td
+          td.body
             = escape_with_linefeed @mokumoku.body, link: true
         tr
           th
             | もくもく予定日時
-          td
+          td.open_at
             = @mokumoku.open_at.to_s(:datetime)
             | くらい
         tr
           th
             | エリア
-          td
+          td.area
             = @mokumoku.area.name
         tr
           th
             | 参加者リスト
-          td
-            - @mokumoku.participants.each do |user|
-              = render 'shared/users/avatar', user: user, size: '30x30'
+          td.attend_lists
+            - if @mokumoku.participants.present?
+              - @mokumoku.participants.each do |user|
+                = render 'shared/users/avatar', user: user, size: '30x30'
+            - else
+              | まだ参加者はいません。
 
       - unless @mokumoku.past?
         / コメントフォーム

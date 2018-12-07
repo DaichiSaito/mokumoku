@@ -45,7 +45,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: Settings.common.password.minimum_count }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validate :favorite_areas_count
+  validate :favorite_areas_count, on: :registration
 
   def avatar_or_default
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name
