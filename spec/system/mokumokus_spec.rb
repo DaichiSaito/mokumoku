@@ -79,7 +79,7 @@ describe 'もくもく管理機能', type: :system do
   describe '編集機能' do
     context 'ログインしていない場合' do
       it 'ログインページにリダイレクトされること' do
-        visit edit_mypage_mokumoku_path
+        visit edit_mypage_mokumoku_path(mokumoku)
         expect(current_path).to eq login_path
         expect(page).to have_content 'ログインしてください。'
       end
@@ -92,7 +92,7 @@ describe 'もくもく管理機能', type: :system do
         fill_in 'タイトル', with: '編集後タイトルだよ'
 
         click_button '登録'
-        expect(current_path).to eq mypage_mokumoku_path(mokumoku)
+        expect(current_path).to eq mypage_root_path
         expect(page).to have_content 'もくもくを更新しました。'
       end
     end

@@ -34,6 +34,8 @@ html
     - else
       = render 'shared/header'
     main
+      #flash_message
+        = render 'shared/flash_message'
       = yield
 
     = render 'shared/footer'
