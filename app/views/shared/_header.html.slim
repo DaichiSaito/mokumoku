@@ -9,7 +9,7 @@ header
     #navbarSupportedContent
       ul.navbar-nav.align-items-center
         li.nav-item.dropdown
-          a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+          a.nav-link id="button_notification" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
             i.fa.fa-bell-o
             - if current_user.has_unread?
               span.badge.badge-warning.navbar-badge

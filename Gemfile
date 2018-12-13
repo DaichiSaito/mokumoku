@@ -52,6 +52,9 @@ gem 'kaminari'
 # SEO関連
 gem 'meta-tags'
 
+# テスト
+gem 'rspec-rails', '~> 3.7'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -71,6 +74,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem "rubocop-rails_config"
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'factory_bot_rails', '~> 4.11'
 end
 
 group :development do
@@ -82,6 +89,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
+  gem 'annotate'
 end
 
 

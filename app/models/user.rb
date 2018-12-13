@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :bigint(8)        not null, primary key
+#  email            :string           not null
+#  crypted_password :string
+#  salt             :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  name             :string           not null
+#  profile          :text
+#  role             :integer          default(0)
+#  screen_name      :string           default("")
+#
+
 class User < ApplicationRecord
   require 'open-uri'
   require 'securerandom'
@@ -18,6 +34,8 @@ class User < ApplicationRecord
   has_many :attending_mokumokus, through: :attends, source: :mokumoku # 自分の投稿したもくもくを含めない参加予定のもくもく
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_mokumokus, through: :likes, source: :mokumoku
 
   accepts_nested_attributes_for :favorite_areas
   accepts_nested_attributes_for :authentications
@@ -29,12 +47,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: Settings.common.password.minimum_count }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validate :favorite_areas_count
+  validate :favorite_areas_count, on: :registration
 
   def avatar_or_default
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name
   end
-
 
   # 自分の投稿したもくもくも含めた参加予定のもくもく
   def attending_including_own
@@ -90,6 +107,26 @@ class User < ApplicationRecord
 
   def update_notification_status(mokumoku)
     notifications.unread.where(mokumoku_id: mokumoku.id).each(&:read!)
+  end
+
+  def like(mokumoku)
+    likes.create!(mokumoku_id: mokumoku.id)
+  end
+
+  def not_like(mokumoku)
+    likes.find_by!(mokumoku_id: mokumoku.id).destroy!
+  end
+
+  def like_the_mokumoku(mokumoku)
+    likes.find_by(mokumoku_id: mokumoku)
+  end
+
+  def has_like_mokumoku?(mokumoku)
+    !!like_the_mokumoku(mokumoku)
+  end
+
+  def has_like_or_own_mokumoku?(mokumoku)
+    has_like_mokumoku?(mokumoku) || has_mokumoku?(mokumoku)
   end
 
   def sns_sub_url

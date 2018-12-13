@@ -14,7 +14,7 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom.fixed-t
   ul.navbar-nav.align-items-center
     /! Notifications Dropdown Menu
     li.nav-item.dropdown
-      a.nav-link data-toggle="dropdown" href="#"
+      a.nav-link id="button_notification" data-toggle="dropdown" href="#"
         i.fa.fa-bell-o
         - if current_user.has_unread?
           span.badge.badge-warning.navbar-badge

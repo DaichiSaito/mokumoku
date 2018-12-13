@@ -1,4 +1,4 @@
-.col-md-6.mb-3.card-deck.m-0.pt-3.mokumoku
+.col-md-6.mb-3.card-deck.m-0.pt-3.mokumoku class="js-mokumoku-#{mokumoku.id}"
   .card
     .card-body
       .row
@@ -22,3 +22,4 @@
           - if current_user&.has_mokumoku?(mokumoku)
             = link_to edit_mypage_mokumoku_path(mokumoku.id), class: 'pl-3' do
               = fa_icon 'pencil'
+          = render 'likes/like', mokumoku: mokumoku
