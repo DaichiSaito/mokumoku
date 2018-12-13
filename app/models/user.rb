@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :bigint(8)        not null, primary key
+#  email            :string           not null
+#  crypted_password :string
+#  salt             :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  name             :string           not null
+#  profile          :text
+#  role             :integer          default(0)
+#  screen_name      :string           default("")
+#
+
 class User < ApplicationRecord
   require 'open-uri'
   require 'securerandom'
@@ -31,7 +47,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: Settings.common.password.minimum_count }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validate :favorite_areas_count
+  validate :favorite_areas_count, on: :registration
 
   def avatar_or_default
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name

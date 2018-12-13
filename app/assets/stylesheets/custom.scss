@@ -189,6 +189,9 @@ main {
 }
 
 .attend-btn-box {
+  .btn-attend {
+    font-size: 1.0rem;
+  }
   &>* {
     vertical-align: middle;
     margin-right: 10px;
@@ -273,7 +276,7 @@ main {
 }
 
 .like-and-count {
-  color: #009688
+  color: #ff6a6a;
 }
 
 // ヘッダー

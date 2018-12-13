@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  if Rails.env.test?
+    get '/login_as/:user_id', to: 'development/sessions#login_as'
+  end
+
   get '/about', to: 'user_sessions#new'
   get '/login', to: 'user_sessions#new'
   post '/login', to: 'user_sessions#create'
