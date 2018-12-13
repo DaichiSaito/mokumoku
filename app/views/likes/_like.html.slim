@@ -1,0 +1,7 @@
+.js-like-info
+  - if current_user&.has_like_mokumoku?(mokumoku)
+    = render 'likes/liking', mokumoku: mokumoku
+  - elsif current_user&.has_mokumoku?(mokumoku)
+    = render 'likes/like_and_count', mokumoku: mokumoku
+  - else
+    = render 'likes/not_like', mokumoku: mokumoku

@@ -22,10 +22,8 @@ RSpec.configure do |config|
 
   config.before :suite do
     # ここで投入したデータはテスト終了後にもクリアされない!!なのでSeedデータとかを入れ直す処理を書く？
-    # fixture_paths = "#{Rails.root}/db/fixtures"
-    # # filter = /test/
-    # # SeedFu.seed(fixture_paths, filter)
-    # SeedFu.seed(fixture_paths)
+    fixture_paths = "#{Rails.root}/db/fixtures"
+    SeedFu.seed(fixture_paths)
   end
 
   # rspec-expectations config goes here. You can use an alternate

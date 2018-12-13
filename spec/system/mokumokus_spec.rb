@@ -9,7 +9,7 @@ describe 'もくもく管理機能', type: :system do
     it 'ユーザーAが作成したもくもくが表示される' do
       visit root_path
       within '#mokumoku_new_arrivals' do
-        expect(find(".mokumoku-#{mokumoku.id}")).to have_content '最初のもくもく'
+        expect(find(".js-mokumoku-#{mokumoku.id}")).to have_content '最初のもくもく'
       end
     end
   end
