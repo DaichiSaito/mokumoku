@@ -19,7 +19,7 @@ class Mypage::MokumokusController < MypageController
   def create
     @mokumoku = current_user.mokumokus.build(mokumoku_params)
     if @mokumoku.save
-      redirect_to mypage_mokumoku_url(@mokumoku)
+      redirect_to mypage_mokumoku_url(@mokumoku), success: 'もくもくを作成しました。'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class Mypage::MokumokusController < MypageController
 
   def update
     if @mokumoku.update(mokumoku_params)
-      redirect_to mypage_root_path
+      redirect_to mypage_root_path, success: 'もくもくを更新しました。'
     else
       render :edit
     end

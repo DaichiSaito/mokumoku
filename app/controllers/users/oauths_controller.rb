@@ -36,7 +36,7 @@ class Users::OauthsController < ApplicationController
     # （add_provider_to_user() で生成する方法は「401 Authorization Required」が解決出来なかった）
     @user.authentications.build(session[:incomplete_user]['provider'])
 
-    if @user.save
+    if @user.save(context: :registration)
       reset_session # protect from session fixation attack
       auto_login(@user)
       redirect_to root_url, success: 'ユーザーを作成しました'

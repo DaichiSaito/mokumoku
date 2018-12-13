@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  if Rails.env.test?
+    get '/login_as/:user_id', to: 'development/sessions#login_as'
+  end
+
   get '/about', to: 'user_sessions#new'
   get '/login', to: 'user_sessions#new'
   post '/login', to: 'user_sessions#create'
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
   resources :mokumokus, only: %i[show] do
     resources :attends, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
+    resources :likes, only: %i[create destroy]
   end
 
   namespace :mypage do

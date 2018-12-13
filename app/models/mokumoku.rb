@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: mokumokus
+#
+#  id         :bigint(8)        not null, primary key
+#  user_id    :bigint(8)
+#  area_id    :bigint(8)
+#  title      :string           not null
+#  body       :text             not null
+#  open_at    :datetime         not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Mokumoku < ApplicationRecord
   include Rails.application.routes.url_helpers
   belongs_to :user
@@ -6,6 +20,8 @@ class Mokumoku < ApplicationRecord
   has_many :participants, through: :attends, source: :user
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_users, through: :likes, source: :user
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 1000 }
