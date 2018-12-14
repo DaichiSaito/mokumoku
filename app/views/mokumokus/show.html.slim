@@ -15,6 +15,9 @@
           - unless @mokumoku.past?
             div.mb-3.attend-btn-box
               = render 'shared/attends/attend_button', { mokumoku: @mokumoku }
+              = render 'shared/share_button',
+                      message: @mokumoku.share_message,
+                      sub_url: @mokumoku.page_url
         .col-md-3.text-right
           - if current_user&.has_mokumoku?(@mokumoku)
             = link_to edit_mypage_mokumoku_path(@mokumoku.id), class: 'pl-3' do
