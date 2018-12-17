@@ -15,7 +15,9 @@
       span せっかくなら誰かともくもくしませんか？
 
     p MOKUMOKUは気軽にいろんなエンジニアともくもくできる機会を提供するサービスです。
-
+    = link_to root_path, class: 'btn btn-primary btn-mokumoku btn-raised' do
+      = image_tag 'icon-mokumoku.png'
+      | みんなのもくもくをみる
 
     / p.kokogachigau.mt-5
     /   span ここが違う！
@@ -73,3 +75,8 @@
       .col-md-5
         = image_tag 'introduction03-min.jpg', class: 'img featurette-image img-fluid mx-auto'
     hr.featurette-divider
+
+  .text-center
+    = link_to root_path, class: 'btn btn-primary btn-mokumoku btn-raised' do
+      = image_tag 'icon-mokumoku.png'
+      | みんなのもくもくをみる
