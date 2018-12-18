@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     end
     resource :user, only: %i[edit update]
     resources :notifications, only: %i[index]
+    resource :mail_notification, only: %i[edit update]
     get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
   end
 

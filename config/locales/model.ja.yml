@@ -14,6 +14,7 @@ ja:
         salt:                   Salt
         # 登録時のフォームのエラー表示に用います
         like_area_ids:               よく行くエリア
+        mail_receive: メール通知
       mokumoku:
         title: タイトル
         body: 詳細

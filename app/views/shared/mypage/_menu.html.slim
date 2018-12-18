@@ -27,6 +27,10 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
           = link_to futures_mypage_mokumokus_path, {class: 'nav-link'}  do
             = fa_icon 'compass', class: 'nav-icon'
             p もくもく一覧
+        li.nav-item
+          = link_to edit_mypage_mail_notification_path, {class: 'nav-link'}  do
+            = fa_icon 'paper-plane', class: 'nav-icon'
+            p 通知設定
         / li.nav-item
         /   = link_to '#', {class: 'nav-link'}  do
         /     = fa_icon 'user-o', class: 'nav-icon'

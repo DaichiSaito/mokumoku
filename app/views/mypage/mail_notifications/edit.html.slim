@@ -1,2 +1,9 @@
-h1 Mypage::MailNotification#edit
-p Find me in app/views/mypage/mail_notification/edit.html.slim
+.container.pt-3
+  = form_for @user, url: mypage_mail_notification_path, method: :patch do |f|
+    .row
+      .col-12.text-center.mb-5
+        h2 メール通知設定
+        = f.check_box :mail_receive
+        = f.label :mail_receive
+    .text-center
+      = f.submit '更新', class: 'btn btn-primary btn-raised'
