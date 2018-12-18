@@ -28,6 +28,7 @@ FactoryBot.define do
     profile 'プロフィールです'
     role 0
     sequence(:screen_name) { |i| "MOKUMOKU#{i}" }
+    mail_receive true
 
     trait :with_favorite_areas do
       after(:create) do |user, evaluator|

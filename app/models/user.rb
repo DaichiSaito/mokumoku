@@ -50,6 +50,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validate :favorite_areas_count, on: :registration
 
+  scope :approve_to_receive_mail, -> { where(mail_receive: true) }
+
   def avatar_or_default
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name
   end
