@@ -12,6 +12,7 @@
 #  profile          :text
 #  role             :integer          default(0)
 #  screen_name      :string           default("")
+#  mail_receive     :boolean          default(TRUE)
 #
 
 class User < ApplicationRecord
