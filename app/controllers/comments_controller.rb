@@ -25,12 +25,12 @@ class CommentsController < ApplicationController
       # 自分のコメントの場合はこれは送らない
       unless current_user.has_mokumoku?(@mokumoku)
         @mokumoku.notifications.create(user_id: @mokumoku.user.id, notified_by: current_user, notified_type: :commented_to_own_mokumoku)
-        NotificationMailer.send_mokumoku_owner(@mokumoku.user, @mokumoku, @comment).deliver_later
+        NotificationMailer.send_mokumoku_owner(@mokumoku.user, @mokumoku, @comment).deliver_later if @mokumoku.user.mail_receive?
       end
       @mokumoku.participants.each do |user|
         next if user.id == current_user.id # 自分のコメントの場合自分には送らない
         @mokumoku.notifications.create(user_id: user.id, notified_by: current_user, notified_type: :commented_to_attending_mokumoku)
-        NotificationMailer.send_mokumoku_participants(user, @mokumoku, @comment).deliver_later
+        NotificationMailer.send_mokumoku_participants(user, @mokumoku, @comment).deliver_later  if user.mail_receive?
       end
     end
 end
