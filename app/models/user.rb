@@ -12,6 +12,7 @@
 #  profile          :text
 #  role             :integer          default(0)
 #  screen_name      :string           default("")
+#  mail_receive     :boolean          default(TRUE)
 #
 
 class User < ApplicationRecord
@@ -48,6 +49,9 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validate :favorite_areas_count, on: :registration
+
+  # これ結局使ってない
+  scope :approve_to_receive_mail, -> { where(mail_receive: true) }
 
   def avatar_or_default
     avatar.attached? ? avatar : Settings.common.avatar.default_file_name
