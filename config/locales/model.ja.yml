@@ -22,6 +22,7 @@ ja:
         body: 詳細
         open_at: もくもく予定日時
         area_id: エリア
+        online: オンラインもくもく
   # 全モデル共通のアトリビュート名
   attributes:
     created_at: 作成日時
