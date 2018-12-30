@@ -15,11 +15,14 @@ ja:
         # 登録時のフォームのエラー表示に用います
         like_area_ids:               よく行くエリア
         mail_receive: メール通知
+        profile: 自己紹介
+        appearin_url: appear.inのURL
       mokumoku:
         title: タイトル
         body: 詳細
         open_at: もくもく予定日時
         area_id: エリア
+        online: オンラインもくもく
   # 全モデル共通のアトリビュート名
   attributes:
     created_at: 作成日時

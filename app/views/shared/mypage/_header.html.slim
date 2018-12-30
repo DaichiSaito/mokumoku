@@ -26,4 +26,8 @@ nav.main-header.navbar.navbar-expand.bg-white.navbar-light.border-bottom.fixed-t
       a data-toggle="dropdown" href="#"
         = image_tag current_user.avatar_or_default, class: 'rounded-circle', size: '30x30'
       .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
+        = link_to 'ダッシュボード', mypage_root_path, class: 'dropdown-item'
+        = link_to 'もくもく一覧', futures_mypage_mokumokus_path, class: 'dropdown-item'
+        = link_to 'プロフィール編集', edit_mypage_user_path, class: 'dropdown-item'
+        .dropdown-divider
         = link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete

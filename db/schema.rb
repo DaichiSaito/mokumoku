@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_020248) do
+ActiveRecord::Schema.define(version: 2018_12_30_075457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_020248) do
     t.datetime "open_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "online", default: false
     t.index ["area_id"], name: "index_mokumokus_on_area_id"
     t.index ["user_id"], name: "index_mokumokus_on_user_id"
   end
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_020248) do
     t.integer "role", default: 0
     t.string "screen_name", default: ""
     t.boolean "mail_receive", default: true
+    t.string "appearin_url"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

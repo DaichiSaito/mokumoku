@@ -39,7 +39,7 @@ class Mypage::MokumokusController < MypageController
 
   private
     def mokumoku_params
-      params.require(:mokumoku).permit(:title, :body, :open_at, :area_id)
+      params.require(:mokumoku).permit(:title, :body, :open_at, :area_id, :online)
     end
 
     def set_mokumoku

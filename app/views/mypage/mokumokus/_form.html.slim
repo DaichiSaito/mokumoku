@@ -10,7 +10,20 @@
   .form-group.md-form
     = f.label :open_at
     = f.text_field :open_at, class: 'form-control js-date-picker datepicker', required: true
-  .form-group
+  .form-group.mb-3
     = f.label :area_id
     = f.collection_select :area_id, Area.all, :id, :name, {}, class: 'custom-select', include_blank: true, required: true
+  .form-group
+    .checkbox
+      = f.label :online, class: 'text-dark' do
+        = f.check_box :online
+        | オンラインもくもく可
+        span.checkbox-decorator
+          span.check
+    .small
+      | オフラインだけでなくappear.inを使ったオンラインもくもくも可能な方はチェックを入れてください。
+      br
+      | まだappear.inのURLを登録していないかたは先に
+      = link_to '登録', edit_mypage_user_path
+      | してください。
   = f.submit '登録', class: 'btn btn-primary btn-raised'
