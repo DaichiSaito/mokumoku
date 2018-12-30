@@ -11,12 +11,16 @@
       .col-md-6
         div
           .form-group
-            = f.label '名前'
+            = f.label :name
             = f.text_field :name, class: 'form-control'
         div
           .form-group
-            = f.label '自己紹介'
+            = f.label :profile
             = f.text_area :profile, class: 'form-control', rows: '10'
+        div
+          .form-group
+            = f.label :appearin_url
+            = f.text_field :appearin_url, class: 'form-control', placeholder: 'https://appear.in/<appear.inのルームID>'
     .row
       .col-md-8.offset-md-2
         = f.label 'よく行くエリア', class: 'mb-3'
