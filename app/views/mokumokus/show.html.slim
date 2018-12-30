@@ -55,14 +55,15 @@
                 = render 'shared/users/avatar', user: user, size: '30x30'
             - else
               | まだ参加者はいません。
-        tr
-          th
-            | appear.inのURL
-          td.appear_in
-            - if @mokumoku.user.has_appearin_url?
-              = link_to @mokumoku.user.appearin_url, @mokumoku.user.appearin_url, target: '_blank'
-            - else
-              | 未登録
+        - if @mokumoku.online?
+          tr
+            th
+              | appear.inのURL
+            td.appear_in
+              - if @mokumoku.user.has_appearin_url?
+                = link_to @mokumoku.user.appearin_url, @mokumoku.user.appearin_url, target: '_blank'
+              - else
+                | 未登録
 
       - unless @mokumoku.past?
         / コメントフォーム
