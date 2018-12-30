@@ -15,6 +15,7 @@ ja:
         # 登録時のフォームのエラー表示に用います
         like_area_ids:               よく行くエリア
         mail_receive: メール通知
+        appearin_url: appear.inのURL
       mokumoku:
         title: タイトル
         body: 詳細
