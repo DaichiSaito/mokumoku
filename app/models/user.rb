@@ -138,6 +138,10 @@ class User < ApplicationRecord
     screen_name
   end
 
+  def has_appearin_url?
+    appearin_url.present?
+  end
+
   def assign_password
     pass = SecureRandom.base64(Settings.twitter.auto_fill_password_count)
     assign_attributes(password: pass, password_confirmation: pass)
