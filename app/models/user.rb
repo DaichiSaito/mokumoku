@@ -49,7 +49,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validate :favorite_areas_count, on: :registration
-  validates :appearin_url, format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :appearin_url, format: /\A#{URI::regexp(%w(http https))}\z/, allow_blank: true
 
   # これ結局使ってない
   scope :approve_to_receive_mail, -> { where(mail_receive: true) }
