@@ -6,5 +6,4 @@
 @import 'mypage_custom';
 @import 'error';
 @import 'fullcalendar';
-// 色々なdatetimepickerを試したけどbootstrap-material-designとバッティングしないのがこれ。
-@import 'bootstrap-material-datetimepicker';
+@import 'jquery-datetimepicker/build/jquery.datetimepicker.min.css';
