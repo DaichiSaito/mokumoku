@@ -20,5 +20,5 @@
 //= require fullcalendar
 //= require fullcalendar/locale-all
 //= require calendar
-//= require bootstrap-material-datetimepicker
+//= require jquery-datetimepicker/build/jquery.datetimepicker.full.js
 //= require mypage_custom

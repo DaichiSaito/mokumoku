@@ -1,13 +1,21 @@
 document.addEventListener("turbolinks:load", function(){
-    // datepicker用
-    $('.js-date-picker').bootstrapMaterialDatePicker({
-        format : 'YYYY/MM/DD HH:mm くらい',
-        shortTime: true,
-        minDate : new Date(),
-        year: false,
-        switchOnClick: true,
-        lang: "ja",
-        cancelText: '戻る'
+    $.datetimepicker.setLocale('ja');
+    $('#mokumoku_open_at').datetimepicker({
+        i18n:{
+            ja:{
+                months:[
+                    '1月','2月','3月','4月',
+                    '5月','6月','7月','8月',
+                    '9月','10月','11月','12月',
+                ],
+                dayOfWeek:[
+                    "日", "月", "火", "水",
+                    "木", "金", "土",
+                ]
+            }
+        },
+        step: 30,
+        minDate:0
     });
 
     // 画像選択時にサムネイルを切り替える
